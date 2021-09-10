@@ -1,0 +1,14 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Heterogeneous Computing'
+theme = 'kitab'
+
+disableKinds = ["taxonomy", "taxonomyTerm"]
+pluralizelisttitles = false
+
+[params]
+  author = "First Last"
+  description = "Some books of Jane Austen"
+  dateFormat = "2006-01-02"
+  footer1 = "Universidad del Bío-Bío, Chile"
+  footer2 = "2021"
