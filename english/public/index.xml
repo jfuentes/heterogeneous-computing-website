@@ -8,21 +8,21 @@
     <language>en-us</language>
     <lastBuildDate>Mon, 06 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Chapter I</title>
-      <link>http://example.org/unit1/cpu/</link>
+      <title>hghg I</title>
+      <link>http://example.org/unit2/dpc&#43;&#43;/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/unit1/cpu/</guid>
+      <guid>http://example.org/unit2/dpc&#43;&#43;/</guid>
       <description>Emma Woodhouse, handsome, clever, and rich, with a comfortable home and happy disposition, seemed to unite some of the best blessings of existence; and had lived nearly twenty-one years in the world with very little to distress or vex her.
 She was the youngest of the two daughters of a most affectionate, indulgent father; and had, in consequence of her sister&amp;rsquo;s marriage, been mistress of his house from a very early period.</description>
     </item>
     
     <item>
-      <title>Chapter I</title>
-      <link>http://example.org/unit2/dpc&#43;&#43;/</link>
+      <title>Intro</title>
+      <link>http://example.org/unit1/cpu/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/unit2/dpc&#43;&#43;/</guid>
+      <guid>http://example.org/unit1/cpu/</guid>
       <description>Emma Woodhouse, handsome, clever, and rich, with a comfortable home and happy disposition, seemed to unite some of the best blessings of existence; and had lived nearly twenty-one years in the world with very little to distress or vex her.
 She was the youngest of the two daughters of a most affectionate, indulgent father; and had, in consequence of her sister&amp;rsquo;s marriage, been mistress of his house from a very early period.</description>
     </item>
