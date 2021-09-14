@@ -1,9 +1,9 @@
 +++
 title = "3. Algorithms"
-subtitle = "Classic novel that no one has read"
-author = "Jane Austen"
+subtitle = ""
+author = "6 sessions"
 date = "2019-05-13"
 weight = 3
-bookCover = "bookCovers/emma.jpg"
-bookCoverSmall = "bookCovers/emma_small.jpg"
+bookCover = "images/fondo_web.png"
+bookCoverSmall = "images/fondo_web.png"
 +++

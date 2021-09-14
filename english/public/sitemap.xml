@@ -2,31 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/unit1/</loc>
+    <loc>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/</loc>
     <lastmod>2021-09-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/unit2/dpc&#43;&#43;/</loc>
+    <loc>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/intro/</loc>
     <lastmod>2019-05-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/unit1/cpu/</loc>
+    <loc>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/dpc&#43;&#43;/</loc>
     <lastmod>2019-05-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/unit2/</loc>
+    <loc>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/</loc>
     <lastmod>2019-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/unit1/chapter2/</loc>
+    <loc>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/memoria/</loc>
     <lastmod>2019-05-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/unit3/</loc>
+    <loc>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/</loc>
     <lastmod>2019-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/unit1/chapter3/</loc>
+    <loc>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/cpu/</loc>
     <lastmod>2019-05-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/unit4/</loc>
+    <loc>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit4/</loc>
     <lastmod>2019-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/</loc>
+    <loc>http://www.face.ubiobio.cl/~jfuentes/classes/hc/</loc>
     <lastmod>2021-09-06T00:00:00+00:00</lastmod>
   </url>
 </urlset>

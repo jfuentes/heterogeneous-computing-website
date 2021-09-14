@@ -1,9 +1,9 @@
 +++
 title = "2. Programming Models"
-subtitle = "Classic novel that no one has read"
-author = "Jane Austen"
+subtitle = ""
+author = "10 sessions"
 date = "2019-05-13"
 weight = 2
-bookCover = "bookCovers/emma.jpg"
-bookCoverSmall = "bookCovers/emma_small.jpg"
+bookCover = "images/fondo_web.png"
+bookCoverSmall = "images/fondo_web.png"
 +++

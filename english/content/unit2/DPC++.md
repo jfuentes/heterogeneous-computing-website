@@ -1,5 +1,5 @@
 +++
-title = "hghg I"
+title = "OneAPI DPC++"
 weight = 1
 date = "2019-05-12"
 +++

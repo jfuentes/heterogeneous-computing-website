@@ -3,13 +3,13 @@
   <head>
   <meta charset="UTF-8" />
   <title>Heterogeneous Computing</title>
-  <meta name="description" content="Some books of Jane Austen" />
-  <meta name="author" content="First Last" />
+  <meta name="description" content="Programming Heterogeneous Arquitectures using Data Parallel C&#43;&#43;" />
+  <meta name="author" content="Joel Fuentes" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <meta name="generator" content="kitab theme by Darshan in Hugo 0.87.0" />
+  <meta name="generator" content="kitab theme by Darshan in Hugo 0.88.1" />
 
   <link
     rel="stylesheet"
@@ -27,23 +27,23 @@
     integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
     crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="/css/kitab.css" />
+  <link rel="stylesheet" href="/~jfuentes/classes/hc/css/kitab.css" />
 
-  <script src="/js/myFunctions.js"></script>
-  <script src="/js/clipboard.min.js"></script>
+  <script src="/~jfuentes/classes/hc/js/myFunctions.js"></script>
+  <script src="/~jfuentes/classes/hc/js/clipboard.min.js"></script>
 </head>
 
   <body class="container" style="max-width: 1024px;">
     <nav class="mt-2 border-bottom">
   <div class="d-flex flex-row position-relative">
-    <a href="/"
+    <a href="/~jfuentes/classes/hc/"
       ><i title="Home" class="nav-menu mr-2 mt-1 fas fa-home"></i
     ></a>
     <div class="position-relative">
   <i
     class="nav-menu hover-menu ml-2 mr-2 mt-1 fas fa-book"
     onclick="expandMenu(this)"
-    title="Show all books"
+    title="Show all units"
   ></i>
   <div
     class="show bg-light shadow mt-2"
@@ -56,12 +56,12 @@
   >
     <div class="p-2">
       <strong>
-        Books
+        Units
       </strong>
       <ul class="list-unstyled ml-1">
         
         <li class="hanging">
-          <a href="http://example.org/unit1/">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/">
             <ol>
 <li>Architectures</li>
 </ol>
@@ -71,33 +71,33 @@
         </li>
         
         <li class="hanging">
-          <a href="http://example.org/unit2/">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/">
             <ol start="2">
 <li>Programming Models</li>
 </ol>
 
           </a>
-          by Jane Austen
+          by 10 sessions
         </li>
         
         <li class="hanging">
-          <a href="http://example.org/unit3/">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/">
             <ol start="3">
 <li>Algorithms</li>
 </ol>
 
           </a>
-          by Jane Austen
+          by 6 sessions
         </li>
         
         <li class="hanging">
-          <a href="http://example.org/unit4/">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit4/">
             <ol start="4">
 <li>Performance</li>
 </ol>
 
           </a>
-          by Jane Austen
+          by 3 sessions
         </li>
         
       </ul>
@@ -110,7 +110,7 @@
   <i
     class="nav-menu hover-menu ml-2 mr-2 mt-1 fas fa-bars"
     onclick="expandMenu(this)"
-    title = "Show Chapters"
+    title = "Show Sessions"
   ></i>
   <div
     class="show bg-light shadow mt-2"
@@ -136,7 +136,7 @@
         
         
         <li class="hanging">
-          <a href="http://example.org/unit2/dpc&#43;&#43;/">hghg I</a>
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/dpc&#43;&#43;/">OneAPI DPC++</a>
         </li>
         
       </ul>
@@ -175,13 +175,13 @@
 
 
 
-<span style="font-size: 0.9em;"> / hghg I</span>
+<span style="font-size: 0.9em;"> / OneAPI DPC++</span>
 
 </div>
 
 
 </small>
-  <h2>hghg I</h2>
+  <h2>OneAPI DPC&#43;&#43;</h2>
   <div class="rounded">
     <p>Emma Woodhouse, handsome, clever, and rich, with a comfortable home
 and happy disposition, seemed to unite some of the best blessings of
@@ -521,7 +521,7 @@ man of six or seven-and-twenty can take care of himself.”</p>
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "http:\/\/example.org\/unit2\/dpc\u002b\u002b\/";
+      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/unit2\/dpc\u002b\u002b\/";
     }
   });
 
@@ -542,14 +542,19 @@ man of six or seven-and-twenty can take care of himself.”</p>
       2021
     </span>
   </div>
-  <p class="about text-left mb-0">
-    <a href="https://github.com/darshanbaral/kitab">
-      kitab
-    </a>
-    theme by
-    <a href="https://www.darshanbaral.com/"> Darshan Baral</a>.
-  </p>
-</footer>
+
+    <div class="row">
+      <div class="column" style="
+      width: 100%;">Sponsors:</div>
+      <div class="column" style="
+      width: 120px;
+      margin-left: 65px;"><img src="images/ici_web.png" height="40%" ></div>
+      <div class="column" style="
+      width: 120px;
+      margin-left: 10px;"><img src="images/intel_web.png" height="20%" ></div>
+    </div> 
+
+  </footer>
 
   </body>
 </html>
