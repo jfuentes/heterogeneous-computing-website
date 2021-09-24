@@ -191,17 +191,18 @@
 
 
 
-<span style="font-size: 0.9em;"> / Introduction</span>
+<span style="font-size: 0.9em;"> / GPU</span>
 
 </div>
 
 
 </small>
-  <h2>Introduction</h2>
+  <h2>GPU</h2>
   <div class="rounded">
-    <p>Presentation of the course and its syllabus, semester
-schedule, and administrative information.</p>
-<p><img src="../../images/pdf_web.png" alt="Download slides"> <a href="../../pdf/1-intro.pdf">1-intro.pdf</a></p>
+    <p>In this session we review the GPU architecture, with special focus on
+hardware products from Nvidia, AMD and Intel.
+Their advantages, main features and challenges are presented.</p>
+<p><img src="../../images/pdf_web.png" alt="Download slides"> <a href="../../pdf/5-gpu.pdf">5-gpu.pdf</a></p>
 <script type="text/javascript" src= '/~jfuentes/classes/hc//js/pdf-js/build/pdf.js'></script>
 <style>
 #the-canvas {
@@ -262,7 +263,7 @@ schedule, and administrative information.</p>
 window.onload = function() {
 
 
-var url = "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/" + 'pdf\/1-intro.pdf';
+var url = "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/" + 'pdf\/5-gpu.pdf';
 
 var hidePaginator = "" === "true";
 var hideLoader = "" === "true";
@@ -407,8 +408,8 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
   <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/~jfuentes/classes/hc/unit1/memoria/"
-    title="Memory Hierarchy"
+    href="/~jfuentes/classes/hc/unit1/fpga/"
+    title="FPGA"
   >
     <i class="nav-menu fas fa-chevron-circle-right"></i>
   </a>
@@ -416,7 +417,12 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 </p>
 <p class="mb-1 mt-1 text-left">
   
-  <i class="nav-menu-disabled fas fa-chevron-circle-left"></i>
+  <a
+    href="/~jfuentes/classes/hc/unit1/cpu/"
+    title="Multi-core CPU"
+  >
+    <i class="nav-menu fas fa-chevron-circle-left"></i>
+  </a>
   
 </p>
 
@@ -464,7 +470,7 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/unit1\/intro\/";
+      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/unit1\/gpu\/";
     }
   });
 

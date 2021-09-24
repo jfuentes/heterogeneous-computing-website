@@ -191,17 +191,17 @@
 
 
 
-<span style="font-size: 0.9em;"> / Introduction</span>
+<span style="font-size: 0.9em;"> / FPGA</span>
 
 </div>
 
 
 </small>
-  <h2>Introduction</h2>
+  <h2>FPGA</h2>
   <div class="rounded">
-    <p>Presentation of the course and its syllabus, semester
-schedule, and administrative information.</p>
-<p><img src="../../images/pdf_web.png" alt="Download slides"> <a href="../../pdf/1-intro.pdf">1-intro.pdf</a></p>
+    <p>In this session we review the FPGA architecture.
+Advantages and main features and challenges are presented.</p>
+<p><img src="../../images/pdf_web.png" alt="Download slides"> <a href="../../pdf/6-fpga.pdf">6-fpga.pdf</a></p>
 <script type="text/javascript" src= '/~jfuentes/classes/hc//js/pdf-js/build/pdf.js'></script>
 <style>
 #the-canvas {
@@ -262,7 +262,7 @@ schedule, and administrative information.</p>
 window.onload = function() {
 
 
-var url = "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/" + 'pdf\/1-intro.pdf';
+var url = "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/" + 'pdf\/6-fpga.pdf';
 
 var hidePaginator = "" === "true";
 var hideLoader = "" === "true";
@@ -406,17 +406,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
   
   <p class="mb-1 mt-1 text-left">
   
-  <a
-    href="/~jfuentes/classes/hc/unit1/memoria/"
-    title="Memory Hierarchy"
-  >
-    <i class="nav-menu fas fa-chevron-circle-right"></i>
-  </a>
+  <i class="nav-menu-disabled fas fa-chevron-circle-right"></i>
   
 </p>
 <p class="mb-1 mt-1 text-left">
   
-  <i class="nav-menu-disabled fas fa-chevron-circle-left"></i>
+  <a
+    href="/~jfuentes/classes/hc/unit1/gpu/"
+    title="GPU"
+  >
+    <i class="nav-menu fas fa-chevron-circle-left"></i>
+  </a>
   
 </p>
 
@@ -464,7 +464,7 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/unit1\/intro\/";
+      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/unit1\/fpga\/";
     }
   });
 
