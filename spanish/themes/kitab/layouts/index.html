@@ -5,6 +5,20 @@
     </h1>
   </div>
   <div class="d-flex flex-row justify-content-center row">
+    <div class="row">
+      <div class="column"><img src="images/cpu_web.png" width="100" height="100"></div>
+      <div class="column"><img src="images/gpu_web.png" width="100" height="100"></div>
+      <div class="column"><img src="images/fpga_web.png" width="100" height="100"></div>
+      <div class="column"><img src="images/ai_web.png" width="100" height="100"></div>
+    </div>
+  </div>
+  <p class="about text-center mb-0">
+    Lecturer: Joel Fuentes, PhD
+    </br>
+    TAs: Daniel López, Sebastián González
+  </p>
+  
+  <div class="d-flex flex-row justify-content-center row">
     {{ range .Site.Sections.ByWeight }}
     <div class="m-4 p-4 shadow rounded" style="min-width: 300px; width: 40%;">
       <a href="{{ .Permalink }}">

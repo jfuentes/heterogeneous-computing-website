@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
   <meta charset="UTF-8" />
-  <title>Heterogeneous Computing</title>
-  <meta name="description" content="Some books of Jane Austen" />
-  <meta name="author" content="First Last" />
+  <title>Computación Heterogénea</title>
+  <meta name="description" content="Programming Heterogeneous Arquitectures using Data Parallel C&#43;&#43;" />
+  <meta name="author" content="Joel Fuentes" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <meta name="generator" content="kitab theme by Darshan in Hugo 0.87.0" />
+  <meta name="generator" content="kitab theme by Darshan in Hugo 0.88.1" />
 
   <link
     rel="stylesheet"
@@ -27,23 +27,23 @@
     integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
     crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="/css/kitab.css" />
+  <link rel="stylesheet" href="/~jfuentes/classes/hc/css/kitab.css" />
 
-  <script src="/js/myFunctions.js"></script>
-  <script src="/js/clipboard.min.js"></script>
+  <script src="/~jfuentes/classes/hc/js/myFunctions.js"></script>
+  <script src="/~jfuentes/classes/hc/js/clipboard.min.js"></script>
 </head>
 
   <body class="container" style="max-width: 1024px;">
     <nav class="mt-2 border-bottom">
   <div class="d-flex flex-row position-relative">
-    <a href="/"
+    <a href="/~jfuentes/classes/hc/"
       ><i title="Home" class="nav-menu mr-2 mt-1 fas fa-home"></i
     ></a>
     <div class="position-relative">
   <i
     class="nav-menu hover-menu ml-2 mr-2 mt-1 fas fa-book"
     onclick="expandMenu(this)"
-    title="Show all books"
+    title="Show all units"
   ></i>
   <div
     class="show bg-light shadow mt-2"
@@ -56,48 +56,48 @@
   >
     <div class="p-2">
       <strong>
-        Books
+        Units
       </strong>
       <ul class="list-unstyled ml-1">
         
         <li class="hanging">
-          <a href="http://example.org/unit1/">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/">
             <ol>
 <li>Architectures</li>
 </ol>
 
           </a>
-          by Jane Austen
+          by 6 sessions
         </li>
         
         <li class="hanging">
-          <a href="http://example.org/unit2/">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/">
             <ol start="2">
 <li>Programming Models</li>
 </ol>
 
           </a>
-          by Jane Austen
+          by 10 sessions
         </li>
         
         <li class="hanging">
-          <a href="http://example.org/unit3/">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/">
             <ol start="3">
 <li>Algorithms</li>
 </ol>
 
           </a>
-          by Jane Austen
+          by 6 sessions
         </li>
         
         <li class="hanging">
-          <a href="http://example.org/unit4/">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit4/">
             <ol start="4">
 <li>Performance</li>
 </ol>
 
           </a>
-          by Jane Austen
+          by 3 sessions
         </li>
         
       </ul>
@@ -117,11 +117,11 @@
   <div class="col-md-6 mt-2">
     <div class="w-90 m-auto bg-warning">
       
-      <a href="/bookCovers/emma.jpg"
+      <a href="/~jfuentes/classes/hc/images/fondo_web.png"
         ><img
           class="rounded"
           style="width: 100%;"
-          src="/bookCovers/emma_small.jpg"
+          src="/~jfuentes/classes/hc/images/fondo_web.png"
       /></a>
       
       <div class="bookTitle p-0 rounded" style="width: 60%;">
@@ -130,11 +130,9 @@
 </ol>
 </h2>
         
-        <h4 class="book-cover pl-1 pr-1 w-auto">Classic novel that no one has read</h4>
-        
       </div>
       <div class="bookAuthor p-0 rounded">
-        <h4 class="book-cover m-0 pl-1 pr-1">Jane Austen</h4>
+        <h4 class="book-cover m-0 pl-1 pr-1">10 sessions</h4>
       </div>
     </div>
   </div>
@@ -143,15 +141,9 @@
   <div class="col-md-6 p-2 mt-2 rounded shadow">
     
     <h3>
-      Chapters
+      Sessions
     </h3>
     <ul class="list-unstyled">
-      
-      <li>
-        <a href="http://example.org/unit2/dpc&#43;&#43;/">
-          Chapter I
-        </a>
-      </li>
       
     </ul>
   </div>
@@ -203,7 +195,7 @@
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "http:\/\/example.org\/unit2\/";
+      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/unit2\/";
     }
   });
 
@@ -219,19 +211,24 @@
     <footer class="d-flex flex-row flex-wrap justify-content-between">
   <div class="d-flex flex-column">
     <span class="mb-1">
-      Awesome Books
+      Universidad del Bío-Bío, Chile
       &middot;
-      (c) Cool Books
+      2021
     </span>
   </div>
-  <p class="about text-left mb-0">
-    <a href="https://github.com/darshanbaral/kitab">
-      kitab
-    </a>
-    theme by
-    <a href="https://www.darshanbaral.com/"> Darshan Baral</a>.
-  </p>
-</footer>
+
+    <div class="row">
+      <div class="column" style="
+      width: 100%;">Sponsors:</div>
+      <div class="column" style="
+      width: 120px;
+      margin-left: 65px;"><img src="images/ici_web.png" height="40%" ></div>
+      <div class="column" style="
+      width: 120px;
+      margin-left: 10px;"><img src="images/intel_web.png" height="20%" ></div>
+    </div> 
+
+  </footer>
 
   </body>
 </html>

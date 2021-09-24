@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>2. Programming Models on Heterogeneous Computing</title>
-    <link>http://example.org/unit2/</link>
-    <description>Recent content in 2. Programming Models on Heterogeneous Computing</description>
+    <title>2. Programming Models on Computación Heterogénea</title>
+    <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/</link>
+    <description>Recent content in 2. Programming Models on Computación Heterogénea</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/unit2/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Chapter I</title>
-      <link>http://example.org/unit2/dpc&#43;&#43;/</link>
-      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://example.org/unit2/dpc&#43;&#43;/</guid>
-      <description>Emma Woodhouse, handsome, clever, and rich, with a comfortable home and happy disposition, seemed to unite some of the best blessings of existence; and had lived nearly twenty-one years in the world with very little to distress or vex her.
-She was the youngest of the two daughters of a most affectionate, indulgent father; and had, in consequence of her sister&amp;rsquo;s marriage, been mistress of his house from a very early period.</description>
-    </item>
-    
+    <lastBuildDate>Mon, 13 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
