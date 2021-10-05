@@ -11,6 +11,6 @@ schedule, and administrative information.
 
 Overview of heterogeneous architectures, their history and evolution over time.
 
-![Download slides](../../images/pdf_web.png) [2-intro_arquitecturas.pdf](../../pdf/2-intro_arquitecturas.pdf)
+![Download slides](../../images/pdf_web.png) [2-intro_architectures.pdf](../../pdf/2-intro_architectures.pdf)
 
-{{< embed-pdf url="pdf/2-intro_arquitecturas.pdf" >}}
+{{< embed-pdf url="pdf/2-intro_architectures.pdf" >}}

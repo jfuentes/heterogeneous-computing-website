@@ -16,7 +16,7 @@
       <description>Presentation of the course and its syllabus, semester schedule, and administrative information.
 1-intro.pdf
 Overview of heterogeneous architectures, their history and evolution over time.
-2-intro_arquitecturas.pdf
+2-intro_architectures.pdf
 #the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
     </item>
     
@@ -27,7 +27,7 @@ Overview of heterogeneous architectures, their history and evolution over time.
       
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/memoria/</guid>
       <description>In this session we review fundamental concepts about computer system memories. We focus on SRAM and DRAM memories that are part of the memory hierarchy of modern processors and accelerators.
-3-memoria.pdf
+3-memory.pdf
 #the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
     </item>
     

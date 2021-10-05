@@ -1,11 +1,11 @@
 +++
-title = "Introduction"
+title = "Introducción"
 weight = 1
 date = "2019-05-12"
 +++
 
-Presentation of the course and its syllabus, semester
-schedule, and administrative information.
+Presentación del curso y su programa, planificación semestral e información
+administrativa.
 
 ![Download slides](../../images/pdf_web.png) [1-intro.pdf](../../pdf/1-intro.pdf)
 

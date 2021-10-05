@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Computación Heterogénea</title>
-    <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/</link>
+    <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/</link>
     <description>Recent content on Computación Heterogénea</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Introduction</title>
-      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/intro/</link>
+      <title>Introducción</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/intro/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/intro/</guid>
-      <description>Presentation of the course and its syllabus, semester schedule, and administrative information.
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/intro/</guid>
+      <description>Presentación del curso y su programa, planificación semestral e información administrativa.
 1-intro.pdf
 Overview of heterogeneous architectures, their history and evolution over time.
 2-intro_arquitecturas.pdf
@@ -21,45 +21,45 @@ Overview of heterogeneous architectures, their history and evolution over time.
     </item>
     
     <item>
-      <title>Memory Hierarchy</title>
-      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/memoria/</link>
+      <title>Jerarquía de Memoria</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/memoria/</link>
       <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/memoria/</guid>
-      <description>In this session we review fundamental concepts about computer system memories. We focus on SRAM and DRAM memories that are part of the memory hierarchy of modern processors and accelerators.
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/memoria/</guid>
+      <description>En esta sesión revisamos conceptos fundamentales sobre memorias de sistemas computacionales. Nos enfocamos en memorias SRAM y DRAM que forman parte de la jerarquía de memoría de procesadores y aceleradores modernos.
 3-memoria.pdf
 #the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
     </item>
     
     <item>
-      <title>Multi-core CPU</title>
-      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/cpu/</link>
+      <title>CPU multi-core</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/cpu/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/cpu/</guid>
-      <description>In this session we review the multi-core CPU architecture. Advantages and main challenges are presented.
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/cpu/</guid>
+      <description>En esta sesión revisamos la arquitectura CPU multi-core. Sus ventajas y principales desafíos son presentados.
 4-multicore_cpu.pdf
 #the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
     </item>
     
     <item>
       <title>GPU</title>
-      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/gpu/</link>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/gpu/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/gpu/</guid>
-      <description>In this session we review the GPU architecture, with special focus on hardware products from Nvidia, AMD and Intel. Their advantages, main features and challenges are presented.
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/gpu/</guid>
+      <description>En esta sesión revisamos la arquitectura GPU, con especial foco en productos de hardware fabricados por Nvidia, AMD and Intel. Sus ventajas, principales características y desafíos son presentados.
 5-gpu.pdf
 #the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
     </item>
     
     <item>
       <title>FPGA</title>
-      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/fpga/</link>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/fpga/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/fpga/</guid>
-      <description>In this session we review the FPGA architecture. Advantages and main features and challenges are presented.
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/fpga/</guid>
+      <description>En esta sesión revisamos la arquitectura FPGA. Sus ventajas y principales desafíos son presentados.
 6-fpga.pdf
 #the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
     </item>

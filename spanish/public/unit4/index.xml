@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>4. Performance on Computación Heterogénea</title>
-    <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit4/</link>
-    <description>Recent content in 4. Performance on Computación Heterogénea</description>
+    <title>4. Rendimiento on Computación Heterogénea</title>
+    <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit4/</link>
+    <description>Recent content in 4. Rendimiento on Computación Heterogénea</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit4/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit4/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

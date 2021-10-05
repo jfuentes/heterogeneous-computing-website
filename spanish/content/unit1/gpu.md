@@ -4,9 +4,9 @@ weight = 5
 date = "2019-05-12"
 +++
 
-In this session we review the GPU architecture, with special focus on
-hardware products from Nvidia, AMD and Intel.
-Their advantages, main features and challenges are presented.
+En esta sesión revisamos la arquitectura GPU, con especial foco en 
+productos de hardware fabricados por Nvidia, AMD and Intel.
+Sus ventajas, principales características y desafíos son presentados.
 
 ![Download slides](../../images/pdf_web.png) [5-gpu.pdf](../../pdf/5-gpu.pdf)
 

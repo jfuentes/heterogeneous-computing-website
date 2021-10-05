@@ -1,4 +1,4 @@
-baseURL = 'http://www.face.ubiobio.cl/~jfuentes/classes/hc/'
+baseURL = 'http://www.face.ubiobio.cl/~jfuentes/classes/ch/'
 languageCode = 'en-us'
 title = 'Computación Heterogénea'
 theme = 'kitab'
