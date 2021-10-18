@@ -9,7 +9,7 @@ administrativa.
 
 ![Download slides](../../images/pdf_web.png) [1-intro.pdf](../../pdf/1-intro.pdf)
 
-Overview of heterogeneous architectures, their history and evolution over time.
+Presentación de arquitecturas heterogéneas, su historia y evolución sobre el tiempo.
 
 ![Download slides](../../images/pdf_web.png) [2-intro_arquitecturas.pdf](../../pdf/2-intro_arquitecturas.pdf)
 

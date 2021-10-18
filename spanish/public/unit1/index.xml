@@ -15,9 +15,56 @@
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/intro/</guid>
       <description>Presentación del curso y su programa, planificación semestral e información administrativa.
 1-intro.pdf
-Overview of heterogeneous architectures, their history and evolution over time.
+Presentación de arquitecturas heterogéneas, su historia y evolución sobre el tiempo.
 2-intro_arquitecturas.pdf
-#the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
+
+
+#the-canvas {
+border: 1px solid black;
+direction: ltr;
+width: 100%;
+height: auto;
+display: none;
+}
+#paginator {
+display: none;
+text-align: center;
+margin-bottom: 10px;
+}
+#loadingWrapper {
+display: none;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 350px;
+}
+#loading {
+display: inline-block;
+width: 50px;
+height: 50px;
+border: 3px solid #d2d0d0;;
+border-radius: 50%;
+border-top-color: #383838;
+animation: spin 1s ease-in-out infinite;
+-webkit-animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+to { -webkit-transform: rotate(360deg); }
+}
+
+Previous
+Next
+&amp;nbsp; &amp;nbsp;
+Page:  / 
+
+
+
+
+
+window.</description>
     </item>
     
     <item>
@@ -28,7 +75,54 @@ Overview of heterogeneous architectures, their history and evolution over time.
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/memoria/</guid>
       <description>En esta sesión revisamos conceptos fundamentales sobre memorias de sistemas computacionales. Nos enfocamos en memorias SRAM y DRAM que forman parte de la jerarquía de memoría de procesadores y aceleradores modernos.
 3-memoria.pdf
-#the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
+
+
+#the-canvas {
+border: 1px solid black;
+direction: ltr;
+width: 100%;
+height: auto;
+display: none;
+}
+#paginator {
+display: none;
+text-align: center;
+margin-bottom: 10px;
+}
+#loadingWrapper {
+display: none;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 350px;
+}
+#loading {
+display: inline-block;
+width: 50px;
+height: 50px;
+border: 3px solid #d2d0d0;;
+border-radius: 50%;
+border-top-color: #383838;
+animation: spin 1s ease-in-out infinite;
+-webkit-animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+to { -webkit-transform: rotate(360deg); }
+}
+
+Previous
+Next
+&amp;nbsp; &amp;nbsp;
+Page:  / 
+
+
+
+
+
+window.</description>
     </item>
     
     <item>
@@ -39,7 +133,54 @@ Overview of heterogeneous architectures, their history and evolution over time.
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/cpu/</guid>
       <description>En esta sesión revisamos la arquitectura CPU multi-core. Sus ventajas y principales desafíos son presentados.
 4-multicore_cpu.pdf
-#the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
+
+
+#the-canvas {
+border: 1px solid black;
+direction: ltr;
+width: 100%;
+height: auto;
+display: none;
+}
+#paginator {
+display: none;
+text-align: center;
+margin-bottom: 10px;
+}
+#loadingWrapper {
+display: none;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 350px;
+}
+#loading {
+display: inline-block;
+width: 50px;
+height: 50px;
+border: 3px solid #d2d0d0;;
+border-radius: 50%;
+border-top-color: #383838;
+animation: spin 1s ease-in-out infinite;
+-webkit-animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+to { -webkit-transform: rotate(360deg); }
+}
+
+Previous
+Next
+&amp;nbsp; &amp;nbsp;
+Page:  / 
+
+
+
+
+
+window.</description>
     </item>
     
     <item>
@@ -50,7 +191,54 @@ Overview of heterogeneous architectures, their history and evolution over time.
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/gpu/</guid>
       <description>En esta sesión revisamos la arquitectura GPU, con especial foco en productos de hardware fabricados por Nvidia, AMD and Intel. Sus ventajas, principales características y desafíos son presentados.
 5-gpu.pdf
-#the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
+
+
+#the-canvas {
+border: 1px solid black;
+direction: ltr;
+width: 100%;
+height: auto;
+display: none;
+}
+#paginator {
+display: none;
+text-align: center;
+margin-bottom: 10px;
+}
+#loadingWrapper {
+display: none;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 350px;
+}
+#loading {
+display: inline-block;
+width: 50px;
+height: 50px;
+border: 3px solid #d2d0d0;;
+border-radius: 50%;
+border-top-color: #383838;
+animation: spin 1s ease-in-out infinite;
+-webkit-animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+to { -webkit-transform: rotate(360deg); }
+}
+
+Previous
+Next
+&amp;nbsp; &amp;nbsp;
+Page:  / 
+
+
+
+
+
+window.</description>
     </item>
     
     <item>
@@ -61,7 +249,54 @@ Overview of heterogeneous architectures, their history and evolution over time.
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/fpga/</guid>
       <description>En esta sesión revisamos la arquitectura FPGA. Sus ventajas y principales desafíos son presentados.
 6-fpga.pdf
-#the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
+
+
+#the-canvas {
+border: 1px solid black;
+direction: ltr;
+width: 100%;
+height: auto;
+display: none;
+}
+#paginator {
+display: none;
+text-align: center;
+margin-bottom: 10px;
+}
+#loadingWrapper {
+display: none;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 350px;
+}
+#loading {
+display: inline-block;
+width: 50px;
+height: 50px;
+border: 3px solid #d2d0d0;;
+border-radius: 50%;
+border-top-color: #383838;
+animation: spin 1s ease-in-out infinite;
+-webkit-animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+to { -webkit-transform: rotate(360deg); }
+}
+
+Previous
+Next
+&amp;nbsp; &amp;nbsp;
+Page:  / 
+
+
+
+
+
+window.</description>
     </item>
     
   </channel>
