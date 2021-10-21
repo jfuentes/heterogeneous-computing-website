@@ -23,7 +23,7 @@
           <a href="{{ .Permalink }}">
             {{ .Title | markdownify }}
           </a>
-          by {{ .Params.author }}
+          {{ .Params.author }}
         </li>
         {{ end }}
       </ul>

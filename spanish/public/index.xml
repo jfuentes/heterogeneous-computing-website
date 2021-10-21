@@ -32,6 +32,16 @@ Presentación de arquitecturas heterogéneas, su historia y evolución sobre el 
     </item>
     
     <item>
+      <title>Wiki DevCloud</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud/</guid>
+      <description>Configuración VS Code + DevCloud La guía paso a paso de conexión a DevCloud con VS Code está disponible aquí, en inglés.
+ Prepara la conexión SSH  Descarga el archivo de configuración automatizada correspondiente a tu usuario, disponible en el link de la guía. Abre una terminal que soporte bash en la carpeta donde se descargó el archivo y ejecuta el siguiente comando: bash setup-devcloud-access-XXXXX.txt, donde XXXXX es tu ID de usuario.</description>
+    </item>
+    
+    <item>
       <title>CPU multi-core</title>
       <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/cpu/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
