@@ -8,6 +8,19 @@
     <language>en-us</language>
     <lastBuildDate>Mon, 13 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Wiki DPC&#43;&#43;</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp/</guid>
+      <description>Enlaces con material de interés:
+ Libro Data Parallel C++ Ejemplos en C++ Ejemplos de DPC++  Siempre utilizar en el código:
+#include &amp;lt;CL/sycl.hpp&amp;gt;  Using namespace sycl; 1. Gestión de Memoria  Malloc Para gestionar la memoria utilizar enfoque basado en punteros, más específicamente Malloc. Por ejemplo, crear locación de memoria para compartir:
+char *ejemplo = malloc_shared&amp;lt;char&amp;gt;(variable,queue); En SYCL se puede utilizar 3 tipos: malloc_host, malloc_shared y malloc_device:
+int* host_array = malloc_host(N, Q); int* shared_array = malloc_shared(N, Q); int* device_array = malloc_device(N, Q); Características:</description>
+    </item>
+    
+    <item>
       <title>Wiki DevCloud</title>
       <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud/</link>
       <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
