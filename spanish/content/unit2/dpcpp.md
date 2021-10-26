@@ -53,7 +53,8 @@ Type | Description | Accessible on host? | Accessible on device? | Located on
 #### Buffer
 
 Otra opción  es  la utilización  de  buffers: 
-La  forma más  simple  es  construir  un  nuevo búfer  con  un  rango  que  especifique  su tamaño.
+La forma más fácil de declararlos es indicando en su constructor la fuente de datos: arreglo, vector, puntero, etc.
+
 Ejemplo:
 ```cpp
   buffer  my_buffer(my_data);
@@ -74,10 +75,10 @@ Ejemplo:
 &NewLine;
 &NewLine;
 
-### Implementación y gestión de Kernels
+### 2. Implementación y gestión de Kernels
 ------
 #### Colas (Queue)
-Las colas (queue) nos permiten conectar con los dispositivos (device), con ellas enviamos acciones en estas colas para solicitar trabajo y mover datos.
+Las colas (queue) nos permiten conectar con los dispositivos (device), con ellas enviamos kernels para ejecutar trabajo y mover datos.
  
 ```cpp
   Queue <nombre cola>;
@@ -85,6 +86,8 @@ Las colas (queue) nos permiten conectar con los dispositivos (device), con ellas
 
 
 #### Parallel_for
+Permite definir un bucle paralelo que será ejecutado por muchos hilos dependiendo del número de iteraciones. En su versión simplificada, el compilador realiza la división del trabajo (iteraciones) en los hilos.
+
 ```cpp
   h.parallel_for(range{N} , [=](id<1> idx ) {
 ```
@@ -110,7 +113,7 @@ Nota: Pueden utilizar para varias dimensiones, para dos dimensiones sería:
 		//Creación del buffer
 		buffer B { data };
 
-		Q.submit([&](handler& h}{
+		Q.submit([&](handler& h){
 			accessor A{B,h};
 			h.parallel_for(size, [=](auto& idx){
 				A[idx] = idx;
@@ -118,7 +121,7 @@ Nota: Pueden utilizar para varias dimensiones, para dos dimensiones sería:
 		});
 
 		host_accessor A{B};
-		for(int i=0; i<size: i++)
+		for(int i=0; i<size; i++)
 		std::cout << "data" << i << " = " << A[i]  << "\n";
 		
 		return 0;

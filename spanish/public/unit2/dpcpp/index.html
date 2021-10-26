@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8" />
+  <title>Computación Heterogénea</title>
+  <meta name="description" content="Programming Heterogeneous Arquitectures using Data Parallel C&#43;&#43;" />
+  <meta name="author" content="Joel Fuentes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="generator" content="kitab theme by Darshan in Hugo 0.88.1" />
+
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="/~jfuentes/classes/ch/css/kitab.css" />
+
+  <script src="/~jfuentes/classes/ch/js/myFunctions.js"></script>
+  <script src="/~jfuentes/classes/ch/js/clipboard.min.js"></script>
+</head>
+
+  <body class="container" style="max-width: 1024px;">
+    <nav class="mt-2 border-bottom">
+  <div class="d-flex flex-row position-relative">
+    <a href="/~jfuentes/classes/ch/"
+      ><i title="Home" class="nav-menu mr-2 mt-1 fas fa-home"></i
+    ></a>
+    <div class="position-relative">
+  <i
+    class="nav-menu hover-menu ml-2 mr-2 mt-1 fas fa-book"
+    onclick="expandMenu(this)"
+    title="Show all units"
+  ></i>
+  <div
+    class="show bg-light shadow mt-2"
+    style="position: absolute;
+      min-width: 280px;
+      max-width: 75%;
+      z-index: 1;
+      max-height: 0px;
+      overflow: hidden;"
+  >
+    <div class="p-2">
+      <strong>
+        Units
+      </strong>
+      <ul class="list-unstyled ml-1">
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/">
+            <ol>
+<li>Arquitecturas</li>
+</ol>
+
+          </a>
+          6 sesiones
+        </li>
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/">
+            <ol start="2">
+<li>Modelos de Programación</li>
+</ol>
+
+          </a>
+          10 sesiones
+        </li>
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/">
+            <ol start="3">
+<li>Algoritmos</li>
+</ol>
+
+          </a>
+          6 sesiones
+        </li>
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit4/">
+            <ol start="4">
+<li>Rendimiento</li>
+</ol>
+
+          </a>
+          3 sesiones
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+    
+    <div class="position-relative">
+  <i
+    class="nav-menu hover-menu ml-2 mr-2 mt-1 fas fa-bars"
+    onclick="expandMenu(this)"
+    title = "Show Sessions"
+  ></i>
+  <div
+    class="show bg-light shadow mt-2"
+    style="
+      position: absolute;
+      min-width: 280px;
+      max-width: 75%;
+      z-index: 1;
+      max-height: 0px;
+      overflow: hidden;"
+  >
+    <div class="p-2 rounded">
+      <strong class="mt-3">
+        
+        
+        <ol start="2">
+<li>Modelos de Programación</li>
+</ol>
+
+        
+      </strong>
+      <ul class="list-unstyled ml-1">
+        
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp/">Wiki DPC++</a>
+        </li>
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud/">Wiki DevCloud</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+    
+  </div>
+</nav>
+
+    <main class="mt-3" style="margin-left: 32px;">
+      
+<div class="mb-2 p-3 shadow position-relative">
+  <small
+    class="bg-white pl-1 pr-1 rounded"
+    style="background-color: #f3f3ef !important; position: absolute; top: -0.75em; right: 1em"
+  ><div>
+  
+
+
+
+
+
+
+<span style="font-size: 0.9em;"><i
+    aria-label="home"
+    class="fas fa-home"
+  ></i
+  ></span>
+
+
+
+<span style="font-size: 0.9em;"> / <ol start="2">
+<li>Modelos de …</li></ol></span>
+
+
+
+<span style="font-size: 0.9em;"> / Wiki DPC++</span>
+
+</div>
+
+
+</small>
+  <h2>Wiki DPC&#43;&#43;</h2>
+  <div class="rounded">
+    <p>Enlaces con material de interés:</p>
+<ul>
+<li><a href="https://link.springer.com/content/pdf/10.1007%2F978-1-4842-5574-2.pdf">Libro Data Parallel C++</a></li>
+<li><a href="https://github.com/oneapi-src/oneAPI-samples/tree/master/DirectProgramming/C%2B%2B">Ejemplos en C++</a></li>
+<li><a href="https://github.com/oneapi-src/oneAPI-samples/tree/master/DirectProgramming/DPC%2B%2B">Ejemplos de DPC++</a></li>
+</ul>
+<p>Siempre utilizar en el código:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;CL/sycl.hpp&gt; </span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>  Using <span style="color:#66d9ef">namespace</span>  sycl;
+</code></pre></div><h3 id="1-gestión-de-memoria">1. Gestión de Memoria</h3>
+<hr>
+<h4 id="malloc">Malloc</h4>
+<p>Para gestionar la memoria utilizar enfoque basado en punteros, más específicamente Malloc.
+Por ejemplo, crear locación de memoria para compartir:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>ejemplo <span style="color:#f92672">=</span> malloc_shared<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span>(variable,queue);
+</code></pre></div><p>En SYCL se puede utilizar 3 tipos: <em>malloc_host</em>, <em>malloc_shared</em> y <em>malloc_device</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Cpp" data-lang="Cpp">  <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> host_array <span style="color:#f92672">=</span> malloc_host(N, Q);
+  <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> shared_array <span style="color:#f92672">=</span> malloc_shared(N, Q);
+  <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> device_array <span style="color:#f92672">=</span> malloc_device(N, Q);
+</code></pre></div><p>Características:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Accessible on host?</th>
+<th>Accessible on device?</th>
+<th>Located on</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>device</strong></td>
+<td>Allocation in device memory</td>
+<td>No</td>
+<td>Yes</td>
+<td>device</td>
+</tr>
+<tr>
+<td><strong>host</strong></td>
+<td>Allocations in host memory</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>host</td>
+</tr>
+<tr>
+<td><strong>shared</strong></td>
+<td>Allocations shared between host and device</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>can migrate back and forth</td>
+</tr>
+</tbody>
+</table>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="buffer">Buffer</h4>
+<p>Otra opción  es  la utilización  de  buffers: 
+La forma más fácil de declararlos es indicando en su constructor la fuente de datos: arreglo, vector, puntero, etc.</p>
+<p>Ejemplo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  buffer  <span style="color:#a6e22e">my_buffer</span>(my_data);
+</code></pre></div><p>Para acceder a estos se debe utilizar un &ldquo;accessor&rdquo;
+Ejemplo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  accessor my_accessor(my_buffer, h)
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Tipos de accesos</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>read_only</strong></td>
+<td>Read only access</td>
+</tr>
+<tr>
+<td><strong>write_only</strong></td>
+<td>Write only access</td>
+</tr>
+<tr>
+<td><strong>read_write</strong></td>
+<td>Read and write access</td>
+</tr>
+</tbody>
+</table>
+<p>
+
+
+</p>
+<h3 id="2-implementación-y-gestión-de-kernels">2. Implementación y gestión de Kernels</h3>
+<hr>
+<h4 id="colas-queue">Colas (Queue)</h4>
+<p>Las colas (queue) nos permiten conectar con los dispositivos (device), con ellas enviamos kernels para ejecutar trabajo y mover datos.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  Queue <span style="color:#f92672">&lt;</span>nombre cola<span style="color:#f92672">&gt;</span>;
+</code></pre></div><h4 id="parallel_for">Parallel_for</h4>
+<p>Permite definir un bucle paralelo que será ejecutado por muchos hilos dependiendo del número de iteraciones. En su versión simplificada, el compilador realiza la división del trabajo (iteraciones) en los hilos.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  h.parallel_for(range{N} , [<span style="color:#f92672">=</span>](id<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&gt;</span> idx ) {
+</code></pre></div><p>Como se pueden dar cuenta es como una función lambda, la función toma dos argumentos, el primero se llama rango el cual especifica el número de elementos para lanzar en cada dimensión y el segundo es una función del kernel que se ejecutará para cada índice del rango.
+Nota: Pueden utilizar para varias dimensiones, para dos dimensiones sería:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  h.parallel_for(range{N, M}, [<span style="color:#f92672">=</span>](id<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span> idx)
+</code></pre></div><p>Un ejemplo completo en código:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">   
+    <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;CL/sycl.hpp&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;array&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> sycl;
+   
+    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+		<span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>;
+		std<span style="color:#f92672">::</span>array<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, size<span style="color:#f92672">&gt;</span> data;
+		<span style="color:#75715e">//Se crea una cola
+</span><span style="color:#75715e"></span>		queue Q;
+		<span style="color:#75715e">//Creación del buffer
+</span><span style="color:#75715e"></span>		buffer B { data };
+
+		Q.submit([<span style="color:#f92672">&amp;</span>](handler<span style="color:#f92672">&amp;</span> h){
+			accessor A{B,h};
+			h.parallel_for(size, [<span style="color:#f92672">=</span>](<span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> idx){
+				A[idx] <span style="color:#f92672">=</span> idx;
+			});
+		});
+
+		host_accessor A{B};
+		<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>size; i<span style="color:#f92672">++</span>)
+		std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;data&#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> A[i]  <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+		
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+	}
+</code></pre></div>
+  </div>
+</div>
+
+    </main>
+    <div class="side-bar">
+  
+  <p class="mb-1 mt-1 text-left">
+  
+  <a
+    href="/~jfuentes/classes/ch/unit2/devcloud/"
+    title="Wiki DevCloud"
+  >
+    <i class="nav-menu fas fa-chevron-circle-right"></i>
+  </a>
+  
+</p>
+<p class="mb-1 mt-1 text-left">
+  
+  <i class="nav-menu-disabled fas fa-chevron-circle-left"></i>
+  
+</p>
+
+  
+  <a href="#" class="mb-1 mt-1 text-left">
+    <i
+      class="nav-menu fas fa-chevron-circle-up"
+      aria-label="Scroll to top"
+    ></i>
+  </a>
+  <p class="mb-1 mt-1 text-left">
+    <i
+      title="Copy URL to share"
+      class="nav-menu fas fa-share-alt"
+    ></i>
+  </p>
+</div>
+
+<script>
+  function displayCopyMessage(bool) {
+    let alertMessage = "";
+    if (bool) {
+      alertMessage = "Link copied to clipboard";
+    } else {
+      alertMessage = "Link could not be copied to clipboard";
+    }
+    let copiedMessage = document.createElement("div");
+    copiedMessage.id = "copiedMessage";
+    copiedMessage.textContent = alertMessage;
+    copiedMessage.classList.add(
+      "bg-warning",
+      "shadow",
+      "d-block",
+      "text-center"
+    );
+    document.body.appendChild(copiedMessage);
+
+    setTimeout(function() {
+      copiedMessage.style.opacity = 0;
+    }, 500);
+    setTimeout(function() {
+      document.body.removeChild(copiedMessage);
+    }, 1500);
+  }
+
+  let clipboard = new ClipboardJS(".fa-share-alt", {
+    text: function() {
+      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/unit2\/dpcpp\/";
+    }
+  });
+
+  clipboard.on("success", function() {
+    displayCopyMessage(true);
+  });
+
+  clipboard.on("error", function() {
+    displayCopyMessage(false);
+  });
+</script>
+
+    <footer class="d-flex flex-row flex-wrap justify-content-between">
+  <div class="d-flex flex-column">
+    <span class="mb-1">
+      Universidad del Bío-Bío, Chile
+      &middot;
+      2021
+    </span>
+  </div>
+
+    <div class="row">
+      <div class="column" style="
+      width: 100%;">Patrocinadores:</div>
+      <div class="column" style="
+      width: 120px;
+      margin-left: 65px;"><img src="images/ici_web.png" height="40%" ></div>
+      <div class="column" style="
+      width: 120px;
+      margin-left: 10px;"><img src="images/intel_web.png" height="20%" ></div>
+    </div> 
+
+  </footer>
+
+  </body>
+</html>
