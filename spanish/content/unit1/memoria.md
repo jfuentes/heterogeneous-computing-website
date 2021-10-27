@@ -2,6 +2,7 @@
 title = "Jerarquía de Memoria"
 weight = 3
 date = "2019-05-11"
+type = "content"
 +++
 
 En esta sesión revisamos conceptos fundamentales sobre memorias de sistemas computacionales.

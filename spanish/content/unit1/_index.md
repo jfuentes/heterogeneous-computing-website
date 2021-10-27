@@ -6,4 +6,6 @@ date = "2021-09-06"
 weight = 1
 bookCover = "images/fondo_web.png"
 bookCoverSmall = "images/fondo_web.png"
+hasPractice = "no"
+hasWiki = "no"
 +++

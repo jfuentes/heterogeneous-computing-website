@@ -199,76 +199,15 @@
 
 
 
-<span style="font-size: 0.9em;"> / DevCloud</span>
+<span style="font-size: 0.9em;"> / Proyecto</span>
 
 </div>
 
 
 </small>
-  <h2>DevCloud</h2>
+  <h2>Proyecto</h2>
   <div class="rounded">
-    <h2 id="configuración-vs-code--devcloud">Configuración VS Code + DevCloud</h2>
-<p>La guía paso a paso de conexión a DevCloud con VS Code está disponible <a href="https://devcloud.intel.com/oneapi/get_started/baseToolkitSamples/">aquí</a>, en inglés.</p>
-<ol>
-<li>Prepara la conexión SSH
-<ol>
-<li>Descarga el archivo de configuración automatizada correspondiente a tu usuario, disponible en el link de la guía.</li>
-<li>Abre una terminal que soporte bash en la carpeta donde se descargó el archivo y ejecuta el siguiente comando: <code>bash setup-devcloud-access-XXXXX.txt</code>, donde XXXXX es tu ID de usuario.</li>
-<li>Elimina el archivo descargado por razones de seguridad.</li>
-<li>Si por alguna razón hubo problemas con esta configuración, prueba la sección de configuración manual en la guía.</li>
-</ol>
-</li>
-<li>Descargar VS Code y ejecutarlo.</li>
-<li>Instalar la extensión <code>Remote - SSH</code>.</li>
-<li>Abrir una terminal dentro del programa y conectarse escribiendo <code>ssh devcloud</code>.</li>
-</ol>
-<h2 id="compilación-y-ejecución-de-programas">Compilación y ejecución de programas</h2>
-<h3 id="compilación">Compilación</h3>
-<p>La compilación dentro del DevCloud se asemeja a la compilación normal de un programa C, con la diferencia que debe utilizarse el compilador dpcpp e incluir los parámetros de compilación correspondientes a openCL y SYCL. Un ejemplo de compilación en la consola se vería de la siguiente manera:</p>
-<blockquote>
-<p><code>dpcpp &lt;opciones&gt; &lt;nombre del archivo&gt; -lOpenCL -lsycl</code></p>
-</blockquote>
-<h3 id="ejecución">Ejecución</h3>
-<p>Para ejecutar los archivos compilados, utilizaremos el modo interactivo de DevCloud. El modo interactivo nos asignará un nodo de cómputo, según cuál le sea solicitado. Podemos solicitar diferentes tipos de nodos, los cuales son CPU multi-core, GPU, FPGA, y MPI.</p>
-<p>Al ingresar al DevCloud, la sesión tendrá por nombre tu nombre de usuario y un login, por ejemplo: [u84751@login-2]. Luego de pedir un nodo, y que se te sea asignado uno, el nombre de tu sesión cambiará con la ID del nodo asignado, por ejemplo: [u84751@s001-141]. Es importante notar que debes esperar a que se te asigne un nodo, dependiendo de la disponibilidad del sistema.</p>
-<p>Para solicitar un nodo, utilizaremos el comando qsub del shell, y le pasaremos los parámetros -I (i mayúscula) y -l (L minúscula), que indican que queremos solicitar una sesión interactiva y que queremos utilizar completamente el nodo, respectivamente. Además, le indicaremos a qsub que queremos 2 procesos por nodo con :ppn=2. A continuación, se presentan los nodos de cómputo que se pueden solicitar junto con sus comandos:</p>
-<ol>
-<li>
-<p>Multi-core</p>
-<blockquote>
-<p><code>qsub -I -l nodes=1:xeon:ppn=2</code></p>
-</blockquote>
-</li>
-<li>
-<p>GPU</p>
-<blockquote>
-<p><code>qsub -I -l nodes=1:gpu:ppn=2</code></p>
-</blockquote>
-</li>
-<li>
-<p>FPGA</p>
-<blockquote>
-<p><code>qsub -I -l nodes=1:fpga:ppn=2</code></p>
-</blockquote>
-</li>
-<li>
-<p>MPI</p>
-<p>Para correr aplicaciones MPI en DevCloud se deben solicitar múltiples nodos en modo interactivo con el comando qsub. Por ejemplo, el siguiente comando solicita dos nodos de cómputo GPU:</p>
-<blockquote>
-<p><code>qsub -I -l nodes=2:gpu:ppn=2 -d .</code></p>
-</blockquote>
-<p>El siguiente comando obtiene todas las configuraciones de los nodos en DevCloud:</p>
-<blockquote>
-<p><code>pbsnodes | grep properties | sort –u</code></p>
-</blockquote>
-<p>Una vez que los nodos sean asignados, se puede utilizar el siguiente comando para obtener los nombres de los nodos:</p>
-<blockquote>
-<p><code>qstat –xf</code></p>
-</blockquote>
-</li>
-</ol>
-<p>Luego de solicitar un nodo, puede utilizarse el comando clinfo para obtener información sobre el nodo asignado.
-Para más información sobre qsub y los nodos que se pueden solicitar, consulte el siguiente <a href="https://devcloud.intel.com/oneapi/documentation/job-submission/">link</a>.</p>
+    <p>Proyecto de programación</p>
 
   </div>
 </div>
@@ -279,8 +218,8 @@ Para más información sobre qsub y los nodos que se pueden solicitar, consulte 
   <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/~jfuentes/classes/ch/unit2/frameworks/"
-    title="Frameworks de Programación"
+    href="/~jfuentes/classes/ch/unit2/devcloud/"
+    title="DevCloud"
   >
     <i class="nav-menu fas fa-chevron-circle-right"></i>
   </a>
@@ -289,8 +228,8 @@ Para más información sobre qsub y los nodos que se pueden solicitar, consulte 
 <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/~jfuentes/classes/ch/unit2/proyecto/"
-    title="Proyecto"
+    href="/~jfuentes/classes/ch/unit2/modelos_computo/"
+    title="Modelos de Cómputo"
   >
     <i class="nav-menu fas fa-chevron-circle-left"></i>
   </a>
@@ -341,7 +280,7 @@ Para más información sobre qsub y los nodos que se pueden solicitar, consulte 
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/unit2\/devcloud\/";
+      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/unit2\/proyecto\/";
     }
   });
 

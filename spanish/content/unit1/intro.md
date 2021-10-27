@@ -2,6 +2,7 @@
 title = "Introducción"
 weight = 1
 date = "2019-05-12"
+type = "content"
 +++
 
 Presentación del curso y su programa, planificación semestral e información

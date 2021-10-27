@@ -199,76 +199,211 @@
 
 
 
-<span style="font-size: 0.9em;"> / DevCloud</span>
+<span style="font-size: 0.9em;"> / Frameworks de …</span>
 
 </div>
 
 
 </small>
-  <h2>DevCloud</h2>
+  <h2>Frameworks de Programación</h2>
   <div class="rounded">
-    <h2 id="configuración-vs-code--devcloud">Configuración VS Code + DevCloud</h2>
-<p>La guía paso a paso de conexión a DevCloud con VS Code está disponible <a href="https://devcloud.intel.com/oneapi/get_started/baseToolkitSamples/">aquí</a>, en inglés.</p>
-<ol>
-<li>Prepara la conexión SSH
-<ol>
-<li>Descarga el archivo de configuración automatizada correspondiente a tu usuario, disponible en el link de la guía.</li>
-<li>Abre una terminal que soporte bash en la carpeta donde se descargó el archivo y ejecuta el siguiente comando: <code>bash setup-devcloud-access-XXXXX.txt</code>, donde XXXXX es tu ID de usuario.</li>
-<li>Elimina el archivo descargado por razones de seguridad.</li>
-<li>Si por alguna razón hubo problemas con esta configuración, prueba la sección de configuración manual en la guía.</li>
-</ol>
-</li>
-<li>Descargar VS Code y ejecutarlo.</li>
-<li>Instalar la extensión <code>Remote - SSH</code>.</li>
-<li>Abrir una terminal dentro del programa y conectarse escribiendo <code>ssh devcloud</code>.</li>
-</ol>
-<h2 id="compilación-y-ejecución-de-programas">Compilación y ejecución de programas</h2>
-<h3 id="compilación">Compilación</h3>
-<p>La compilación dentro del DevCloud se asemeja a la compilación normal de un programa C, con la diferencia que debe utilizarse el compilador dpcpp e incluir los parámetros de compilación correspondientes a openCL y SYCL. Un ejemplo de compilación en la consola se vería de la siguiente manera:</p>
-<blockquote>
-<p><code>dpcpp &lt;opciones&gt; &lt;nombre del archivo&gt; -lOpenCL -lsycl</code></p>
-</blockquote>
-<h3 id="ejecución">Ejecución</h3>
-<p>Para ejecutar los archivos compilados, utilizaremos el modo interactivo de DevCloud. El modo interactivo nos asignará un nodo de cómputo, según cuál le sea solicitado. Podemos solicitar diferentes tipos de nodos, los cuales son CPU multi-core, GPU, FPGA, y MPI.</p>
-<p>Al ingresar al DevCloud, la sesión tendrá por nombre tu nombre de usuario y un login, por ejemplo: [u84751@login-2]. Luego de pedir un nodo, y que se te sea asignado uno, el nombre de tu sesión cambiará con la ID del nodo asignado, por ejemplo: [u84751@s001-141]. Es importante notar que debes esperar a que se te asigne un nodo, dependiendo de la disponibilidad del sistema.</p>
-<p>Para solicitar un nodo, utilizaremos el comando qsub del shell, y le pasaremos los parámetros -I (i mayúscula) y -l (L minúscula), que indican que queremos solicitar una sesión interactiva y que queremos utilizar completamente el nodo, respectivamente. Además, le indicaremos a qsub que queremos 2 procesos por nodo con :ppn=2. A continuación, se presentan los nodos de cómputo que se pueden solicitar junto con sus comandos:</p>
-<ol>
-<li>
-<p>Multi-core</p>
-<blockquote>
-<p><code>qsub -I -l nodes=1:xeon:ppn=2</code></p>
-</blockquote>
-</li>
-<li>
-<p>GPU</p>
-<blockquote>
-<p><code>qsub -I -l nodes=1:gpu:ppn=2</code></p>
-</blockquote>
-</li>
-<li>
-<p>FPGA</p>
-<blockquote>
-<p><code>qsub -I -l nodes=1:fpga:ppn=2</code></p>
-</blockquote>
-</li>
-<li>
-<p>MPI</p>
-<p>Para correr aplicaciones MPI en DevCloud se deben solicitar múltiples nodos en modo interactivo con el comando qsub. Por ejemplo, el siguiente comando solicita dos nodos de cómputo GPU:</p>
-<blockquote>
-<p><code>qsub -I -l nodes=2:gpu:ppn=2 -d .</code></p>
-</blockquote>
-<p>El siguiente comando obtiene todas las configuraciones de los nodos en DevCloud:</p>
-<blockquote>
-<p><code>pbsnodes | grep properties | sort –u</code></p>
-</blockquote>
-<p>Una vez que los nodos sean asignados, se puede utilizar el siguiente comando para obtener los nombres de los nodos:</p>
-<blockquote>
-<p><code>qstat –xf</code></p>
-</blockquote>
-</li>
-</ol>
-<p>Luego de solicitar un nodo, puede utilizarse el comando clinfo para obtener información sobre el nodo asignado.
-Para más información sobre qsub y los nodos que se pueden solicitar, consulte el siguiente <a href="https://devcloud.intel.com/oneapi/documentation/job-submission/">link</a>.</p>
+    <p>En esta sesión estudiamos dos de los principales frameworks para la programación de arquitecturas modernas: CUDA y SYCL.</p>
+<p><img src="../../images/pdf_web.png" alt="Download slides"> <a href="../../pdf/8-frameworks.pdf">8-frameworks.pdf</a></p>
+<script type="text/javascript" src= '/~jfuentes/classes/ch//js/pdf-js/build/pdf.js'></script>
+<style>
+#the-canvas {
+  border: 1px solid black;
+  direction: ltr;
+  width: 100%;
+  height: auto;
+  display: none;
+}
+
+#paginator {
+  display: none;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#loadingWrapper {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 350px;
+}
+
+#loading {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #d2d0d0;;
+  border-radius: 50%;
+  border-top-color: #383838;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+</style>
+
+<div id="paginator">
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+    &nbsp; &nbsp;
+    <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+</div>
+<div id="embed-pdf-container">
+    <div id="loadingWrapper">
+      <div id="loading"></div>
+    </div>
+    <canvas id="the-canvas"></canvas>
+</div>
+
+<script type="text/javascript">
+window.onload = function() {
+
+
+var url = "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/" + 'pdf\/8-frameworks.pdf';
+
+var hidePaginator = "" === "true";
+var hideLoader = "" === "true";
+var selectedPageNum = parseInt("") || 1;
+
+
+var pdfjsLib = window['pdfjs-dist/build/pdf'];
+
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/" + '/js/pdf-js/build/pdf.worker.js';
+
+
+var pdfDoc = null,
+    pageNum = selectedPageNum,
+    pageRendering = false,
+    pageNumPending = null,
+    scale = 3,
+    canvas = document.getElementById('the-canvas'),
+    ctx = canvas.getContext('2d'),
+    paginator = document.getElementById("paginator"),
+    loadingWrapper = document.getElementById('loadingWrapper');
+
+
+
+showPaginator();
+showLoader();
+
+
+
+function renderPage(num) {
+  pageRendering = true;
+  
+  pdfDoc.getPage(num).then(function(page) {
+    var viewport = page.getViewport({scale: scale});
+    canvas.height = viewport.height;
+    canvas.width = viewport.width;
+
+    
+    var renderContext = {
+      canvasContext: ctx,
+      viewport: viewport
+    };
+    var renderTask = page.render(renderContext);
+
+    
+    renderTask.promise.then(function() {
+      pageRendering = false;
+      showContent();
+      
+      if (pageNumPending !== null) {
+        
+        renderPage(pageNumPending);
+        pageNumPending = null;
+      }
+    });
+  });
+
+  
+  document.getElementById('page_num').textContent = num;
+}
+
+
+
+function showContent() {
+  loadingWrapper.style.display = 'none';
+  canvas.style.display = 'block';
+}
+
+
+
+function showLoader() {
+  if(hideLoader) return
+  loadingWrapper.style.display = 'flex';
+  canvas.style.display = 'none';
+}
+
+
+
+function showPaginator() {
+  if(hidePaginator) return
+  paginator.style.display = 'block';
+}
+
+
+
+function queueRenderPage(num) {
+  if (pageRendering) {
+    pageNumPending = num;
+  } else {
+    renderPage(num);
+  }
+}
+
+
+
+function onPrevPage() {
+  if (pageNum <= 1) {
+    return;
+  }
+  pageNum--;
+  queueRenderPage(pageNum);
+}
+document.getElementById('prev').addEventListener('click', onPrevPage);
+
+
+
+function onNextPage() {
+  if (pageNum >= pdfDoc.numPages) {
+    return;
+  }
+  pageNum++;
+  queueRenderPage(pageNum);
+}
+document.getElementById('next').addEventListener('click', onNextPage);
+
+
+
+pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+  pdfDoc = pdfDoc_;
+  var numPages = pdfDoc.numPages;
+  document.getElementById('page_count').textContent = numPages;
+  
+  
+  if(pageNum > numPages) {
+    pageNum = numPages
+  }
+
+  
+  renderPage(pageNum);
+});
+}
+
+</script>
+
 
   </div>
 </div>
@@ -279,8 +414,8 @@ Para más información sobre qsub y los nodos que se pueden solicitar, consulte 
   <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/~jfuentes/classes/ch/unit2/frameworks/"
-    title="Frameworks de Programación"
+    href="/~jfuentes/classes/ch/unit2/oneapi/"
+    title="OneAPI"
   >
     <i class="nav-menu fas fa-chevron-circle-right"></i>
   </a>
@@ -289,8 +424,8 @@ Para más información sobre qsub y los nodos que se pueden solicitar, consulte 
 <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/~jfuentes/classes/ch/unit2/proyecto/"
-    title="Proyecto"
+    href="/~jfuentes/classes/ch/unit2/devcloud/"
+    title="DevCloud"
   >
     <i class="nav-menu fas fa-chevron-circle-left"></i>
   </a>
@@ -341,7 +476,7 @@ Para más información sobre qsub y los nodos que se pueden solicitar, consulte 
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/unit2\/devcloud\/";
+      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/unit2\/frameworks\/";
     }
   });
 

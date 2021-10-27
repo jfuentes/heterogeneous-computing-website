@@ -8,6 +8,19 @@
     <language>en-us</language>
     <lastBuildDate>Mon, 06 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>DPC&#43;&#43;</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp/</guid>
+      <description>Enlaces con material de interés:
+ Libro Data Parallel C++ Ejemplos en C++ Ejemplos de DPC++  Siempre utilizar en el código:
+#include &amp;lt;CL/sycl.hpp&amp;gt;  Using namespace sycl; 1. Gestión de Memoria  Malloc Para gestionar la memoria utilizar enfoque basado en punteros, más específicamente Malloc. Por ejemplo, crear locación de memoria para compartir:
+char *ejemplo = malloc_shared&amp;lt;char&amp;gt;(variable,queue); En SYCL se puede utilizar 3 tipos: malloc_host, malloc_shared y malloc_device:
+int* host_array = malloc_host(N, Q); int* shared_array = malloc_shared(N, Q); int* device_array = malloc_device(N, Q); Características:</description>
+    </item>
+    
+    <item>
       <title>Introducción</title>
       <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/intro/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
@@ -21,16 +34,53 @@ Presentación de arquitecturas heterogéneas, su historia y evolución sobre el 
     </item>
     
     <item>
-      <title>Wiki DPC&#43;&#43;</title>
-      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp/</link>
+      <title>Lab 1</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/lab1/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp/</guid>
-      <description>Enlaces con material de interés:
- Libro Data Parallel C++ Ejemplos en C++ Ejemplos de DPC++  Siempre utilizar en el código:
-#include &amp;lt;CL/sycl.hpp&amp;gt;  Using namespace sycl; 1. Gestión de Memoria  Malloc Para gestionar la memoria utilizar enfoque basado en punteros, más específicamente Malloc. Por ejemplo, crear locación de memoria para compartir:
-char *ejemplo = malloc_shared&amp;lt;char&amp;gt;(variable,queue); En SYCL se puede utilizar 3 tipos: malloc_host, malloc_shared y malloc_device:
-int* host_array = malloc_host(N, Q); int* shared_array = malloc_shared(N, Q); int* device_array = malloc_device(N, Q); Características:</description>
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/lab1/</guid>
+      <description>Laboratorio 1</description>
+    </item>
+    
+    <item>
+      <title>Modelos de Cómputo</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/modelos_computo/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/modelos_computo/</guid>
+      <description>En esta sesión revisamos los diferentes modelos de cómputo usados en la computación moderna. Comenzamos con la taxonomía de Flynn, hasta la evolución a modelos usados en arquitecturas actuales.
+7-modelos_computo.pdf
+#the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
+    </item>
+    
+    <item>
+      <title>Proyecto</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/proyecto/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/proyecto/</guid>
+      <description>Proyecto de programación</description>
+    </item>
+    
+    <item>
+      <title>DevCloud</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud/</guid>
+      <description>Configuración VS Code + DevCloud La guía paso a paso de conexión a DevCloud con VS Code está disponible aquí, en inglés.
+ Prepara la conexión SSH  Descarga el archivo de configuración automatizada correspondiente a tu usuario, disponible en el link de la guía. Abre una terminal que soporte bash en la carpeta donde se descargó el archivo y ejecuta el siguiente comando: bash setup-devcloud-access-XXXXX.txt, donde XXXXX es tu ID de usuario.</description>
+    </item>
+    
+    <item>
+      <title>Frameworks de Programación</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/frameworks/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/frameworks/</guid>
+      <description>En esta sesión estudiamos dos de los principales frameworks para la programación de arquitecturas modernas: CUDA y SYCL.
+8-frameworks.pdf
+#the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
     </item>
     
     <item>
@@ -45,13 +95,14 @@ int* host_array = malloc_host(N, Q); int* shared_array = malloc_shared(N, Q); in
     </item>
     
     <item>
-      <title>Wiki DevCloud</title>
-      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud/</link>
+      <title>OneAPI</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/oneapi/</link>
       <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud/</guid>
-      <description>Configuración VS Code + DevCloud La guía paso a paso de conexión a DevCloud con VS Code está disponible aquí, en inglés.
- Prepara la conexión SSH  Descarga el archivo de configuración automatizada correspondiente a tu usuario, disponible en el link de la guía. Abre una terminal que soporte bash en la carpeta donde se descargó el archivo y ejecuta el siguiente comando: bash setup-devcloud-access-XXXXX.txt, donde XXXXX es tu ID de usuario.</description>
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/oneapi/</guid>
+      <description>En esta sesión se introduce OneAPI y el entorno de desarrollo DevCloud.
+9-devcloud.pdf
+#the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
     </item>
     
     <item>

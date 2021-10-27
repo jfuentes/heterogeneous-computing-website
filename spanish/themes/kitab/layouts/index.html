@@ -32,18 +32,48 @@
         </small>
       </div>
       <ul class="list-unstyled ml-1 mb-0 border-top border-primary pt-2">
-        {{ range first 5 .Pages }}
+        {{ range first 8 .Pages }}
         <li>
           <a href="{{ .Permalink }}">
-            <p class="mb-1">
-              {{ .Title }}
-            </p>
+            {{ if eq .Type "content" }}
+              <p class="mb-1">
+                • {{ .Title }}
+              </p>
+            {{ end }}
           </a>
         </li>
         {{ end }}
+
+        <!-- Practice -->
+        {{ if eq .Params.hasPractice "yes" }}
+        <p class="mb-1">Práctica:
+          {{ range first 8 .Pages }} 
+            {{ if eq .Type "practice" }}
+              ‣
+              <a href="{{ .Permalink }}">
+                    {{ .Title }}
+              </a>
+            {{ end }}
+          {{ end }}
+        </p>
+        {{ end }}
+
+        <!-- Wiki -->
+        {{ if eq .Params.hasWiki "yes" }}
+          <p class="mb-1">Wiki:
+          {{ range first 8 .Pages }} 
+            {{ if eq .Type "wiki" }}
+              ‣
+              <a href="{{ .Permalink }}">
+                    {{ .Title }}
+              </a>
+            {{ end }}
+          {{ end }}
+          </p>
+        {{ end }}
       </ul>
       {{ $pageNums := len .Pages }}
-      {{ if ge $pageNums 6 }}
+      {{ if ge $pageNums 9 }}
       <p class="text-right mb-0">
         <a href="{{ .Permalink }}">
           ...more

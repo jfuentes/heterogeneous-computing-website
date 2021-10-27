@@ -1,11 +1,8 @@
 +++
-
-title = "Wiki DPC++"
-
-weight = 3
-
+title = "DPC++"
+weight = 1
 date = "2019-05-12"
-
+type = "wiki"
 +++
 
   

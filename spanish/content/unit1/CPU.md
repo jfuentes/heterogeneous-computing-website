@@ -2,6 +2,7 @@
 title = "CPU multi-core"
 weight = 4
 date = "2019-05-12"
+type = "content"
 +++
 
 En esta sesión revisamos la arquitectura CPU multi-core.
