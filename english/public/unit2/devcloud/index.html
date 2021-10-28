@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8" />
+  <title>Heterogeneous Computing</title>
+  <meta name="description" content="Programming Heterogeneous Arquitectures using Data Parallel C&#43;&#43;" />
+  <meta name="author" content="Joel Fuentes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="generator" content="kitab theme by Darshan in Hugo 0.88.1" />
+
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="/~jfuentes/classes/hc/css/kitab.css" />
+
+  <script src="/~jfuentes/classes/hc/js/myFunctions.js"></script>
+  <script src="/~jfuentes/classes/hc/js/clipboard.min.js"></script>
+</head>
+
+  <body class="container" style="max-width: 1024px;">
+    <nav class="mt-2 border-bottom">
+  <div class="d-flex flex-row position-relative">
+    <a href="/~jfuentes/classes/hc/"
+      ><i title="Home" class="nav-menu mr-2 mt-1 fas fa-home"></i
+    ></a>
+    <div class="position-relative">
+  <i
+    class="nav-menu hover-menu ml-2 mr-2 mt-1 fas fa-book"
+    onclick="expandMenu(this)"
+    title="Show all units"
+  ></i>
+  <div
+    class="show bg-light shadow mt-2"
+    style="position: absolute;
+      min-width: 280px;
+      max-width: 75%;
+      z-index: 1;
+      max-height: 0px;
+      overflow: hidden;"
+  >
+    <div class="p-2">
+      <strong>
+        Units
+      </strong>
+      <ul class="list-unstyled ml-1">
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/">
+            <ol>
+<li>Architectures</li>
+</ol>
+
+          </a>
+          by 6 sessions
+        </li>
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/">
+            <ol start="2">
+<li>Programming Models</li>
+</ol>
+
+          </a>
+          by 10 sessions
+        </li>
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/">
+            <ol start="3">
+<li>Algorithms</li>
+</ol>
+
+          </a>
+          by 6 sessions
+        </li>
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit4/">
+            <ol start="4">
+<li>Performance</li>
+</ol>
+
+          </a>
+          by 3 sessions
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+    
+    <div class="position-relative">
+  <i
+    class="nav-menu hover-menu ml-2 mr-2 mt-1 fas fa-bars"
+    onclick="expandMenu(this)"
+    title = "Show Sessions"
+  ></i>
+  <div
+    class="show bg-light shadow mt-2"
+    style="
+      position: absolute;
+      min-width: 280px;
+      max-width: 75%;
+      z-index: 1;
+      max-height: 0px;
+      overflow: hidden;"
+  >
+    <div class="p-2 rounded">
+      <strong class="mt-3">
+        
+        
+        <ol start="2">
+<li>Programming Models</li>
+</ol>
+
+        
+      </strong>
+      <ul class="list-unstyled ml-1">
+        
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/dpcpp/">DPC++</a>
+        </li>
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/lab1/">Lab 1</a>
+        </li>
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/compute_models/">Compute Models</a>
+        </li>
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/project/">Project</a>
+        </li>
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/devcloud/">DevCloud</a>
+        </li>
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/frameworks/">Programming Frameworks</a>
+        </li>
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/oneapi/">OneAPI</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+    
+  </div>
+</nav>
+
+    <main class="mt-3" style="margin-left: 32px;">
+      
+<div class="mb-2 p-3 shadow position-relative">
+  <small
+    class="bg-white pl-1 pr-1 rounded"
+    style="background-color: #f3f3ef !important; position: absolute; top: -0.75em; right: 1em"
+  ><div>
+  
+
+
+
+
+
+
+<span style="font-size: 0.9em;"><i
+    aria-label="home"
+    class="fas fa-home"
+  ></i
+  ></span>
+
+
+
+<span style="font-size: 0.9em;"> / <ol start="2">
+<li>Programming …</li></ol></span>
+
+
+
+<span style="font-size: 0.9em;"> / DevCloud</span>
+
+</div>
+
+
+</small>
+  <h2>DevCloud</h2>
+  <div class="rounded">
+    <h2 id="configuración-vs-code--devcloud">Configuración VS Code + DevCloud</h2>
+<p>La guía paso a paso de conexión a DevCloud con VS Code está disponible <a href="https://devcloud.intel.com/oneapi/get_started/baseToolkitSamples/">aquí</a>, en inglés.</p>
+<ol>
+<li>Prepara la conexión SSH
+<ol>
+<li>Descarga el archivo de configuración automatizada correspondiente a tu usuario, disponible en el link de la guía.</li>
+<li>Abre una terminal que soporte bash en la carpeta donde se descargó el archivo y ejecuta el siguiente comando: <code>bash setup-devcloud-access-XXXXX.txt</code>, donde XXXXX es tu ID de usuario.</li>
+<li>Elimina el archivo descargado por razones de seguridad.</li>
+<li>Si por alguna razón hubo problemas con esta configuración, prueba la sección de configuración manual en la guía.</li>
+</ol>
+</li>
+<li>Descargar VS Code y ejecutarlo.</li>
+<li>Instalar la extensión <code>Remote - SSH</code>.</li>
+<li>Abrir una terminal dentro del programa y conectarse escribiendo <code>ssh devcloud</code>.</li>
+</ol>
+<h2 id="compilación-y-ejecución-de-programas">Compilación y ejecución de programas</h2>
+<h3 id="compilación">Compilación</h3>
+<p>La compilación dentro del DevCloud se asemeja a la compilación normal de un programa C, con la diferencia que debe utilizarse el compilador dpcpp e incluir los parámetros de compilación correspondientes a openCL y SYCL. Un ejemplo de compilación en la consola se vería de la siguiente manera:</p>
+<blockquote>
+<p><code>dpcpp &lt;opciones&gt; &lt;nombre del archivo&gt; -lOpenCL -lsycl</code></p>
+</blockquote>
+<h3 id="ejecución">Ejecución</h3>
+<p>Para ejecutar los archivos compilados, utilizaremos el modo interactivo de DevCloud. El modo interactivo nos asignará un nodo de cómputo, según cuál le sea solicitado. Podemos solicitar diferentes tipos de nodos, los cuales son CPU multi-core, GPU, FPGA, y MPI.</p>
+<p>Al ingresar al DevCloud, la sesión tendrá por nombre tu nombre de usuario y un login, por ejemplo: [u84751@login-2]. Luego de pedir un nodo, y que se te sea asignado uno, el nombre de tu sesión cambiará con la ID del nodo asignado, por ejemplo: [u84751@s001-141]. Es importante notar que debes esperar a que se te asigne un nodo, dependiendo de la disponibilidad del sistema.</p>
+<p>Para solicitar un nodo, utilizaremos el comando qsub del shell, y le pasaremos los parámetros -I (i mayúscula) y -l (L minúscula), que indican que queremos solicitar una sesión interactiva y que queremos utilizar completamente el nodo, respectivamente. Además, le indicaremos a qsub que queremos 2 procesos por nodo con :ppn=2. A continuación, se presentan los nodos de cómputo que se pueden solicitar junto con sus comandos:</p>
+<ol>
+<li>
+<p>Multi-core</p>
+<blockquote>
+<p><code>qsub -I -l nodes=1:xeon:ppn=2</code></p>
+</blockquote>
+</li>
+<li>
+<p>GPU</p>
+<blockquote>
+<p><code>qsub -I -l nodes=1:gpu:ppn=2</code></p>
+</blockquote>
+</li>
+<li>
+<p>FPGA</p>
+<blockquote>
+<p><code>qsub -I -l nodes=1:fpga:ppn=2</code></p>
+</blockquote>
+</li>
+<li>
+<p>MPI</p>
+<p>Para correr aplicaciones MPI en DevCloud se deben solicitar múltiples nodos en modo interactivo con el comando qsub. Por ejemplo, el siguiente comando solicita dos nodos de cómputo GPU:</p>
+<blockquote>
+<p><code>qsub -I -l nodes=2:gpu:ppn=2 -d .</code></p>
+</blockquote>
+<p>El siguiente comando obtiene todas las configuraciones de los nodos en DevCloud:</p>
+<blockquote>
+<p><code>pbsnodes | grep properties | sort –u</code></p>
+</blockquote>
+<p>Una vez que los nodos sean asignados, se puede utilizar el siguiente comando para obtener los nombres de los nodos:</p>
+<blockquote>
+<p><code>qstat –xf</code></p>
+</blockquote>
+</li>
+</ol>
+<p>Luego de solicitar un nodo, puede utilizarse el comando clinfo para obtener información sobre el nodo asignado.
+Para más información sobre qsub y los nodos que se pueden solicitar, consulte el siguiente <a href="https://devcloud.intel.com/oneapi/documentation/job-submission/">link</a>.</p>
+
+  </div>
+</div>
+
+    </main>
+    <div class="side-bar">
+  
+  <p class="mb-1 mt-1 text-left">
+  
+  <a
+    href="/~jfuentes/classes/hc/unit2/frameworks/"
+    title="Programming Frameworks"
+  >
+    <i class="nav-menu fas fa-chevron-circle-right"></i>
+  </a>
+  
+</p>
+<p class="mb-1 mt-1 text-left">
+  
+  <a
+    href="/~jfuentes/classes/hc/unit2/project/"
+    title="Project"
+  >
+    <i class="nav-menu fas fa-chevron-circle-left"></i>
+  </a>
+  
+</p>
+
+  
+  <a href="#" class="mb-1 mt-1 text-left">
+    <i
+      class="nav-menu fas fa-chevron-circle-up"
+      aria-label="Scroll to top"
+    ></i>
+  </a>
+  <p class="mb-1 mt-1 text-left">
+    <i
+      title="Copy URL to share"
+      class="nav-menu fas fa-share-alt"
+    ></i>
+  </p>
+</div>
+
+<script>
+  function displayCopyMessage(bool) {
+    let alertMessage = "";
+    if (bool) {
+      alertMessage = "Link copied to clipboard";
+    } else {
+      alertMessage = "Link could not be copied to clipboard";
+    }
+    let copiedMessage = document.createElement("div");
+    copiedMessage.id = "copiedMessage";
+    copiedMessage.textContent = alertMessage;
+    copiedMessage.classList.add(
+      "bg-warning",
+      "shadow",
+      "d-block",
+      "text-center"
+    );
+    document.body.appendChild(copiedMessage);
+
+    setTimeout(function() {
+      copiedMessage.style.opacity = 0;
+    }, 500);
+    setTimeout(function() {
+      document.body.removeChild(copiedMessage);
+    }, 1500);
+  }
+
+  let clipboard = new ClipboardJS(".fa-share-alt", {
+    text: function() {
+      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/unit2\/devcloud\/";
+    }
+  });
+
+  clipboard.on("success", function() {
+    displayCopyMessage(true);
+  });
+
+  clipboard.on("error", function() {
+    displayCopyMessage(false);
+  });
+</script>
+
+    <footer class="d-flex flex-row flex-wrap justify-content-between">
+  <div class="d-flex flex-column">
+    <span class="mb-1">
+      Universidad del Bío-Bío, Chile
+      &middot;
+      2021
+    </span>
+  </div>
+
+    <div class="row">
+      <div class="column" style="
+      width: 100%;">Sponsors:</div>
+      <div class="column" style="
+      width: 120px;
+      margin-left: 65px;"><img src="images/ici_web.png" height="40%" ></div>
+      <div class="column" style="
+      width: 120px;
+      margin-left: 10px;"><img src="images/intel_web.png" height="20%" ></div>
+    </div> 
+
+  </footer>
+
+  </body>
+</html>

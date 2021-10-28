@@ -8,6 +8,19 @@
     <language>en-us</language>
     <lastBuildDate>Mon, 06 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>DPC&#43;&#43;</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/dpcpp/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/dpcpp/</guid>
+      <description>Enlaces con material de interés:
+ Libro Data Parallel C++ Ejemplos en C++ Ejemplos de DPC++  Siempre utilizar en el código:
+#include &amp;lt;CL/sycl.hpp&amp;gt;  Using namespace sycl; 1. Gestión de Memoria  Malloc Para gestionar la memoria utilizar enfoque basado en punteros, más específicamente Malloc. Por ejemplo, crear locación de memoria para compartir:
+char *ejemplo = malloc_shared&amp;lt;char&amp;gt;(variable,queue); En SYCL se puede utilizar 3 tipos: malloc_host, malloc_shared y malloc_device:
+int* host_array = malloc_host(N, Q); int* shared_array = malloc_shared(N, Q); int* device_array = malloc_device(N, Q); Características:</description>
+    </item>
+    
+    <item>
       <title>Introduction</title>
       <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/intro/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
@@ -21,6 +34,56 @@ Overview of heterogeneous architectures, their history and evolution over time.
     </item>
     
     <item>
+      <title>Lab 1</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/lab1/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/lab1/</guid>
+      <description>Laboratorio 1</description>
+    </item>
+    
+    <item>
+      <title>Compute Models</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/compute_models/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/compute_models/</guid>
+      <description>In this session we review different compute models used in modern computer machines. We begin with the Flynn&amp;rsquo;s taxonomy, and look at the evolution of models used in modern architectures.
+7-compute_models.pdf
+#the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
+    </item>
+    
+    <item>
+      <title>Project</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/project/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/project/</guid>
+      <description>Programming Project</description>
+    </item>
+    
+    <item>
+      <title>DevCloud</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/devcloud/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/devcloud/</guid>
+      <description>Configuración VS Code + DevCloud La guía paso a paso de conexión a DevCloud con VS Code está disponible aquí, en inglés.
+ Prepara la conexión SSH  Descarga el archivo de configuración automatizada correspondiente a tu usuario, disponible en el link de la guía. Abre una terminal que soporte bash en la carpeta donde se descargó el archivo y ejecuta el siguiente comando: bash setup-devcloud-access-XXXXX.txt, donde XXXXX es tu ID de usuario.</description>
+    </item>
+    
+    <item>
+      <title>Programming Frameworks</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/frameworks/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/frameworks/</guid>
+      <description>In this session we study two of the main programming frameworks for modern architectures: CUDA and SYCL.
+8-frameworks.pdf
+#the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
+    </item>
+    
+    <item>
       <title>Memory Hierarchy</title>
       <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/memoria/</link>
       <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
@@ -28,6 +91,17 @@ Overview of heterogeneous architectures, their history and evolution over time.
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit1/memoria/</guid>
       <description>In this session we review fundamental concepts about computer system memories. We focus on SRAM and DRAM memories that are part of the memory hierarchy of modern processors and accelerators.
 3-memory.pdf
+#the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
+    </item>
+    
+    <item>
+      <title>OneAPI</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/oneapi/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/oneapi/</guid>
+      <description>In this session we introduce OneAPI and the Devcloud.
+9-devcloud.pdf
 #the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
     </item>
     

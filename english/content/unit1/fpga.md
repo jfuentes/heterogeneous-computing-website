@@ -2,6 +2,7 @@
 title = "FPGA"
 weight = 6
 date = "2019-05-12"
+type = "content"
 +++
 
 In this session we review the FPGA architecture.

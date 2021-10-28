@@ -2,6 +2,7 @@
 title = "Introduction"
 weight = 1
 date = "2019-05-12"
+type = "content"
 +++
 
 Presentation of the course and its syllabus, semester
