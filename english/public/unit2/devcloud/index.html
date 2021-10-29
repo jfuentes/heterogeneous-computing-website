@@ -207,34 +207,34 @@
 </small>
   <h2>DevCloud</h2>
   <div class="rounded">
-    <h2 id="configuración-vs-code--devcloud">Configuración VS Code + DevCloud</h2>
-<p>La guía paso a paso de conexión a DevCloud con VS Code está disponible <a href="https://devcloud.intel.com/oneapi/get_started/baseToolkitSamples/">aquí</a>, en inglés.</p>
+    <h2 id="vs-code--devcloud-configuration">VS Code + DevCloud Configuration</h2>
+<p>The step-by-step guide to connect to DevCloud using VS Code is available <a href="https://devcloud.intel.com/oneapi/get_started/baseToolkitSamples/">here</a>.</p>
 <ol>
-<li>Prepara la conexión SSH
+<li>Setting up the SSH Config
 <ol>
-<li>Descarga el archivo de configuración automatizada correspondiente a tu usuario, disponible en el link de la guía.</li>
-<li>Abre una terminal que soporte bash en la carpeta donde se descargó el archivo y ejecuta el siguiente comando: <code>bash setup-devcloud-access-XXXXX.txt</code>, donde XXXXX es tu ID de usuario.</li>
-<li>Elimina el archivo descargado por razones de seguridad.</li>
-<li>Si por alguna razón hubo problemas con esta configuración, prueba la sección de configuración manual en la guía.</li>
+<li>Download the auto config file customized for your account, available on the guide&rsquo;s website.</li>
+<li>Open a terminal that supports bash in the location of the downloaded file and execute the following command: <code>bash setup-devcloud-access-XXXXX.txt</code>, where XXXXX is your user&rsquo;s ID.</li>
+<li>For safety reasons, remove the downloaded file.</li>
+<li>If the bash command was unsuccessful, try out the guide&rsquo;s manual configuration section.</li>
 </ol>
 </li>
-<li>Descargar VS Code y ejecutarlo.</li>
-<li>Instalar la extensión <code>Remote - SSH</code>.</li>
-<li>Abrir una terminal dentro del programa y conectarse escribiendo <code>ssh devcloud</code>.</li>
+<li>Download VS Code and execute it.</li>
+<li>Install the <code>Remote - SSH</code> extension.</li>
+<li>Open a terminal inside the program and run the command <code>ssh devcloud</code>.</li>
 </ol>
-<h2 id="compilación-y-ejecución-de-programas">Compilación y ejecución de programas</h2>
-<h3 id="compilación">Compilación</h3>
-<p>La compilación dentro del DevCloud se asemeja a la compilación normal de un programa C, con la diferencia que debe utilizarse el compilador dpcpp e incluir los parámetros de compilación correspondientes a openCL y SYCL. Un ejemplo de compilación en la consola se vería de la siguiente manera:</p>
+<h2 id="code-compilation-and-running">Code compilation and running</h2>
+<h3 id="compilation">Compilation</h3>
+<p>Compilation in DevCloud follows almost the same steps a regular C code compilation would, with the difference that the dpcpp compiler must be used, and additional parameters corresponding to openCL and SYCL must be included. An example of a expected compile command would be as follows:</p>
 <blockquote>
-<p><code>dpcpp &lt;opciones&gt; &lt;nombre del archivo&gt; -lOpenCL -lsycl</code></p>
+<p><code>dpcpp &lt;options&gt; &lt;file name&gt; -lOpenCL -lsycl</code></p>
 </blockquote>
-<h3 id="ejecución">Ejecución</h3>
-<p>Para ejecutar los archivos compilados, utilizaremos el modo interactivo de DevCloud. El modo interactivo nos asignará un nodo de cómputo, según cuál le sea solicitado. Podemos solicitar diferentes tipos de nodos, los cuales son CPU multi-core, GPU, FPGA, y MPI.</p>
-<p>Al ingresar al DevCloud, la sesión tendrá por nombre tu nombre de usuario y un login, por ejemplo: [u84751@login-2]. Luego de pedir un nodo, y que se te sea asignado uno, el nombre de tu sesión cambiará con la ID del nodo asignado, por ejemplo: [u84751@s001-141]. Es importante notar que debes esperar a que se te asigne un nodo, dependiendo de la disponibilidad del sistema.</p>
-<p>Para solicitar un nodo, utilizaremos el comando qsub del shell, y le pasaremos los parámetros -I (i mayúscula) y -l (L minúscula), que indican que queremos solicitar una sesión interactiva y que queremos utilizar completamente el nodo, respectivamente. Además, le indicaremos a qsub que queremos 2 procesos por nodo con :ppn=2. A continuación, se presentan los nodos de cómputo que se pueden solicitar junto con sus comandos:</p>
+<h3 id="running-code">Running code</h3>
+<p>To run the compiled files, we will use DevCloud&rsquo;s interactive mode. Interactive mode will assign us a compute node, depending on which one is requested. We can request different types of nodes: Multi-core CPU, GPU, FPGA and MPI.</p>
+<p>When entering DevCloud, the session will be named after your username and a login, for example: [u84751@login-2]. After requesting a node and being assigned one, the name of your session will change with the ID of the assigned node, for example: [u84751@s001-141]. It is important to note that you must wait for a node to be assigned to you, depending on the availability of the system.</p>
+<p>To request a node, we will use the shell command qsub, and we will pass it the parameters -I (uppercase i) and -l (lowercase L), to indicate that we want to request an interactive session and that we want to fully use the node, respectively. Also, we will tell qsub that we want 2 processes per node with :ppn=2. Here are the compute nodes that can be requested along with their commands:</p>
 <ol>
 <li>
-<p>Multi-core</p>
+<p>Multi-core CPU</p>
 <blockquote>
 <p><code>qsub -I -l nodes=1:xeon:ppn=2</code></p>
 </blockquote>
@@ -253,22 +253,22 @@
 </li>
 <li>
 <p>MPI</p>
-<p>Para correr aplicaciones MPI en DevCloud se deben solicitar múltiples nodos en modo interactivo con el comando qsub. Por ejemplo, el siguiente comando solicita dos nodos de cómputo GPU:</p>
+<p>To run MPI applications in DevCloud, multiple nodes in interactive nodes must be requested using the qsub command. For example, the following command requests two GPU computing nodes:</p>
 <blockquote>
 <p><code>qsub -I -l nodes=2:gpu:ppn=2 -d .</code></p>
 </blockquote>
-<p>El siguiente comando obtiene todas las configuraciones de los nodos en DevCloud:</p>
+<p>The following command gets the configurations of all requested nodes:</p>
 <blockquote>
 <p><code>pbsnodes | grep properties | sort –u</code></p>
 </blockquote>
-<p>Una vez que los nodos sean asignados, se puede utilizar el siguiente comando para obtener los nombres de los nodos:</p>
+<p>Once all nodes have been asigned, the following command can be used to fetch the nodes' names:</p>
 <blockquote>
 <p><code>qstat –xf</code></p>
 </blockquote>
 </li>
 </ol>
-<p>Luego de solicitar un nodo, puede utilizarse el comando clinfo para obtener información sobre el nodo asignado.
-Para más información sobre qsub y los nodos que se pueden solicitar, consulte el siguiente <a href="https://devcloud.intel.com/oneapi/documentation/job-submission/">link</a>.</p>
+<p>After requesting a node, the clinfo command can be used to get more information about the assigned node.
+For more information about the qsub command and the nodes that can be requested, follow the next <a href="https://devcloud.intel.com/oneapi/documentation/job-submission/">link</a>.</p>
 
   </div>
 </div>

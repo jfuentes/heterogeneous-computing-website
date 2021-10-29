@@ -55,8 +55,8 @@ int* host_array = malloc_host(N, Q); int* shared_array = malloc_shared(N, Q); in
       <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
       
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/devcloud/</guid>
-      <description>Configuración VS Code + DevCloud La guía paso a paso de conexión a DevCloud con VS Code está disponible aquí, en inglés.
- Prepara la conexión SSH  Descarga el archivo de configuración automatizada correspondiente a tu usuario, disponible en el link de la guía. Abre una terminal que soporte bash en la carpeta donde se descargó el archivo y ejecuta el siguiente comando: bash setup-devcloud-access-XXXXX.txt, donde XXXXX es tu ID de usuario.</description>
+      <description>VS Code + DevCloud Configuration The step-by-step guide to connect to DevCloud using VS Code is available here.
+ Setting up the SSH Config  Download the auto config file customized for your account, available on the guide&amp;rsquo;s website. Open a terminal that supports bash in the location of the downloaded file and execute the following command: bash setup-devcloud-access-XXXXX.txt, where XXXXX is your user&amp;rsquo;s ID. For safety reasons, remove the downloaded file.</description>
     </item>
     
     <item>
