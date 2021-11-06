@@ -59,7 +59,9 @@ Presentación de arquitecturas heterogéneas, su historia y evolución sobre el 
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/proyecto/</guid>
-      <description>Proyecto de programación</description>
+      <description>Propagación de calor en metales La ecuación de Laplace es una ecuación parcial de segundo orden que es usada en muchos problemas en física, incluídos electroestática, flujo de fluídos, temperatura, etc.
+En su forma más básica puede ser expresada como: $$\nabla^2f(x,y)=0 $$
+En particular, para resolver problemas de simulación y propagación de temperatura se ha propuesto la iteración de Jacobi. Esta iteración establece que la ecuación de Laplace aplicada en una matriz de puntos, un punto de esta matriz es el promedio de sus vecinos.</description>
     </item>
     
     <item>

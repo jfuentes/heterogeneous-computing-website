@@ -31,6 +31,10 @@
 
   <script src="/~jfuentes/classes/ch/js/myFunctions.js"></script>
   <script src="/~jfuentes/classes/ch/js/clipboard.min.js"></script>
+
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
   <body class="container" style="max-width: 1024px;">
@@ -207,7 +211,82 @@
 </small>
   <h2>Proyecto</h2>
   <div class="rounded">
-    <p>Proyecto de programación</p>
+    <h2 id="propagación-de-calor-en-metales">Propagación de calor en metales</h2>
+<p>La ecuación de Laplace es una ecuación parcial de segundo orden que es usada en muchos problemas en física, incluídos electroestática, flujo de fluídos, temperatura, etc.</p>
+<p>En su forma más básica puede ser expresada como:
+$$\nabla^2f(x,y)=0 $$</p>
+<p>En particular, para resolver problemas de simulación y propagación de temperatura se ha propuesto la iteración de Jacobi. Esta iteración establece que la ecuación de Laplace aplicada en una matriz de puntos, un punto de esta matriz es el promedio de sus vecinos. En consecuencia, se puede converger a un estado  mediante el cómputo iterativo de nuevos valores para cada punto de la matriz usando el promedio de los puntos vecinos. La siguiente imagen muestra el cálculo del promedio de vecinos realizado en cada iteración de Jacobi:</p>
+<p align="center">
+  <img src="../../images/neighbors.png">
+</p>
+<p>$$A_{k+1}(i,j)=\frac{A_k(i-1,j)+A_k(i+1,j)+A_k(i,j-1)+A_k(i,j+1)}{4} $$</p>
+<p>De esta forma, para calcular el valor \(A(i, j)\) de la iteración \(k+1\), se calcula el promedio del valor de sus vecinos obtenido en la iteracion \(k\).</p>
+<p>En este proyecto, usted debe implementar un simulador de propagación de calor en metales. Suponga que existe un metal de ciertas dimensiones al cual se le aplica una fuente de calor en su extremo. Al pasar el tiempo, el calor comienza a propagarse a través del metal hasta alcanzar un estado de estabilización (estado final estable). Este comportamiento puede ser modelado mediante iteraciones de Jacobi y la ecuación de Laplace descritas anteriormente. La siguiente figura muestra un ejemplo gráfico del estado inicial de una placa de metal y el estado final de estabilización con la programación de calor.</p>
+<p align="center">
+  <img src="../../images/metal.png">
+</p>
+<p>La placa de metal la podemos modelar computacionalmente mediante una matriz de valores que indiquen la temperatura de cada uno de sus puntos. Sin embargo, el cálculo para realizar la simulación de propagación de calor tomará mucho tiempo de forma secuencial, ya que se deben realizar cientos de iteraciones con el cálculo del promedio de vecinos. Es por esto que se requiere que usted implemente una versión paralela utilizando DPC++.</p>
+<p>El cálculo principal a implementar para generar la simulación está dado por el siguiente código secuencial:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">
+    <span style="color:#75715e">// Iterar hasta alcanzar un estado de estabilización o número máximo de iteraciones
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> ( dt <span style="color:#f92672">&gt;</span> MAX_TEMP_ERROR <span style="color:#f92672">&amp;&amp;</span> iteration <span style="color:#f92672">&lt;=</span> max_iterations ) {
+
+        <span style="color:#75715e">// Cálculo principal:
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// Por cada posición de la matriz calcular el promedio de los vecinos
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span>(i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> ROWS; i<span style="color:#f92672">++</span>) {
+            <span style="color:#66d9ef">for</span>(j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> COLUMNS; j<span style="color:#f92672">++</span>) {
+                Temperature[i][j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.25</span> <span style="color:#f92672">*</span> (Temperature_last[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][j] <span style="color:#f92672">+</span> Temperature_last[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][j] <span style="color:#f92672">+</span>
+                                            Temperature_last[i][j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> Temperature_last[i][j<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]);
+            }
+        }
+
+        dt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>; <span style="color:#75715e">// resetear cambio de temperatura más grande
+</span><span style="color:#75715e"></span>
+        <span style="color:#75715e">// Copiar matriz y encontrar el máximo cambio de calor
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span>(i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> ROWS; i<span style="color:#f92672">++</span>){
+            <span style="color:#66d9ef">for</span>(j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> COLUMNS; j<span style="color:#f92672">++</span>){
+	            dt <span style="color:#f92672">=</span> fmax( fabs(Temperature[i][j]<span style="color:#f92672">-</span>Temperature_last[i][j]), dt);
+	            Temperature_last[i][j] <span style="color:#f92672">=</span> Temperature[i][j];
+            }
+        }
+    }
+    
+</code></pre></div><p>El ciclo <em>while</em> controla el término de la iteración de Jacobi, se continuará con iteraciones mientras no se alcance un nivel de estabilidad de calor (<em>dt &gt; MAX_TEMP_ERROR</em>) y el número máximo de iteraciones no se alcance (<em>iteration &lt;= max_iterations</em>). Las estructuras <em>for</em> internas corresponden a cálculos que deben ser paralelizados. El primer <em>for</em> anidado calcula el promedio de vecinos para cada posición de la matriz, y el segundo <em>for</em> anidado copia los nuevos valores calculados entre matrices y encontra el máximo cambio de calor entre la iteración anterior y actual. Notar que al momento de paralelizar la búsqueda del máximo cambio de calor en el segundo <em>for</em> anidado todos los hilos deben actualizar la variable <em>dt</em>, por lo que es necesario utilizar alguna técnica de reducción y/o sincronización.</p>
+<p>En su implementación debe utilizar técnicas disponibles en DPC++ para acelerar este procesamiento en Multi-core CPU, GPU o FPGA. Para esto debe considerar los siguientes aspectos:</p>
+<ol>
+<li>Declaración de buffers para el almacenamiento de datos</li>
+<li>Paralelizar el procesamiento mediante el uso de <em>parallel_for</em>, <em>range</em> y <em>nd_range</em></li>
+<li>Sincronización en la actualización de datos compartidos por múltiples hilos</li>
+</ol>
+<h3 id="implementación-y-entrega">Implementación y Entrega</h3>
+<ul>
+<li>El proyecto puede ser realizado en equipos de a lo más 2 integrantes</li>
+<li>La entrega se realiza mediante Github Classroom. Debe crear un nuevo equipo de trabajo en el siguiente link</li>
+<li>El código inicial incluye una versión secuencial del problema. Usted debe implementar su solución en la función <em>laplace_parallel</em> usando DPC++.</li>
+<li>Su implementación debe cumplir dos objetivos:
+<ul>
+<li>El cálculo de la simulación de temperaturas debe ser correcto</li>
+<li>Su implementación debe ser más eficiente en rendimiento que la implementación secuencial. Actualmente el rendimiento es medido contabilizando el tiempo en resolver la simulación</li>
+</ul>
+</li>
+<li>Al evaluar las entregas, se realizará un ranking con las implementaciones más eficientes. Esto será considerado en la calificación final.</li>
+<li>Entregas:
+<ul>
+<li>Primera entrega:
+<ul>
+<li>Implementación en DPC++ de la simulación funcionando correctamente.</li>
+<li><strong>Martes 30 de Noviembre, 11:59 PM.</strong></li>
+</ul>
+</li>
+<li>Entrega final:
+<ul>
+<li>Implementación en DPC++ de la simulación funcionando correctamente con mejoras en rendimiento.</li>
+<li><strong>Jueves 23 de Diciembre, 11:59 PM.</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
   </div>
 </div>

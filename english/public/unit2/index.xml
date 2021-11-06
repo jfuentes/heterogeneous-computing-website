@@ -13,11 +13,14 @@
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/dpcpp/</guid>
-      <description>Enlaces con material de interés:
- Libro Data Parallel C++ Ejemplos en C++ Ejemplos de DPC++  Siempre utilizar en el código:
-#include &amp;lt;CL/sycl.hpp&amp;gt;  Using namespace sycl; 1. Gestión de Memoria  Malloc Para gestionar la memoria utilizar enfoque basado en punteros, más específicamente Malloc. Por ejemplo, crear locación de memoria para compartir:
-char *ejemplo = malloc_shared&amp;lt;char&amp;gt;(variable,queue); En SYCL se puede utilizar 3 tipos: malloc_host, malloc_shared y malloc_device:
-int* host_array = malloc_host(N, Q); int* shared_array = malloc_shared(N, Q); int* device_array = malloc_device(N, Q); Características:</description>
+      <description>Links:
+  Data Parallel C++ Book
+  Examples in C++
+  Examples in DPC++
+  Always use in code:
+#include &amp;lt;CL/sycl.hpp&amp;gt; Using namespace sycl; 1. Memory Management  Malloc To manage memory use a pointer-based approach, more specifically Malloc. For example, create memory location to share:
+char *example = malloc_shared&amp;lt;char&amp;gt;(variable,queue); In SYCL you can use 3 types: malloc_host, malloc_shared and malloc_device:
+int* host_array = malloc_host(N, Q); int* shared_array = malloc_shared(N, Q); int* device_array = malloc_device(N, Q); Characteristics:</description>
     </item>
     
     <item>

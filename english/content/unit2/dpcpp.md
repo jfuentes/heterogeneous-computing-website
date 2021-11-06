@@ -1,126 +1,140 @@
-+++
-title = "DPC++"
-weight = 1
-date = "2019-05-12"
-type = "wiki"
++++ 
+title = "DPC++" 
+weight = 1 
+date = "2019-05-12" 
+type = "wiki" 
 +++
 
   
 
-Enlaces con material de interés:  
-
-- [Libro Data Parallel C++](https://link.springer.com/content/pdf/10.1007%2F978-1-4842-5574-2.pdf)
-- [Ejemplos en C++](https://github.com/oneapi-src/oneAPI-samples/tree/master/DirectProgramming/C%2B%2B)
-- [Ejemplos de DPC++](https://github.com/oneapi-src/oneAPI-samples/tree/master/DirectProgramming/DPC%2B%2B)
+Links:
 
   
 
-Siempre utilizar en el código:
+-  [Data Parallel C++ Book](https://link.springer.com/content/pdf/10.1007%2F978-1-4842-5574-2.pdf)
+
+-  [Examples in C++](https://github.com/oneapi-src/oneAPI-samples/tree/master/DirectProgramming/C%2B%2B)
+
+-  [Examples in DPC++](https://github.com/oneapi-src/oneAPI-samples/tree/master/DirectProgramming/DPC%2B%2B)
+
+  
+
+Always use in code:
+
 ```cpp
-  #include <CL/sycl.hpp> 
-  Using namespace  sycl;
+#include  <CL/sycl.hpp>
+
+Using namespace  sycl;
 ```
 
-### 1. Gestión de Memoria
+  
+
+### 1. Memory Management
 ------
-
 #### Malloc
-Para gestionar la memoria utilizar enfoque basado en punteros, más específicamente Malloc.
-Por ejemplo, crear locación de memoria para compartir:
+To manage memory use a pointer-based approach, more specifically Malloc. 
+For example, create memory location to share:
 
 ```cpp
-  char *ejemplo = malloc_shared<char>(variable,queue);
+char *example = malloc_shared<char>(variable,queue);
 ```
-En SYCL se puede utilizar 3 tipos: *malloc_host*, *malloc_shared* y *malloc_device*:
+
+In SYCL you can use 3 types: *malloc_host*, *malloc_shared* and *malloc_device*:
 
 ```Cpp
-  int* host_array = malloc_host(N, Q);
-  int* shared_array = malloc_shared(N, Q);
-  int* device_array = malloc_device(N, Q);
+int* host_array = malloc_host(N, Q);
+int* shared_array = malloc_shared(N, Q);
+int* device_array = malloc_device(N, Q);
 ```
-Características:
-Type | Description | Accessible on host? | Accessible on device? | Located on
----|---|---|---|---
-**device**| Allocation in device memory| No | Yes | device
-**host** | Allocations in host memory| Yes|Yes| host
-**shared**| Allocations shared between host and device|Yes|Yes|can migrate back and forth
 
-<br/><br/>
+Characteristics:
+
+Type | Description | Accessible on host? | Accessible on device? | Located on
+--- | --- | --- | --- | ---
+**device** | Allocation in device memory | No |Yes | device
+**host** | Allocations in host memory | Yes | Yes | host
+**shared** | Allocations shared between host and device | Yes | Yes | can migrate back and forth
+
+  <br><br>
 
 #### Buffer
 
-Otra opción  es  la utilización  de  buffers: 
-La forma más fácil de declararlos es indicando en su constructor la fuente de datos: arreglo, vector, puntero, etc.
-
-Ejemplo:
+Another option is the use of buffers:
+The easiest way to declare them is by indicating the data source in their constructor: array, vector, pointer, etc.
+Example:
 ```cpp
-  buffer  my_buffer(my_data);
+buffer  my_buffer(my_data);
 ```
 
-Para acceder a estos se debe utilizar un "accessor"
-Ejemplo: 
+  
+
+To access these you must use an 'accessor'
+
+Example:
 ```cpp
-  accessor my_accessor(my_buffer, h)
+accessor  my_accessor(my_buffer, h)
 ```
 
-| Tipos de accesos | Descripción|
+  
+
+Access type| Description|
 | ---|---|
-| **read_only** | Read only access | 
-| **write_only** | Write only access |
-| **read_write** | Read and write access |
+| *read_only* | Read only access |
+| *write_only* | Write only access |
+| *read_write* | Read and write access |
 
-&NewLine;
-&NewLine;
-
-### 2. Implementación y gestión de Kernels
+<br><br>
+  
+### 2. Implementation and management of Kernels
 ------
-#### Colas (Queue)
-Las colas (queue) nos permiten conectar con los dispositivos (device), con ellas enviamos kernels para ejecutar trabajo y mover datos.
- 
+#### Queues
+The queues allow us to connect with the devices, with them we send kernels to execute work and move data.
 ```cpp
-  Queue <nombre cola>;
+Queue <queue name>;
 ```
 
+  
 
 #### Parallel_for
-Permite definir un bucle paralelo que será ejecutado por muchos hilos dependiendo del número de iteraciones. En su versión simplificada, el compilador realiza la división del trabajo (iteraciones) en los hilos.
-
+It allows to define a parallel loop that will be executed by many threads depending on the number of iterations. In its simplified version, the compiler performs the division of work (iterations) in the threads.
 ```cpp
-  h.parallel_for(range{N} , [=](id<1> idx ) {
-```
-Como se pueden dar cuenta es como una función lambda, la función toma dos argumentos, el primero se llama rango el cual especifica el número de elementos para lanzar en cada dimensión y el segundo es una función del kernel que se ejecutará para cada índice del rango.
-Nota: Pueden utilizar para varias dimensiones, para dos dimensiones sería:
-```cpp
-  h.parallel_for(range{N, M}, [=](id<2> idx)
+h.parallel_for (range {N}, [=] (id <1> idx) {
 ```
 
- Un ejemplo completo en código:
-```cpp
-   
-    #include <CL/sycl.hpp>
-    #include <array>
-    #include <iostream>
-    using namespace sycl;
-   
-    int main(){
-		constexpr int size = 16;
-		std::array<int, size> data;
-		//Se crea una cola
-		queue Q;
-		//Creación del buffer
-		buffer B { data };
+As you can see it is like a lambda function, the function takes two arguments, the first is called a range which specifies the number of elements to throw in each dimension and the second is a kernel function that will be executed for each index of the range .
 
-		Q.submit([&](handler& h){
-			accessor A{B,h};
-			h.parallel_for(size, [=](auto& idx){
-				A[idx] = idx;
-			});
+Note: They can use for several dimensions, for two dimensions it would be:
+```cpp
+h.parallel_for (range {N, M}, [=] (id <2> idx)
+```
+<br><br> 
+
+**A complete code example:**
+```cpp
+#include <CL/sycl.hpp>
+#include <array>
+#include <iostream>
+
+using namespace sycl;
+
+int main(){
+	constexpr int size = 16;
+	std::array<int, size> data;
+
+	queue Q;
+	buffer B { data };
+	Q.submit([&](handler& h){
+	accessor A{B,h};
+
+	h.parallel_for(size, [=](auto& idx){
+		A[idx] = idx;
 		});
+	});
 
-		host_accessor A{B};
-		for(int i=0; i<size; i++)
-		std::cout << "data" << i << " = " << A[i]  << "\n";
-		
-		return 0;
-	}
-```
+
+	host_accessor A{B};
+	for(int i=0; i<size; i++)
+	std::cout << "data" << i << " = " << A[i] << "\n";
+
+return 0;
+}
