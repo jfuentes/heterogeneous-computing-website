@@ -71,7 +71,7 @@ En su implementación debe utilizar técnicas disponibles en DPC++ para acelerar
 
 ### Implementación y Entrega
 - El proyecto puede ser realizado en equipos de a lo más 2 integrantes
-- La entrega se realiza mediante Github Classroom. Debe crear un nuevo equipo de trabajo en el siguiente link
+- La entrega se realiza mediante Github Classroom.
 - El código inicial incluye una versión secuencial del problema. Usted debe implementar su solución en la función *laplace_parallel* usando DPC++.
 - Su implementación debe cumplir dos objetivos: 
     - El cálculo de la simulación de temperaturas debe ser correcto
