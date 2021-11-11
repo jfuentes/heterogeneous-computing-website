@@ -32,8 +32,9 @@ La Tabla 1.1 muestra un ejemplo de los vectores A, B y C luego de realizar las o
 descritas anteriormentes. Por ejemplo, la operación en el índice 0 corresponde a la suma C[0] =
 A[0] + B[0] resultando 9. La operación en el índice 1 corresponde a la resta C[1] = A[1] 􀀀 B[1]
 resultando -7.
-Para la implementación del kernel se recomienda el uso de buers, accessors y parallel_for. En
+Para la implementación del kernel se recomienda el uso de buffers, accessors y parallel_for. En
 el siguiente link encontrará una Wiki con detalles sobre su uso en DPC++: 
+
 http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp
 
 |Indices|0|1|2|3|4|5|6|7|8|9|
@@ -46,6 +47,7 @@ C|9|-7|9|-3|9|-1|9|5|9|9|
 
  
 Para probar su implementación, se recomienda ejecutarlo en servidores Devcloud. En el siguiente
-link encontrará una Wiki con detalles sobre la conguración del entorno de desarrollo Devcloud y
+link encontrará una Wiki con detalles sobre la configuración del entorno de desarrollo Devcloud y
 compilación con DPC++: 
+
 http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud
