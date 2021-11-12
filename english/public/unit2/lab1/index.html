@@ -31,6 +31,10 @@
 
   <script src="/~jfuentes/classes/hc/js/myFunctions.js"></script>
   <script src="/~jfuentes/classes/hc/js/clipboard.min.js"></script>
+
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
   <body class="container" style="max-width: 1024px;">
@@ -207,7 +211,30 @@
 </small>
   <h2>Lab 1</h2>
   <div class="rounded">
-    <p>Laboratorio 1</p>
+    <p><strong>Professor</strong>: Joel Fuentes</p>
+<p><strong>Assistants:</strong> Daniel López, Sebastián González</p>
+<h2 id="description">Description</h2>
+<p>In this lab you will implement a DPC++ program that contains one or more kernels that perform operations on vectors. The goal is for vector operations to be run in parallel on an accelerator (multi-core CPU, GPU, or FPGA).</p>
+<p>Consider that there are 3 vectors A,B and C. The operations to be carried out in parallel on these vectors are:</p>
+<ol>
+<li>
+<p>Assign incremental consecutive values to vector A.</p>
+</li>
+<li>
+<p>Assign decremental consecutive values to vector B.</p>
+</li>
+<li>
+<p>Perform arithmetic operations between A and B by saving the result in C. If the index of the vectors is even you must perform addition, if the index is odd you must perform subtraction.</p>
+</li>
+</ol>
+<p>Figure 1 shows an example of vectors A, B and C after performing operations described above.</p>
+<p>For example, the operation on index 0 corresponds to the sum C[0] = A[0] + B[0] resulting in 9. The operation in index 1 corresponds to the subtraction C[1] = A[1] - B[1] resulting in -7.</p>
+<p>For kernel implementation, the use of buffers, accessors, and parallel_for is recommended. In the following link will find a Wiki with details about its use in DPC++: <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/dpcpp">http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/dpcpp</a></p>
+<p align="center">
+  <img src="../../images/vectors.png" style="height:40%;width:40%">
+</p>
+<center>Figure 1: Example vectors A, B and C.</center>
+<p>To test your deployment, we recommend running it on Devcloud servers. In the following link you will find a Wiki with details about the the Devcloud environment configuration  and compilation with DPC++: <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/devcloud/">http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/devcloud/</a></p>
 
   </div>
 </div>
@@ -307,10 +334,10 @@
       width: 100%;">Sponsors:</div>
       <div class="column" style="
       width: 120px;
-      margin-left: 65px;"><img src="images/ici_web.png" height="40%" ></div>
+      margin-left: 65px;"><img src="http://www.face.ubiobio.cl/~jfuentes/classes/hc/images/ici_web.png" height="40%" ></div>
       <div class="column" style="
       width: 120px;
-      margin-left: 10px;"><img src="images/intel_web.png" height="20%" ></div>
+      margin-left: 10px;"><img src="http://www.face.ubiobio.cl/~jfuentes/classes/hc/images/intel_web.png" height="20%" ></div>
     </div> 
 
   </footer>

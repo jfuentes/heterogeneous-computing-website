@@ -31,6 +31,10 @@
 
   <script src="/~jfuentes/classes/hc/js/myFunctions.js"></script>
   <script src="/~jfuentes/classes/hc/js/clipboard.min.js"></script>
+
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
   <body class="container" style="max-width: 1024px;">
@@ -268,7 +272,7 @@ For example, create memory location to share:</p>
 </tr>
 </tbody>
 </table>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><br><br></p>
 <h4 id="buffer">Buffer</h4>
 <p>Another option is the use of buffers:
 The easiest way to declare them is by indicating the data source in their constructor: array, vector, pointer, etc.
@@ -299,7 +303,7 @@ Example:</p>
 </tr>
 </tbody>
 </table>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><br><br></p>
 <h3 id="2-implementation-and-management-of-kernels">2. Implementation and management of Kernels</h3>
 <hr>
 <h4 id="queues">Queues</h4>
@@ -311,7 +315,7 @@ Example:</p>
 </code></pre></div><p>As you can see it is like a lambda function, the function takes two arguments, the first is called a range which specifies the number of elements to throw in each dimension and the second is a kernel function that will be executed for each index of the range .</p>
 <p>Note: They can use for several dimensions, for two dimensions it would be:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">h.parallel_for (range {N, M}, [<span style="color:#f92672">=</span>] (id <span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span> idx)
-</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+</code></pre></div><p><br><br></p>
 <p><strong>A complete code example:</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;CL/sycl.hpp&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;array&gt;</span><span style="color:#75715e">
@@ -434,10 +438,10 @@ Example:</p>
       width: 100%;">Sponsors:</div>
       <div class="column" style="
       width: 120px;
-      margin-left: 65px;"><img src="images/ici_web.png" height="40%" ></div>
+      margin-left: 65px;"><img src="http://www.face.ubiobio.cl/~jfuentes/classes/hc/images/ici_web.png" height="40%" ></div>
       <div class="column" style="
       width: 120px;
-      margin-left: 10px;"><img src="images/intel_web.png" height="20%" ></div>
+      margin-left: 10px;"><img src="http://www.face.ubiobio.cl/~jfuentes/classes/hc/images/intel_web.png" height="20%" ></div>
     </div> 
 
   </footer>

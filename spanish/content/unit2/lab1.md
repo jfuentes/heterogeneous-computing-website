@@ -25,7 +25,7 @@ vectores es par se debe realizar suma, si el índice es impar se debe realizar r
   
 
 
-La Tabla 1.1 muestra un ejemplo de los vectores A, B y C luego de realizar las operaciones
+La Figura 1 muestra un ejemplo de los vectores A, B y C luego de realizar las operaciones
 descritas anteriormentes. Por ejemplo, la operación en el índice 0 corresponde a la suma C[0] =
 A[0] + B[0] resultando 9. La operación en el índice 1 corresponde a la resta C[1] = A[1] 􀀀 B[1]
 resultando -7.
@@ -36,7 +36,7 @@ el siguiente link encontrará una Wiki con detalles sobre su uso en DPC++: http:
   <img src="../../images/vectors.png" style="height:40%;width:40%">
 </p>
 
-<center>Tabla 1.1: Ejemplo vector A, B y C.</center>
+<center>Figura 1: Ejemplo vector A, B y C.</center>
 
  
 Para probar su implementación, se recomienda ejecutarlo en servidores Devcloud. En el siguiente
