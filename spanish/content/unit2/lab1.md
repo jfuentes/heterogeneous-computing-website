@@ -5,14 +5,11 @@ date = "2019-05-12"
 type = "practice"
 +++
 
-# Lab 1
- 
-
 **Profesor**: Joel Fuentes
 
 **Ayudantes:** Daniel López, Sebastián González
 
-## 1 Descripción
+## Descripción
 
 
 En este laboratorio Ud. deberá implementar un programa en DPC++ que contenga uno o más
@@ -33,21 +30,15 @@ descritas anteriormentes. Por ejemplo, la operación en el índice 0 corresponde
 A[0] + B[0] resultando 9. La operación en el índice 1 corresponde a la resta C[1] = A[1] 􀀀 B[1]
 resultando -7.
 Para la implementación del kernel se recomienda el uso de buffers, accessors y parallel_for. En
-el siguiente link encontrará una Wiki con detalles sobre su uso en DPC++: 
+el siguiente link encontrará una Wiki con detalles sobre su uso en DPC++: http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp
 
-http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp
+<p align="center">
+  <img src="../../images/vectors.png" style="height:40%;width:40%">
+</p>
 
-|Indices|0|1|2|3|4|5|6|7|8|9|
-|--- | --- | ---|--- | --- | ---|--- | --- | ---| --- |---|
-|A|0|1|2|3|4|5|6|7|8|9|
-|B|9|8|7|6|5|4|3|2|1|0|
-C|9|-7|9|-3|9|-1|9|5|9|9|
-
-> Tabla 1.1: Ejemplo vector A, B y C.
+<center>Tabla 1.1: Ejemplo vector A, B y C.</center>
 
  
 Para probar su implementación, se recomienda ejecutarlo en servidores Devcloud. En el siguiente
 link encontrará una Wiki con detalles sobre la configuración del entorno de desarrollo Devcloud y
-compilación con DPC++: 
-
-http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud
+compilación con DPC++: http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud

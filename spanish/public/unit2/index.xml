@@ -26,7 +26,10 @@ int* host_array = malloc_host(N, Q); int* shared_array = malloc_shared(N, Q); in
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/lab1/</guid>
-      <description>Laboratorio 1</description>
+      <description>Profesor: Joel Fuentes
+Ayudantes: Daniel López, Sebastián González
+Descripción En este laboratorio Ud. deberá implementar un programa en DPC++ que contenga uno o más kernels que realicen operaciones sobre vectores. El objetivo es que las operaciones en vectores se ejecuten en paralelo en un acelerador (CPU multi-core, GPU o FPGA). Considere que existen 3 vectores A, B y C. Las operaciones a realizar en paralelo sobre estos vectores son:
+ Asignar valores consecutivos incrementales al vector A.</description>
     </item>
     
     <item>

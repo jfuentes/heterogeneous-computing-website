@@ -211,7 +211,33 @@
 </small>
   <h2>Lab 1</h2>
   <div class="rounded">
-    <p>Laboratorio 1</p>
+    <p><strong>Profesor</strong>: Joel Fuentes</p>
+<p><strong>Ayudantes:</strong> Daniel López, Sebastián González</p>
+<h2 id="descripción">Descripción</h2>
+<p>En este laboratorio Ud. deberá implementar un programa en DPC++ que contenga uno o más
+kernels que realicen operaciones sobre vectores. El objetivo es que las operaciones en vectores se
+ejecuten en paralelo en un acelerador (CPU multi-core, GPU o FPGA).
+Considere que existen 3 vectores A, B y C. Las operaciones a realizar en paralelo sobre estos
+vectores son:</p>
+<ol>
+<li>Asignar valores consecutivos incrementales al vector A.</li>
+<li>Asignar valores consecutivos decrementales al vector B.</li>
+<li>Realizar operaciones aritméticas entre A y B guardando el resultado en C. Si el índice de los
+vectores es par se debe realizar suma, si el índice es impar se debe realizar resta.</li>
+</ol>
+<p>La Tabla 1.1 muestra un ejemplo de los vectores A, B y C luego de realizar las operaciones
+descritas anteriormentes. Por ejemplo, la operación en el índice 0 corresponde a la suma C[0] =
+A[0] + B[0] resultando 9. La operación en el índice 1 corresponde a la resta C[1] = A[1] 􀀀 B[1]
+resultando -7.
+Para la implementación del kernel se recomienda el uso de buffers, accessors y parallel_for. En
+el siguiente link encontrará una Wiki con detalles sobre su uso en DPC++: <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp">http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp</a></p>
+<p align="center">
+  <img src="../../images/vectors.png" style="height:40%;width:40%">
+</p>
+<center>Tabla 1.1: Ejemplo vector A, B y C.</center>
+<p>Para probar su implementación, se recomienda ejecutarlo en servidores Devcloud. En el siguiente
+link encontrará una Wiki con detalles sobre la configuración del entorno de desarrollo Devcloud y
+compilación con DPC++: <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud">http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud</a></p>
 
   </div>
 </div>
@@ -311,10 +337,10 @@
       width: 100%;">Patrocinadores:</div>
       <div class="column" style="
       width: 120px;
-      margin-left: 65px;"><img src="images/ici_web.png" height="40%" ></div>
+      margin-left: 65px;"><img src="http://www.face.ubiobio.cl/~jfuentes/classes/ch/images/ici_web.png" height="40%" ></div>
       <div class="column" style="
       width: 120px;
-      margin-left: 10px;"><img src="images/intel_web.png" height="20%" ></div>
+      margin-left: 10px;"><img src="http://www.face.ubiobio.cl/~jfuentes/classes/ch/images/intel_web.png" height="20%" ></div>
     </div> 
 
   </footer>
