@@ -220,7 +220,15 @@
 <p>Siempre utilizar en el código:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;CL/sycl.hpp&gt; </span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>  Using <span style="color:#66d9ef">namespace</span>  sycl;
-</code></pre></div><h3 id="1-gestión-de-memoria">1. Gestión de Memoria</h3>
+</code></pre></div><p>Pasos de un programa en DPC++</p>
+<ol>
+<li>Crear cola de dispositivo</li>
+<li>Crear buffers</li>
+<li>Encolar kernel(s)</li>
+<li>Crear accessadores</li>
+<li>Especificar función del kernel</li>
+</ol>
+<h3 id="1-gestión-de-memoria">1. Gestión de Memoria</h3>
 <hr>
 <h4 id="malloc">Malloc</h4>
 <p>Para gestionar la memoria utilizar enfoque basado en punteros, más específicamente Malloc.
@@ -304,13 +312,42 @@ Ejemplo:</p>
 <hr>
 <h4 id="colas-queue">Colas (Queue)</h4>
 <p>Las colas (queue) nos permiten conectar con los dispositivos (device), con ellas enviamos kernels para ejecutar trabajo y mover datos.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  Queue <span style="color:#f92672">&lt;</span>nombre cola<span style="color:#f92672">&gt;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  queue <span style="color:#f92672">&lt;</span>nombre cola<span style="color:#f92672">&gt;</span>;
+</code></pre></div><h4 id="single_task">Single_task</h4>
+<p>Permite definir un kernel que ejecute una sola tarea o hilo.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  h.single_task([<span style="color:#f92672">=</span>]) {
+	  ...
+  });
 </code></pre></div><h4 id="parallel_for">Parallel_for</h4>
-<p>Permite definir un bucle paralelo que será ejecutado por muchos hilos dependiendo del número de iteraciones. En su versión simplificada, el compilador realiza la división del trabajo (iteraciones) en los hilos.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  h.parallel_for(range{N} , [<span style="color:#f92672">=</span>](id<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&gt;</span> idx ) {
+<p>Permite definir kernel paralelo que será ejecutado por muchos hilos dependiendo del elementos de procesamiento. En su versión simplificada, el compilador realiza la división del trabajo (iteraciones) en los hilos.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  h.parallel_for(range(N) , [<span style="color:#f92672">=</span>](id<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&gt;</span> idx ) {
+	  ...
+  });
 </code></pre></div><p>Como se pueden dar cuenta es como una función lambda, la función toma dos argumentos, el primero se llama rango el cual especifica el número de elementos para lanzar en cada dimensión y el segundo es una función del kernel que se ejecutará para cada índice del rango.
 Nota: Pueden utilizar para varias dimensiones, para dos dimensiones sería:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  h.parallel_for(range{N, M}, [<span style="color:#f92672">=</span>](id<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span> idx)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  <span style="color:#75715e">// Usando range: NxM elementos de procesamiento
+</span><span style="color:#75715e"></span>  h.parallel_for(range(N, M), [<span style="color:#f92672">=</span>](id<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span> item) {
+	  ...
+  });
+
+  <span style="color:#75715e">// Usando nd_range: NxM elementos de procesamiento y cada grupo de 1x1
+</span><span style="color:#75715e"></span>  h.parallel_for(nd_range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span>(range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span>({N, M}), range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>})), [<span style="color:#f92672">=</span>](nd_item<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span> item) {
+	  ...
+  });
+</code></pre></div><h5 id="range">Range</h5>
+<p>Es una abstracción que describe el número de elementos (hilos o work-items) en cada dimensión. Puede contener 1, 2 o 3 números y está determinada por:</p>
+<ul>
+<li><strong>range</strong>: describe el espacio de iteración de la ejecutación paralela.</li>
+<li><strong>item</strong>: representa una instancia individual de una función kernel . Expone funciones adicionales sobre las propiedades del la ejecución (rango, id, etc.).</li>
+</ul>
+<h5 id="nd_range">ND_Range</h5>
+<p>Permite de expresar paralelismo con alto nivel de precisión en múltiples dimensiones. Recibe como parámetros ranges que definen la organización en el espacio global los hilos y sus grupos. Su funcionalidad se puede expresar mediante las clases nd_range y nd_item.</p>
+<ul>
+<li><strong>nd_range</strong>: representa un la configuración del grupo de ejecución usando rango global y local para cada work group.</li>
+<li><strong>item</strong>: representa una instancia individual de una función kernel . Expone funciones adicionales sobre las propiedades del la ejecución (rango, id, etc.</li>
+</ul>
+<p>El siguiente ejemplo muestra la definición de un ND_Range de 3 dimensiones cuya organización de hilos (work-items) es 12x8x16 y donde estos hilos están organizados en grupos de 6x2x4.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  nd_range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>(range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">16</span>}), range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>}))
 </code></pre></div><p>Un ejemplo completo en código:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">   
     <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;CL/sycl.hpp&gt;</span><span style="color:#75715e">
@@ -334,7 +371,7 @@ Nota: Pueden utilizar para varias dimensiones, para dos dimensiones sería:</p>
 		});
 
 		host_accessor A{B};
-		<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>size; i<span style="color:#f92672">++</span>)
+		<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>)
 		std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;data&#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> A[i]  <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
 		
 		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
