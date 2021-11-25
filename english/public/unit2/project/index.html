@@ -211,7 +211,82 @@
 </small>
   <h2>Project</h2>
   <div class="rounded">
-    <p>Programming Project</p>
+    <h2 id="heat-propagation-in-metals">Heat propagation in metals</h2>
+<p>Laplace&rsquo;s equation is a second-order partial differential equation used to solve problems in multiple branches of science such as electrostatics, fluid dynamics, heat conduction, etc.</p>
+<p>In its most basic form it can be expressed as follows:
+$$\nabla^2f(x,y)=0 $$</p>
+<p>In particular, to solve propagation and simulation problems, the Jacobi iteration is proposed. This iteration establishes that the Laplace equation is applied in a matrix of points, with each point being an average of its adjacent points. Consequently, it is possible to converge to a state by iteratively computing new values for each point in the matrix using the average of the adjacent points. The following image shows the calculation of a given point using the adjacent point&rsquo;s value in each Jacobi iteration:</p>
+<p align="center">
+  <img src="../../images/neighbors.png">
+</p>
+<p>$$A_{k+1}(i,j)=\frac{A_k(i-1,j)+A_k(i+1,j)+A_k(i,j-1)+A_k(i,j+1)}{4} $$</p>
+<p>This way, to calculate the value \(A(i, j)\) of the iteration \(k+1\), the average value of its adjacent points is calculated from the iteration \(k\).</p>
+<p>In this project, you must implement a simulator of heat propagation in metals. Suppose that there exists a metal of given dimensions to which a heat source is applied at one of its ends. As time passes, the heat begins to spread through the metal until it reaches a stable final state. This behavior can be modeled using Jacobi iterations and the Laplace equation described above. The following figure shows a graphic representation of the initial state of a metal plate and the stable final state after the heat has fully propagated.</p>
+<p align="center">
+  <img src="../../images/metal.png">
+</p>
+<p>The metal plate can be computationally modeled by using a matrix of values that indicate the temperature of each of its points. However, the calculation to perform the heat propagation simulation will take a relatively long time to compute sequentially, since hundred of iterations must be performed with the calculation of the average of the adjacent points. Because of this, you are required to implement a parallel solution using DPC++.</p>
+<p>The main calculation used to compute the simulation is given by the following sequential code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">
+    <span style="color:#75715e">// Iterate until reaching a stabilized state or maximum number of iterations
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> ( dt <span style="color:#f92672">&gt;</span> MAX_TEMP_ERROR <span style="color:#f92672">&amp;&amp;</span> iteration <span style="color:#f92672">&lt;=</span> max_iterations ) {
+
+        <span style="color:#75715e">// Main calculation:
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// For each position of the matrix calculate the average of the neighbors
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span>(i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> ROWS; i<span style="color:#f92672">++</span>) {
+            <span style="color:#66d9ef">for</span>(j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> COLUMNS; j<span style="color:#f92672">++</span>) {
+                Temperature[i][j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.25</span> <span style="color:#f92672">*</span> (Temperature_last[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][j] <span style="color:#f92672">+</span> Temperature_last[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][j] <span style="color:#f92672">+</span>
+                                            Temperature_last[i][j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> Temperature_last[i][j<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]);
+            }
+        }
+
+        dt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>; <span style="color:#75715e">// Reset largest temperature difference
+</span><span style="color:#75715e"></span>
+        <span style="color:#75715e">// Copy matrix and find the maximum heat difference
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span>(i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> ROWS; i<span style="color:#f92672">++</span>){
+            <span style="color:#66d9ef">for</span>(j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> COLUMNS; j<span style="color:#f92672">++</span>){
+	            dt <span style="color:#f92672">=</span> fmax( fabs(Temperature[i][j]<span style="color:#f92672">-</span>Temperature_last[i][j]), dt);
+	            Temperature_last[i][j] <span style="color:#f92672">=</span> Temperature[i][j];
+            }
+        }
+    }
+    
+</code></pre></div><p>The <code>while</code> loop controls the end of the Jacobi iteration, and it will continue iterating as long as a heat stability level is not reached <code>(dt&gt; MAX_TEMP_ERROR)</code> and the maximum number of iterations is not reached <code>(iteration &lt;= max_iterations)</code>. The internal <code>for</code> structures correspond to calculations that must be parallelized. The first nested <code>for</code> computes the average of the adjacent points for each position in the array, and the second nested <code>for</code> copies the newly computed values between arrays and finds the maximum heat difference between the previous and current iteration. Note that when parallelizing the search for the maximum heat change in the second nested <code>for</code>, all threads must update the <code>dt</code> variable, so it is necessary to use some reduction and/or synchronization technique.</p>
+<p>Your implementation must use techniques available in DPC++ to speed up the processing on Multi-core CPUs, GPUs, or FPGAs. To achieve this consider the following:</p>
+<ol>
+<li>Buffer declarations for data storage.</li>
+<li>Parallelize the process by using <code>parallel_for</code>, <code>range</code>, and <code>nd_range</code>.</li>
+<li>Data synchronization in data shared by multiple threads.</li>
+</ol>
+<h2 id="implementation-and-submissions">Implementation and Submissions</h2>
+<ul>
+<li>This project can be done in teams of at most two members.</li>
+<li>The submission is to be uploaded using Github Classroom.</li>
+<li>The initial code includes a sequential version of the problem. The solution must be implemented inside the <code>laplace_parallel</code> function using DPC++.</li>
+<li>The implementation must consider two main goals:
+<ul>
+<li>The calculation of the temperature difference must be correct.</li>
+<li>The implementation must be more efficient performance-wise than the sequential implementation. The performance is measured using the execution time of the simulations.</li>
+</ul>
+</li>
+<li>When evaluating submissions, a ranking will be made sorted by the most efficient implementations. - This will be considered to mark the final grade.</li>
+<li>Submission dates:
+<ul>
+<li>First submission:
+<ul>
+<li>Simulation implementation using DPC++ working properly.</li>
+<li>Tuesday 11:59 PM, November 30th, 2021.</li>
+</ul>
+</li>
+<li>Final submission:
+<ul>
+<li>Simulation implementation using DPC++ working properly with performance improvements.</li>
+<li>Thursday 11:59 PM, December 23rd, 2021.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
   </div>
 </div>

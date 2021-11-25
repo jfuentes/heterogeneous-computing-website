@@ -53,7 +53,9 @@ Consider that there are 3 vectors A,B and C. The operations to be carried out in
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/project/</guid>
-      <description>Programming Project</description>
+      <description>Heat propagation in metals Laplace&amp;rsquo;s equation is a second-order partial differential equation used to solve problems in multiple branches of science such as electrostatics, fluid dynamics, heat conduction, etc.
+In its most basic form it can be expressed as follows: $$\nabla^2f(x,y)=0 $$
+In particular, to solve propagation and simulation problems, the Jacobi iteration is proposed. This iteration establishes that the Laplace equation is applied in a matrix of points, with each point being an average of its adjacent points.</description>
     </item>
     
     <item>
