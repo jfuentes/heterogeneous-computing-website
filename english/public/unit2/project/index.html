@@ -223,7 +223,7 @@ $$\nabla^2f(x,y)=0 $$</p>
 <p>This way, to calculate the value \(A(i, j)\) of the iteration \(k+1\), the average value of its adjacent points is calculated from the iteration \(k\).</p>
 <p>In this project, you must implement a simulator of heat propagation in metals. Suppose that there exists a metal of given dimensions to which a heat source is applied at one of its ends. As time passes, the heat begins to spread through the metal until it reaches a stable final state. This behavior can be modeled using Jacobi iterations and the Laplace equation described above. The following figure shows a graphic representation of the initial state of a metal plate and the stable final state after the heat has fully propagated.</p>
 <p align="center">
-  <img src="../../images/metal.png">
+  <img src="../../images/metal-en.png">
 </p>
 <p>The metal plate can be computationally modeled by using a matrix of values that indicate the temperature of each of its points. However, the calculation to perform the heat propagation simulation will take a relatively long time to compute sequentially, since hundred of iterations must be performed with the calculation of the average of the adjacent points. Because of this, you are required to implement a parallel solution using DPC++.</p>
 <p>The main calculation used to compute the simulation is given by the following sequential code:</p>
@@ -287,6 +287,8 @@ $$\nabla^2f(x,y)=0 $$</p>
 </ul>
 </li>
 </ul>
+<hr>
+<p>Reference: Problem adapted from John Urbanic&rsquo;s materials.</p>
 
   </div>
 </div>

@@ -29,7 +29,7 @@ In this project, you must implement a simulator of heat propagation in metals. S
 
 
 <p align="center">
-  <img src="../../images/metal.png">
+  <img src="../../images/metal-en.png">
 </p>
 
 
@@ -89,3 +89,7 @@ Your implementation must use techniques available in DPC++ to speed up the proce
     - Final submission:
         - Simulation implementation using DPC++ working properly with performance improvements.
         - Thursday 11:59 PM, December 23rd, 2021.
+
+---
+
+Reference: Problem adapted from John Urbanic's materials.

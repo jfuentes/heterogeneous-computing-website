@@ -84,3 +84,7 @@ En su implementación debe utilizar técnicas disponibles en DPC++ para acelerar
     - Entrega final: 
         - Implementación en DPC++ de la simulación funcionando correctamente con mejoras en rendimiento. 
         - **Jueves 23 de Diciembre, 11:59 PM.**
+
+---
+
+Referencia: Problema adaptado desde material académico por John Urbanic.
