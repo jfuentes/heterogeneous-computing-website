@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8" />
+  <title>Computación Heterogénea</title>
+  <meta name="description" content="Programming Heterogeneous Arquitectures using Data Parallel C&#43;&#43;" />
+  <meta name="author" content="Joel Fuentes" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="generator" content="kitab theme by Darshan in Hugo 0.88.1" />
+
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous"
+  />
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="/~jfuentes/classes/ch/css/kitab.css" />
+
+  <script src="/~jfuentes/classes/ch/js/myFunctions.js"></script>
+  <script src="/~jfuentes/classes/ch/js/clipboard.min.js"></script>
+
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+  <body class="container" style="max-width: 1024px;">
+    <nav class="mt-2 border-bottom">
+  <div class="d-flex flex-row position-relative">
+    <a href="/~jfuentes/classes/ch/"
+      ><i title="Home" class="nav-menu mr-2 mt-1 fas fa-home"></i
+    ></a>
+    <div class="position-relative">
+  <i
+    class="nav-menu hover-menu ml-2 mr-2 mt-1 fas fa-book"
+    onclick="expandMenu(this)"
+    title="Show all units"
+  ></i>
+  <div
+    class="show bg-light shadow mt-2"
+    style="position: absolute;
+      min-width: 280px;
+      max-width: 75%;
+      z-index: 1;
+      max-height: 0px;
+      overflow: hidden;"
+  >
+    <div class="p-2">
+      <strong>
+        Units
+      </strong>
+      <ul class="list-unstyled ml-1">
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/">
+            <ol>
+<li>Arquitecturas</li>
+</ol>
+
+          </a>
+          6 sesiones
+        </li>
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/">
+            <ol start="2">
+<li>Modelos de Programación</li>
+</ol>
+
+          </a>
+          10 sesiones
+        </li>
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/">
+            <ol start="3">
+<li>Algoritmos</li>
+</ol>
+
+          </a>
+          6 sesiones
+        </li>
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit4/">
+            <ol start="4">
+<li>Rendimiento</li>
+</ol>
+
+          </a>
+          3 sesiones
+        </li>
+        
+      </ul>
+    </div>
+</div>
+
+    
+    <div class="position-relative">
+  <i
+    class="nav-menu hover-menu ml-2 mr-2 mt-1 fas fa-bars"
+    onclick="expandMenu(this)"
+    title = "Show Sessions"
+  ></i>
+  <div
+    class="show bg-light shadow mt-2"
+    style="
+      position: absolute;
+      min-width: 280px;
+      max-width: 75%;
+      z-index: 1;
+      max-height: 0px;
+      overflow: hidden;"
+  >
+    <div class="p-2 rounded">
+      <strong class="mt-3">
+        
+        
+        <ol start="3">
+<li>Algoritmos</li>
+</ol>
+
+        
+      </strong>
+      <ul class="list-unstyled ml-1">
+        
+        
+        <li class="hanging">
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/lab2/">Lab 2</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+    
+  </div>
+  
+</nav>
+
+    <main class="mt-3" style="margin-left: 32px;">
+      
+<div class="mb-2 p-3 shadow position-relative">
+  <small
+    class="bg-white pl-1 pr-1 rounded"
+    style="background-color: #f3f3ef !important; position: absolute; top: -0.75em; right: 1em"
+  ><div>
+  
+
+
+
+
+
+
+<span style="font-size: 0.9em;"><i
+    aria-label="home"
+    class="fas fa-home"
+  ></i
+  ></span>
+
+
+
+<span style="font-size: 0.9em;"> / <ol start="3">
+<li>Algoritmos</li>
+</ol>
+</span>
+
+
+
+<span style="font-size: 0.9em;"> / Lab 2</span>
+
+</div>
+
+
+</small>
+  <h2>Lab 2</h2>
+  <div class="rounded">
+    <p><strong>Profesor</strong>: Joel Fuentes</p>
+<p><strong>Ayudantes:</strong> Daniel López, Sebastián González</p>
+<h2 id="descripción">Descripción</h2>
+<p>En este laboratorio Ud. deberá implementar un programa en DPC++ que calcule el producto escalar (también conocido
+como inner product) entre dos vectores. El producto escalar es una operación algebraica que toma dos secuencias de números de igual dimensión (usualmente en la forma de vectores) y retorna un único número.</p>
+<p>Considerando que existen dos vectores \(A\) y \(B\) en un espacio \({\displaystyle \mathbb {R}^{n}}\), el producto escalar se realiza como un producto matricial de la siguiente forma:</p>
+<p align="center">
+  <img src="../../images/product.png">
+</p>
+<p>O de manera equivalente como:</p>
+<p>$$\sum_{1}^{n}A_iB_i$$</p>
+<p>El objetivo es que esta operación sobre vectores se
+ejecute en paralelo en un acelerador (CPU multi-core, GPU o FPGA), para lo cual puede programar uno o más
+kernels en DPC++. Considerando los siguientes requisitos:</p>
+<ol>
+<li>El kernel debe usar ND_Range</li>
+<li>La suma de productos debe realizarse usando reducciones</li>
+</ol>
+<p>Código de base para programar su solución:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;CL/sycl.hpp&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> sycl;
+   
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+	<span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>;
+
+	std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> A(size);
+    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> B(size);
+    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> C(size);
+    <span style="color:#66d9ef">int</span> innerProd <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+
+    <span style="color:#75715e">// Inicializar vectores
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>) {
+        A[i] <span style="color:#f92672">=</span> (rand() <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+        B[i] <span style="color:#f92672">=</span> (rand() <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+    }
+
+	queue q;
+
+	<span style="color:#75715e">// Creación del buffer
+</span><span style="color:#75715e"></span>	buffer buffA(A);
+    buffer buffB(B);
+    buffer buffC(C);
+    <span style="color:#75715e">// Buffer para resultado final de producto interno
+</span><span style="color:#75715e"></span>	buffer<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">&gt;</span> buffSum(<span style="color:#f92672">&amp;</span>innerProd, <span style="color:#ae81ff">1</span>);
+
+	<span style="color:#75715e">/***
+</span><span style="color:#75715e">	 * Agregue kernel(s) aquí
+</span><span style="color:#75715e">	 * 
+</span><span style="color:#75715e">	 * 
+</span><span style="color:#75715e">	 ***/</span>
+
+
+	<span style="color:#75715e">// Mostrar resultados finales
+</span><span style="color:#75715e"></span>	host_accessor buffC_host(buffC);
+	host_accessor innerProd_result(buffSum);
+
+	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>)
+	    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;C[&#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;] = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> buffC_host[i]  <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+	std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Resultado producto interno: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> innerProd  <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>En el siguiente link encontrará una Wiki con detalles sobre DPC++: <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp">http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp</a></p>
+<p>Para probar su implementación, se recomienda ejecutarlo en servidores Devcloud. En el siguiente
+link encontrará una Wiki con detalles sobre la configuración del entorno de desarrollo Devcloud y
+compilación con DPC++: <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud">http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud</a></p>
+
+  </div>
+</div>
+
+    </main>
+    <div class="side-bar">
+  
+  <p class="mb-1 mt-1 text-left">
+  
+  <i class="nav-menu-disabled fas fa-chevron-circle-right"></i>
+  
+</p>
+<p class="mb-1 mt-1 text-left">
+  
+  <i class="nav-menu-disabled fas fa-chevron-circle-left"></i>
+  
+</p>
+
+  
+  <a href="#" class="mb-1 mt-1 text-left">
+    <i
+      class="nav-menu fas fa-chevron-circle-up"
+      aria-label="Scroll to top"
+    ></i>
+  </a>
+  <p class="mb-1 mt-1 text-left">
+    <i
+      title="Copy URL to share"
+      class="nav-menu fas fa-share-alt"
+    ></i>
+  </p>
+</div>
+
+<script>
+  function displayCopyMessage(bool) {
+    let alertMessage = "";
+    if (bool) {
+      alertMessage = "Link copied to clipboard";
+    } else {
+      alertMessage = "Link could not be copied to clipboard";
+    }
+    let copiedMessage = document.createElement("div");
+    copiedMessage.id = "copiedMessage";
+    copiedMessage.textContent = alertMessage;
+    copiedMessage.classList.add(
+      "bg-warning",
+      "shadow",
+      "d-block",
+      "text-center"
+    );
+    document.body.appendChild(copiedMessage);
+
+    setTimeout(function() {
+      copiedMessage.style.opacity = 0;
+    }, 500);
+    setTimeout(function() {
+      document.body.removeChild(copiedMessage);
+    }, 1500);
+  }
+
+  let clipboard = new ClipboardJS(".fa-share-alt", {
+    text: function() {
+      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/unit3\/lab2\/";
+    }
+  });
+
+  clipboard.on("success", function() {
+    displayCopyMessage(true);
+  });
+
+  clipboard.on("error", function() {
+    displayCopyMessage(false);
+  });
+</script>
+
+    <footer class="d-flex flex-row flex-wrap justify-content-between">
+  <div class="d-flex flex-column">
+    <span class="mb-1">
+      Universidad del Bío-Bío, Chile
+      &middot;
+      2021
+    </span>
+  </div>
+
+    <div class="row">
+      <div class="column" style="
+      width: 100%;">Patrocinadores:</div>
+      <div class="column" style="
+      width: 120px;
+      margin-left: 65px;"><img src="http://www.face.ubiobio.cl/~jfuentes/classes/ch/images/ici_web.png" height="40%" ></div>
+      <div class="column" style="
+      width: 120px;
+      margin-left: 10px;"><img src="http://www.face.ubiobio.cl/~jfuentes/classes/ch/images/intel_web.png" height="20%" ></div>
+    </div> 
+
+  </footer>
+
+  </body>
+</html>

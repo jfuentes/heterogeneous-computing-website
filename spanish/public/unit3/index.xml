@@ -7,5 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 13 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lab 2</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/lab2/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/lab2/</guid>
+      <description>Profesor: Joel Fuentes
+Ayudantes: Daniel López, Sebastián González
+Descripción En este laboratorio Ud. deberá implementar un programa en DPC++ que calcule el producto escalar (también conocido como inner product) entre dos vectores. El producto escalar es una operación algebraica que toma dos secuencias de números de igual dimensión (usualmente en la forma de vectores) y retorna un único número.
+Considerando que existen dos vectores \(A\) y \(B\) en un espacio \({\displaystyle \mathbb {R}^{n}}\), el producto escalar se realiza como un producto matricial de la siguiente forma:</description>
+    </item>
+    
   </channel>
 </rss>

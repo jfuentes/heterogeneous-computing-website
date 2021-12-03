@@ -45,6 +45,18 @@ Descripción En este laboratorio Ud. deberá implementar un programa en DPC++ qu
     </item>
     
     <item>
+      <title>Lab 2</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/lab2/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/lab2/</guid>
+      <description>Profesor: Joel Fuentes
+Ayudantes: Daniel López, Sebastián González
+Descripción En este laboratorio Ud. deberá implementar un programa en DPC++ que calcule el producto escalar (también conocido como inner product) entre dos vectores. El producto escalar es una operación algebraica que toma dos secuencias de números de igual dimensión (usualmente en la forma de vectores) y retorna un único número.
+Considerando que existen dos vectores \(A\) y \(B\) en un espacio \({\displaystyle \mathbb {R}^{n}}\), el producto escalar se realiza como un producto matricial de la siguiente forma:</description>
+    </item>
+    
+    <item>
       <title>Modelos de Cómputo</title>
       <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/modelos_computo/</link>
       <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
@@ -88,6 +100,19 @@ En particular, para resolver problemas de simulación y propagación de temperat
     </item>
     
     <item>
+      <title>Intro a OneAPI y DPC&#43;&#43;</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/oneapi/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/oneapi/</guid>
+      <description>Introducción a OneAPI y el entorno de desarrollo DevCloud.
+9-devcloud.pdf
+Introducción a DPC++.
+11-dpc++.pdf
+#the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
+    </item>
+    
+    <item>
       <title>Jerarquía de Memoria</title>
       <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/memoria/</link>
       <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
@@ -99,17 +124,6 @@ En particular, para resolver problemas de simulación y propagación de temperat
     </item>
     
     <item>
-      <title>OneAPI</title>
-      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/oneapi/</link>
-      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/oneapi/</guid>
-      <description>En esta sesión se introduce OneAPI y el entorno de desarrollo DevCloud.
-9-devcloud.pdf
-#the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
-    </item>
-    
-    <item>
       <title>CPU multi-core</title>
       <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/cpu/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
@@ -117,6 +131,17 @@ En particular, para resolver problemas de simulación y propagación de temperat
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/cpu/</guid>
       <description>En esta sesión revisamos la arquitectura CPU multi-core. Sus ventajas y principales desafíos son presentados.
 4-multicore_cpu.pdf
+#the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
+    </item>
+    
+    <item>
+      <title>GPU Computing (charla invitada)</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/gpu/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/gpu/</guid>
+      <description>Charla &amp;ldquo;GPU Computing: una mirada al pasado, presente y futuro&amp;rdquo; dada por Dr. Cristóbal Navarro de la Universidad Austral de Chile.
+2021-05-UBB-Charla-GPU-Computing.pdf
 #the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
     </item>
     
