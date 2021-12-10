@@ -9,14 +9,14 @@ In this laboratory you must implement a program in DPC ++ that calculates the do
 
 Considering that there are two vectors **A** and **B** in a space (R^n) , the dot product is realized as a matrix product as follows :
 
-| | | | |
-|---|---|---|---|
-| |$$[B_1]$$| | |
-||$$[B_2]$$|||
-|$$A.B = [A_1 A_2 ... A_n]$$| $$[ . ]$$|$$= A_1B_1 + A_2B_2 + ... + A_nB_n$$||
-|| $$[ . ]$$|||
-|| $$[ . ]$$|||
-||$$[B_n]$$|||
+| | | |
+|---|---|---|
+| | $$[B_1]$$ | |
+| | $$[B_2]$$ | |
+| $$A.B = [A_1 A_2 ... A_n]$$ | $$[ . ]$$ | $$= A_1B_1 + A_2B_2 + ... + A_nB_n$$ |
+| | $$[ . ]$$| |
+| | $$[ . ]$$| |
+| |$$[B_n]$$| |
 
   
 Or equivalently like:
