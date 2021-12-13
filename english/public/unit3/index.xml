@@ -7,5 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 13 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lab 2</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/lab2/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/lab2/</guid>
+      <description>Professor: Joel Fuentes
+Assistants: Daniel López, Sebastián González
+Description In this laboratory you must implement a program in DPC ++ that calculates the dot product (also known as the internal product) between two vectors. The dot product is an algebraic operation that takes two sequences of numbers of equal dimension (usually in the form of vectors) and returns a single number.
+Considering that there are two vectors A and B in a space (R^n) , the dot product is realized as a matrix product as follows :</description>
+    </item>
+    
   </channel>
 </rss>
