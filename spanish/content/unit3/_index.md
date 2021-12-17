@@ -7,4 +7,5 @@ weight = 3
 bookCover = "images/fondo_web.png"
 bookCoverSmall = "images/fondo_web.png"
 hasPractice = "yes"
+hasEvaluation = "yes"
 +++

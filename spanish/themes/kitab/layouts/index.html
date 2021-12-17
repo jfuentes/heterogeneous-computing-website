@@ -71,6 +71,20 @@
           {{ end }}
           </p>
         {{ end }}
+
+        <!-- Evaluation -->
+        {{ if eq .Params.hasEvaluation "yes" }}
+          <p class="mb-1">Evaluación:
+          {{ range first 8 .Pages }} 
+            {{ if eq .Type "eval" }}
+              ‣
+              <a href="{{ .Permalink }}">
+                    {{ .Title }}
+              </a>
+            {{ end }}
+          {{ end }}
+          </p>
+        {{ end }}
       </ul>
       {{ $pageNums := len .Pages }}
       {{ if ge $pageNums 9 }}
