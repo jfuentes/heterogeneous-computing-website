@@ -30,5 +30,16 @@ Considerando que existen dos vectores \(A\) y \(B\) en un espacio \({\displaysty
 #the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
     </item>
     
+    <item>
+      <title>Test 3</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/evaluacion/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/evaluacion/</guid>
+      <description>Computación Heterogénea   ¿Cuál de las siguientes operaciones no corresponde a una función de reducción en DPC++? (10 puntos)
+ maximum (max) plus (add) minimum (mul) parallel_for    Dado el siguiente código. Indicar el orden en el que son ejecutado cada uno de los kernels. (10 puntos)
+queue q; auto A = q.submit([&amp;amp;])(handler&amp;amp; h){}); auto C = q.submit([&amp;amp;])(handler&amp;amp; h){ h.depends_on(A); }); auto B = q.submit([&amp;amp;])(handler&amp;amp; h){ h.depends_on(A); h.</description>
+    </item>
+    
   </channel>
 </rss>

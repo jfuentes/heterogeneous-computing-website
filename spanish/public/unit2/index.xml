@@ -88,6 +88,16 @@ Introducción a DPC++.
     </item>
     
     <item>
+      <title>Test 2</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/evaluacion/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/evaluacion/</guid>
+      <description>Computación Heterogénea   El modelo de cómputo SIMD hace referencia a: (5 puntos)
+ Modelo en que un hilo procesa datos individuales Modelo en el que múltiples hilos procesan el mismo dato individual Modelo en el que hilos procesan múltiples datos a la vez Modelo en que múltiples hilos procesan datos individuales    De acuerdo a la Taxonomía de Flynn. ¿A qué modelo corresponde el procesamiento encontrado en CPU multi-core?</description>
+    </item>
+    
+    <item>
       <title>GPU Computing (charla invitada)</title>
       <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/gpu/</link>
       <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>

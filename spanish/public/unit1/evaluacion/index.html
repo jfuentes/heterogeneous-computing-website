@@ -199,213 +199,129 @@
 
 
 
-<span style="font-size: 0.9em;"> / GPU</span>
+<span style="font-size: 0.9em;"> / Test 1</span>
 
 </div>
 
 
 </small>
-  <h2>GPU</h2>
+  <h2>Test 1</h2>
   <div class="rounded">
-    <p>En esta sesión revisamos la arquitectura GPU, con especial foco en 
-productos de hardware fabricados por Nvidia, AMD and Intel.
-Sus ventajas, principales características y desafíos son presentados.</p>
-<p><img src="../../images/pdf_web.png" alt="Download slides"> <a href="../../pdf/5-gpu.pdf">5-gpu.pdf</a></p>
-<script type="text/javascript" src= '/~jfuentes/classes/ch//js/pdf-js/build/pdf.js'></script>
-<style>
-#the-canvas {
-  border: 1px solid black;
-  direction: ltr;
-  width: 100%;
-  height: auto;
-  display: none;
-}
-
-#paginator {
-  display: none;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-#loadingWrapper {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 350px;
-}
-
-#loading {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border: 3px solid #d2d0d0;;
-  border-radius: 50%;
-  border-top-color: #383838;
-  animation: spin 1s ease-in-out infinite;
-  -webkit-animation: spin 1s ease-in-out infinite;
-}
-
-@keyframes spin {
-  to { -webkit-transform: rotate(360deg); }
-}
-@-webkit-keyframes spin {
-  to { -webkit-transform: rotate(360deg); }
-}
-</style>
-
-<div id="paginator">
-    <button id="prev">Previous</button>
-    <button id="next">Next</button>
-    &nbsp; &nbsp;
-    <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
-</div>
-<div id="embed-pdf-container">
-    <div id="loadingWrapper">
-      <div id="loading"></div>
-    </div>
-    <canvas id="the-canvas"></canvas>
-</div>
-
-<script type="text/javascript">
-window.onload = function() {
-
-
-var url = "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/" + 'pdf\/5-gpu.pdf';
-
-var hidePaginator = "" === "true";
-var hideLoader = "" === "true";
-var selectedPageNum = parseInt("") || 1;
-
-
-var pdfjsLib = window['pdfjs-dist/build/pdf'];
-
-
-pdfjsLib.GlobalWorkerOptions.workerSrc = "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/" + '/js/pdf-js/build/pdf.worker.js';
-
-
-var pdfDoc = null,
-    pageNum = selectedPageNum,
-    pageRendering = false,
-    pageNumPending = null,
-    scale = 3,
-    canvas = document.getElementById('the-canvas'),
-    ctx = canvas.getContext('2d'),
-    paginator = document.getElementById("paginator"),
-    loadingWrapper = document.getElementById('loadingWrapper');
-
-
-
-showPaginator();
-showLoader();
-
-
-
-function renderPage(num) {
-  pageRendering = true;
-  
-  pdfDoc.getPage(num).then(function(page) {
-    var viewport = page.getViewport({scale: scale});
-    canvas.height = viewport.height;
-    canvas.width = viewport.width;
-
-    
-    var renderContext = {
-      canvasContext: ctx,
-      viewport: viewport
-    };
-    var renderTask = page.render(renderContext);
-
-    
-    renderTask.promise.then(function() {
-      pageRendering = false;
-      showContent();
-      
-      if (pageNumPending !== null) {
-        
-        renderPage(pageNumPending);
-        pageNumPending = null;
-      }
-    });
-  });
-
-  
-  document.getElementById('page_num').textContent = num;
-}
-
-
-
-function showContent() {
-  loadingWrapper.style.display = 'none';
-  canvas.style.display = 'block';
-}
-
-
-
-function showLoader() {
-  if(hideLoader) return
-  loadingWrapper.style.display = 'flex';
-  canvas.style.display = 'none';
-}
-
-
-
-function showPaginator() {
-  if(hidePaginator) return
-  paginator.style.display = 'block';
-}
-
-
-
-function queueRenderPage(num) {
-  if (pageRendering) {
-    pageNumPending = num;
-  } else {
-    renderPage(num);
-  }
-}
-
-
-
-function onPrevPage() {
-  if (pageNum <= 1) {
-    return;
-  }
-  pageNum--;
-  queueRenderPage(pageNum);
-}
-document.getElementById('prev').addEventListener('click', onPrevPage);
-
-
-
-function onNextPage() {
-  if (pageNum >= pdfDoc.numPages) {
-    return;
-  }
-  pageNum++;
-  queueRenderPage(pageNum);
-}
-document.getElementById('next').addEventListener('click', onNextPage);
-
-
-
-pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
-  pdfDoc = pdfDoc_;
-  var numPages = pdfDoc.numPages;
-  document.getElementById('page_count').textContent = numPages;
-  
-  
-  if(pageNum > numPages) {
-    pageNum = numPages
-  }
-
-  
-  renderPage(pageNum);
-});
-}
-
-</script>
-
+    <h2 id="computación-heterogénea">Computación Heterogénea</h2>
+<ol>
+<li>
+<p>Moore&rsquo;s law (ley de Moore) hace referencia a: (7 puntos)</p>
+<ul>
+<li>El aumento al doble de la frecuencia en procesadores cada cierto tiempo</li>
+<li>El incremento lineal en el número de cores en un procesador</li>
+<li>El aumento al doble del número de transistores en procesadores cada cierto tiempo</li>
+<li>El incremento en potencia generada por un procesador cada cierto tiempo</li>
+</ul>
+</li>
+<li>
+<p>El número de accesos por unidad de tiempo se denomina: (7 puntos)</p>
+<ul>
+<li>Ancho de banda</li>
+<li>Ciclos de cómputo</li>
+<li>Latencia</li>
+<li>Hit de caché</li>
+</ul>
+</li>
+<li>
+<p>La idea de utilizar jerarquía de memoria en procesadores modernos se basa en: (7 puntos)</p>
+<ul>
+<li>Evitar que existan conflictos entre cores o unidades de cómputo</li>
+<li>Aliviar la carga de acceso de la memoria DRAM</li>
+<li>Accelerar el acceso a datos usando memorias SRAM cercanas a las unidades de cómputo</li>
+<li>Incrementar las capacidades de almacenamiento agregando SRAM</li>
+</ul>
+</li>
+<li>
+<p>Ordene las memorias de acuerdo a las velocidades de acceso desde una CPU: (14 puntos)</p>
+<ul>
+<li>DRAM</li>
+<li>L3</li>
+<li>Registros</li>
+<li>L2</li>
+<li>Disco Duro</li>
+<li>L1</li>
+</ul>
+</li>
+<li>
+<p>Seleccione a qué tipo de memoria corresponde cada descripción: (14 puntos)</p>
+<table>
+<thead>
+<tr>
+<th>Descripción</th>
+<th style="text-align:center">SRAM</th>
+<th style="text-align:center">DRAM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tiene menor costo</td>
+<td style="text-align:center">☐</td>
+<td style="text-align:center">☐</td>
+</tr>
+<tr>
+<td>Acceso más rápido</td>
+<td style="text-align:center">☐</td>
+<td style="text-align:center">☐</td>
+</tr>
+<tr>
+<td>Usa más transistores</td>
+<td style="text-align:center">☐</td>
+<td style="text-align:center">☐</td>
+</tr>
+<tr>
+<td>Requiere refrescar memoria</td>
+<td style="text-align:center">☐</td>
+<td style="text-align:center">☐</td>
+</tr>
+<tr>
+<td>Se ubica más cercano al procesador</td>
+<td style="text-align:center">☐</td>
+<td style="text-align:center">☐</td>
+</tr>
+<tr>
+<td>También se le conoce como memoria principal</td>
+<td style="text-align:center">☐</td>
+<td style="text-align:center">☐</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>¿Qué protocolo de coherencia se aplicó en el siguiente escenario en un CPU multi-core? (7 puntos)</p>
+<blockquote>
+<p>En un procesador CPU de 4 cores existen 4 hilos corriendo en cada uno de los cores de forma independiente. La tarea que realizan los hilos es actualizar posiciones de un arreglo compartido en memoria principal. Cuando un hilo cambia un valor de una posición determinada del arreglo, inmediatamente un proceso es encargado de actualizar todas las copias de esa posición del arreglo en las memorias caché de los otros cores.</p>
+</blockquote>
+<ul>
+<li>Snooping</li>
+<li>Actualización</li>
+<li>Invalidación</li>
+</ul>
+</li>
+<li>
+<p>Seleccione las características en común que tienen las GPUs de Nvidia, AMD e Intel: (7 puntos)</p>
+<ul>
+<li><input disabled="" type="checkbox"> Arquitectura basada muchos cores pequeños (o unidades de cómputo) agrupadas</li>
+<li><input disabled="" type="checkbox"> Cores o unidades de cómputo más complejos que los de CPU</li>
+<li><input disabled="" type="checkbox"> Pueden ejecutar cientos o miles de hilos en paralelo</li>
+<li><input disabled="" type="checkbox"> Incluyen jerarquía de memoria basada en cachés</li>
+</ul>
+</li>
+<li>
+<p>¿Qué puede definir el programador en un FPGA? (7 puntos)</p>
+<ul>
+<li><input disabled="" type="checkbox"> El tamaño de su memoria interna</li>
+<li><input disabled="" type="checkbox"> La funcionalidad de bloques lógicos</li>
+<li><input disabled="" type="checkbox"> Establecer las rutas de interconexión entre bloques lógicos</li>
+<li><input disabled="" type="checkbox"> El número de transistores del chip</li>
+<li><input disabled="" type="checkbox"> Establecer el clock y reset</li>
+</ul>
+</li>
+</ol>
 
   </div>
 </div>
@@ -416,8 +332,8 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
   <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/~jfuentes/classes/ch/unit1/fpga/"
-    title="FPGA"
+    href="/~jfuentes/classes/ch/unit1/cpu/"
+    title="CPU multi-core"
   >
     <i class="nav-menu fas fa-chevron-circle-right"></i>
   </a>
@@ -426,8 +342,8 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/~jfuentes/classes/ch/unit1/cpu/"
-    title="CPU multi-core"
+    href="/~jfuentes/classes/ch/unit1/memoria/"
+    title="Jerarquía de Memoria"
   >
     <i class="nav-menu fas fa-chevron-circle-left"></i>
   </a>
@@ -478,7 +394,7 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/unit1\/gpu\/";
+      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/unit1\/evaluacion\/";
     }
   });
 

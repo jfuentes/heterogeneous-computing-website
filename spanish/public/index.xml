@@ -135,6 +135,37 @@ Introducción a DPC++.
     </item>
     
     <item>
+      <title>Test 1</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/evaluacion/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/evaluacion/</guid>
+      <description>Computación Heterogénea   Moore&amp;rsquo;s law (ley de Moore) hace referencia a: (7 puntos)
+ El aumento al doble de la frecuencia en procesadores cada cierto tiempo El incremento lineal en el número de cores en un procesador El aumento al doble del número de transistores en procesadores cada cierto tiempo El incremento en potencia generada por un procesador cada cierto tiempo    El número de accesos por unidad de tiempo se denomina: (7 puntos)</description>
+    </item>
+    
+    <item>
+      <title>Test 2</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/evaluacion/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/evaluacion/</guid>
+      <description>Computación Heterogénea   El modelo de cómputo SIMD hace referencia a: (5 puntos)
+ Modelo en que un hilo procesa datos individuales Modelo en el que múltiples hilos procesan el mismo dato individual Modelo en el que hilos procesan múltiples datos a la vez Modelo en que múltiples hilos procesan datos individuales    De acuerdo a la Taxonomía de Flynn. ¿A qué modelo corresponde el procesamiento encontrado en CPU multi-core?</description>
+    </item>
+    
+    <item>
+      <title>Test 3</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/evaluacion/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/evaluacion/</guid>
+      <description>Computación Heterogénea   ¿Cuál de las siguientes operaciones no corresponde a una función de reducción en DPC++? (10 puntos)
+ maximum (max) plus (add) minimum (mul) parallel_for    Dado el siguiente código. Indicar el orden en el que son ejecutado cada uno de los kernels. (10 puntos)
+queue q; auto A = q.submit([&amp;amp;])(handler&amp;amp; h){}); auto C = q.submit([&amp;amp;])(handler&amp;amp; h){ h.depends_on(A); }); auto B = q.submit([&amp;amp;])(handler&amp;amp; h){ h.depends_on(A); h.</description>
+    </item>
+    
+    <item>
       <title>CPU multi-core</title>
       <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/cpu/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>

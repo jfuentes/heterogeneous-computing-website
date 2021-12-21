@@ -32,6 +32,16 @@ Presentación de arquitecturas heterogéneas, su historia y evolución sobre el 
     </item>
     
     <item>
+      <title>Test 1</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/evaluacion/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/evaluacion/</guid>
+      <description>Computación Heterogénea   Moore&amp;rsquo;s law (ley de Moore) hace referencia a: (7 puntos)
+ El aumento al doble de la frecuencia en procesadores cada cierto tiempo El incremento lineal en el número de cores en un procesador El aumento al doble del número de transistores en procesadores cada cierto tiempo El incremento en potencia generada por un procesador cada cierto tiempo    El número de accesos por unidad de tiempo se denomina: (7 puntos)</description>
+    </item>
+    
+    <item>
       <title>CPU multi-core</title>
       <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit1/cpu/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>

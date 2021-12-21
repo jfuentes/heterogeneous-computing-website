@@ -189,81 +189,94 @@
 
 
 
-<span style="font-size: 0.9em;"> / Lab 2</span>
+<span style="font-size: 0.9em;"> / Test 3</span>
 
 </div>
 
 
 </small>
-  <h2>Lab 2</h2>
+  <h2>Test 3</h2>
   <div class="rounded">
-    <p><strong>Profesor</strong>: Joel Fuentes</p>
-<p><strong>Ayudantes:</strong> Daniel López, Sebastián González</p>
-<h2 id="descripción">Descripción</h2>
-<p>En este laboratorio Ud. deberá implementar un programa en DPC++ que calcule el producto escalar (también conocido
-como inner product) entre dos vectores. El producto escalar es una operación algebraica que toma dos secuencias de números de igual dimensión (usualmente en la forma de vectores) y retorna un único número.</p>
-<p>Considerando que existen dos vectores \(A\) y \(B\) en un espacio \({\displaystyle \mathbb {R}^{n}}\), el producto escalar se realiza como un producto matricial de la siguiente forma:</p>
-<p align="center">
-  <img src="../../images/product.png">
-</p>
-<p>O de manera equivalente como:</p>
-<p>$$\sum_{1}^{n}A_iB_i$$</p>
-<p>El objetivo es que esta operación sobre vectores se
-ejecute en paralelo en un acelerador (CPU multi-core, GPU o FPGA), para lo cual puede programar uno o más
-kernels en DPC++. Considerando los siguientes requisitos:</p>
+    <h2 id="computación-heterogénea">Computación Heterogénea</h2>
 <ol>
-<li>El kernel debe usar ND_Range</li>
-<li>La suma de productos debe realizarse usando reducciones</li>
+<li>
+<p>¿Cuál de las siguientes operaciones no corresponde a una función de reducción en DPC++? (10 puntos)</p>
+<ul>
+<li>maximum (max)</li>
+<li>plus (add)</li>
+<li>minimum (mul)</li>
+<li>parallel_for</li>
+</ul>
+</li>
+<li>
+<p>Dado el siguiente código. Indicar el orden en el que son ejecutado cada uno de los kernels. (10 puntos)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">queue q;
+<span style="color:#66d9ef">auto</span> A <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){});
+
+<span style="color:#66d9ef">auto</span> C <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){
+    h.depends_on(A);
+});
+
+<span style="color:#66d9ef">auto</span> B <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){
+    h.depends_on(A);
+    h.depends_on(C);
+});
+
+<span style="color:#66d9ef">auto</span> D <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){
+    h.depends_on(A);
+    h.depends_on(B);
+});
+
+<span style="color:#66d9ef">auto</span> E <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){
+    h.depends_on(C);
+    h.depends_on(D);
+});
+</code></pre></div><hr>
+<pre><code> Ingrese su respuesta
+</code></pre>
+<hr>
+</li>
+<li>
+<p>¿Cuál de los siguientes patrones de diseño considera el uso de datos de vecinos para generar un resultado final? (10 puntos)</p>
+<ul>
+<li>fork-join</li>
+<li>map</li>
+<li>stencil</li>
+<li>scan</li>
+<li>recurrencia</li>
+</ul>
+</li>
+<li>
+<p>Indicar si la siguiente afirmación es verdadera o falsa. Una reducción paralela requerirá una menor cantidad de operaciones que una reducción secuencial. (10 puntos)</p>
+<ul>
+<li>Verdadero</li>
+<li>Falso</li>
+</ul>
+</li>
+<li>
+<p>Indicar si la siguiente afirmación es verdadera o falsa. Un scan paralelo requerirá una menor cantidad de operaciones que un scan secuencial. (10 puntos)</p>
+<ul>
+<li>Verdadero</li>
+<li>Falso</li>
+</ul>
+</li>
+<li>
+<p>Indicar el vector resultante luego de aplicar al vector A una operación Gather con los índices en B: (10 puntos)</p>
+<p>Vector con valores &ndash;&gt;  A: [4, 2, 3, 5, 0, 1, 3, 2]<br>
+Vector con índices &ndash;&gt;  B: [5, 1, 1, 0, 3, 2, 4, 0]</p>
+<hr>
+<pre><code> Ingrese su respuesta
+</code></pre>
+<hr>
+</li>
+<li>
+<p>Indicar cuál es el objetivo de agregar padding (o relleno) al programar estructuras AoS y SoA. (10 puntos)</p>
+<hr>
+<pre><code> Ingrese su respuesta
+</code></pre>
+<hr>
+</li>
 </ol>
-<p>Código de base para programar su solución:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">
-<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;CL/sycl.hpp&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> sycl;
-   
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
-	<span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>;
-
-	std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> A(size);
-    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> B(size);
-    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> C(size);
-    <span style="color:#66d9ef">int</span> innerProd <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-
-    <span style="color:#75715e">// Inicializar vectores
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>) {
-        A[i] <span style="color:#f92672">=</span> (rand() <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
-        B[i] <span style="color:#f92672">=</span> (rand() <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
-    }
-
-	queue q;
-
-	<span style="color:#75715e">// Creación del buffer
-</span><span style="color:#75715e"></span>	buffer buffA(A);
-    buffer buffB(B);
-    buffer buffC(C);
-    <span style="color:#75715e">// Buffer para resultado final de producto interno
-</span><span style="color:#75715e"></span>	buffer<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">&gt;</span> buffSum(<span style="color:#f92672">&amp;</span>innerProd, <span style="color:#ae81ff">1</span>);
-
-	<span style="color:#75715e">/***
-</span><span style="color:#75715e">	 * Agregue kernel(s) aquí
-</span><span style="color:#75715e">	 * 
-</span><span style="color:#75715e">	 * 
-</span><span style="color:#75715e">	 ***/</span>
-
-
-	<span style="color:#75715e">// Mostrar resultados finales
-</span><span style="color:#75715e"></span>	host_accessor buffC_host(buffC);
-	host_accessor innerProd_result(buffSum);
-
-	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>)
-	    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;C[&#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;] = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> buffC_host[i]  <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
-	std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Resultado producto interno: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> innerProd  <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
-	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><p>En el siguiente link encontrará una Wiki con detalles sobre DPC++: <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp">http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp</a></p>
-<p>Para probar su implementación, se recomienda ejecutarlo en servidores Devcloud. En el siguiente
-link encontrará una Wiki con detalles sobre la configuración del entorno de desarrollo Devcloud y
-compilación con DPC++: <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud">http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud</a></p>
 
   </div>
 </div>
@@ -273,17 +286,17 @@ compilación con DPC++: <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch
   
   <p class="mb-1 mt-1 text-left">
   
-  <a
-    href="/~jfuentes/classes/ch/unit3/patrones/"
-    title="Patrones Paralelos"
-  >
-    <i class="nav-menu fas fa-chevron-circle-right"></i>
-  </a>
+  <i class="nav-menu-disabled fas fa-chevron-circle-right"></i>
   
 </p>
 <p class="mb-1 mt-1 text-left">
   
-  <i class="nav-menu-disabled fas fa-chevron-circle-left"></i>
+  <a
+    href="/~jfuentes/classes/ch/unit3/patrones/"
+    title="Patrones Paralelos"
+  >
+    <i class="nav-menu fas fa-chevron-circle-left"></i>
+  </a>
   
 </p>
 
@@ -331,7 +344,7 @@ compilación con DPC++: <a href="http://www.face.ubiobio.cl/~jfuentes/classes/ch
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/unit3\/lab2\/";
+      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/unit3\/evaluacion\/";
     }
   });
 
