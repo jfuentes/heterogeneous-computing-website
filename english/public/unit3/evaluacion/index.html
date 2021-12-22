@@ -130,8 +130,8 @@
       <strong class="mt-3">
         
         
-        <ol start="2">
-<li>Programming Models</li>
+        <ol start="3">
+<li>Algorithms</li>
 </ol>
 
         
@@ -140,39 +140,11 @@
         
         
         <li class="hanging">
-          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/dpcpp/">DPC++</a>
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/lab2/">Lab 2</a>
         </li>
         
         <li class="hanging">
-          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/lab1/">Lab 1</a>
-        </li>
-        
-        <li class="hanging">
-          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/compute_models/">Compute Models</a>
-        </li>
-        
-        <li class="hanging">
-          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/project/">Project</a>
-        </li>
-        
-        <li class="hanging">
-          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/devcloud/">DevCloud</a>
-        </li>
-        
-        <li class="hanging">
-          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/frameworks/">Programming Frameworks</a>
-        </li>
-        
-        <li class="hanging">
-          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/oneapi/">Intro to OneAPI and DPC++</a>
-        </li>
-        
-        <li class="hanging">
-          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/evaluacion/">Test 2</a>
-        </li>
-        
-        <li class="hanging">
-          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/gpu/">GPU Computing (invited talk)</a>
+          <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/evaluacion/">Test 3</a>
         </li>
         
       </ul>
@@ -206,81 +178,101 @@
 
 
 
-<span style="font-size: 0.9em;"> / <ol start="2">
-<li>Programming …</li></ol></span>
+<span style="font-size: 0.9em;"> / <ol start="3">
+<li>Algorithms</li>
+</ol>
+</span>
 
 
 
-<span style="font-size: 0.9em;"> / DevCloud</span>
+<span style="font-size: 0.9em;"> / Test 3</span>
 
 </div>
 
 
 </small>
-  <h2>DevCloud</h2>
+  <h2>Test 3</h2>
   <div class="rounded">
-    <h2 id="vs-code--devcloud-configuration">VS Code + DevCloud Configuration</h2>
-<p>The step-by-step guide to connect to DevCloud using VS Code is available <a href="https://devcloud.intel.com/oneapi/get_started/baseToolkitSamples/">here</a>.</p>
-<ol>
-<li>Setting up the SSH Config
-<ol>
-<li>Download the auto config file customized for your account, available on the guide&rsquo;s website.</li>
-<li>Open a terminal that supports bash in the location of the downloaded file and execute the following command: <code>bash setup-devcloud-access-XXXXX.txt</code>, where XXXXX is your user&rsquo;s ID.</li>
-<li>For safety reasons, remove the downloaded file.</li>
-<li>If the bash command was unsuccessful, try out the guide&rsquo;s manual configuration section.</li>
-</ol>
-</li>
-<li>Download VS Code and execute it.</li>
-<li>Install the <code>Remote - SSH</code> extension.</li>
-<li>Open a terminal inside the program and run the command <code>ssh devcloud</code>.</li>
-</ol>
-<h2 id="code-compilation-and-running">Code compilation and running</h2>
-<h3 id="compilation">Compilation</h3>
-<p>Compilation in DevCloud follows almost the same steps a regular C code compilation would, with the difference that the dpcpp compiler must be used, and additional parameters corresponding to openCL and SYCL must be included. An example of a expected compile command would be as follows:</p>
-<blockquote>
-<p><code>dpcpp &lt;options&gt; &lt;file name&gt; -lOpenCL -lsycl</code></p>
-</blockquote>
-<h3 id="running-code">Running code</h3>
-<p>To run the compiled files, we will use DevCloud&rsquo;s interactive mode. Interactive mode will assign us a compute node, depending on which one is requested. We can request different types of nodes: Multi-core CPU, GPU, FPGA and MPI.</p>
-<p>When entering DevCloud, the session will be named after your username and a login, for example: [u84751@login-2]. After requesting a node and being assigned one, the name of your session will change with the ID of the assigned node, for example: [u84751@s001-141]. It is important to note that you must wait for a node to be assigned to you, depending on the availability of the system.</p>
-<p>To request a node, we will use the shell command qsub, and we will pass it the parameters -I (uppercase i) and -l (lowercase L), to indicate that we want to request an interactive session and that we want to fully use the node, respectively. Also, we will tell qsub that we want 2 processes per node with :ppn=2. Here are the compute nodes that can be requested along with their commands:</p>
+    <h2 id="heterogeneous-computing">Heterogeneous computing</h2>
 <ol>
 <li>
-<p>Multi-core CPU</p>
-<blockquote>
-<p><code>qsub -I -l nodes=1:xeon:ppn=2</code></p>
-</blockquote>
+<p>Which of the following operations does not correspond to a reduction function in DPC++? (10 points)</p>
+<ul>
+<li>maximum (max)</li>
+<li>plus (add)</li>
+<li>minimum (mul)</li>
+<li>parallel_for</li>
+</ul>
 </li>
 <li>
-<p>GPU</p>
-<blockquote>
-<p><code>qsub -I -l nodes=1:gpu:ppn=2</code></p>
-</blockquote>
+<p>Given the following code. Indicate the order in which each kernel is executed: (10 points)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">queue q;
+<span style="color:#66d9ef">auto</span> A <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){});
+
+<span style="color:#66d9ef">auto</span> C <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){
+    h.depends_on(A);
+});
+
+<span style="color:#66d9ef">auto</span> B <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){
+    h.depends_on(A);
+    h.depends_on(C);
+});
+
+<span style="color:#66d9ef">auto</span> D <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){
+    h.depends_on(A);
+    h.depends_on(B);
+});
+
+<span style="color:#66d9ef">auto</span> E <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){
+    h.depends_on(C);
+    h.depends_on(D);
+});
+</code></pre></div><hr>
+<pre><code> Type your answer here
+</code></pre>
+<hr>
 </li>
 <li>
-<p>FPGA</p>
-<blockquote>
-<p><code>qsub -I -l nodes=1:fpga:ppn=2</code></p>
-</blockquote>
+<p>Which of the following design patterns considers using neighbor data to calculate an end result? (10 points)</p>
+<ul>
+<li>fork-join</li>
+<li>map</li>
+<li>stencil</li>
+<li>scan</li>
+<li>recurrence</li>
+</ul>
 </li>
 <li>
-<p>MPI</p>
-<p>To run MPI applications in DevCloud, multiple nodes in interactive nodes must be requested using the qsub command. For example, the following command requests two GPU computing nodes:</p>
-<blockquote>
-<p><code>qsub -I -l nodes=2:gpu:ppn=2 -d .</code></p>
-</blockquote>
-<p>The following command gets the configurations of all requested nodes:</p>
-<blockquote>
-<p><code>pbsnodes | grep properties | sort –u</code></p>
-</blockquote>
-<p>Once all nodes have been asigned, the following command can be used to fetch the nodes' names:</p>
-<blockquote>
-<p><code>qstat –xf</code></p>
-</blockquote>
+<p>Indicate if the following statement is true or false: A parallel reduction will require fewer operations than a sequential reduction. (10 points)</p>
+<ul>
+<li>True</li>
+<li>False</li>
+</ul>
+</li>
+<li>
+<p>Indicate if the following statement is true or false. A parallel scan will require fewer operations than a sequential scan. (10 points)</p>
+<ul>
+<li>True</li>
+<li>False</li>
+</ul>
+</li>
+<li>
+<p>Indicate the resulting vector after applying to vector A a Gather operation with the indexes in B: (10 points)</p>
+<p>Values vector  &ndash;&gt;  A: [4, 2, 3, 5, 0, 1, 3, 2]<br>
+Indexes vector &ndash;&gt;  B: [5, 1, 1, 0, 3, 2, 4, 0]</p>
+<hr>
+<pre><code> Type your answer here
+</code></pre>
+<hr>
+</li>
+<li>
+<p>Indicate the purpose of adding padding when programming AoS and SoA structures. (10 points)</p>
+<hr>
+<pre><code> Type your answer here
+</code></pre>
+<hr>
 </li>
 </ol>
-<p>After requesting a node, the clinfo command can be used to get more information about the assigned node.
-For more information about the qsub command and the nodes that can be requested, follow the next <a href="https://devcloud.intel.com/oneapi/documentation/job-submission/">link</a>.</p>
 
   </div>
 </div>
@@ -290,19 +282,14 @@ For more information about the qsub command and the nodes that can be requested,
   
   <p class="mb-1 mt-1 text-left">
   
-  <a
-    href="/~jfuentes/classes/hc/unit2/frameworks/"
-    title="Programming Frameworks"
-  >
-    <i class="nav-menu fas fa-chevron-circle-right"></i>
-  </a>
+  <i class="nav-menu-disabled fas fa-chevron-circle-right"></i>
   
 </p>
 <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/~jfuentes/classes/hc/unit2/project/"
-    title="Project"
+    href="/~jfuentes/classes/hc/unit3/lab2/"
+    title="Lab 2"
   >
     <i class="nav-menu fas fa-chevron-circle-left"></i>
   </a>
@@ -353,7 +340,7 @@ For more information about the qsub command and the nodes that can be requested,
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/unit2\/devcloud\/";
+      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/unit3\/evaluacion\/";
     }
   });
 

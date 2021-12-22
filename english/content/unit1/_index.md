@@ -8,4 +8,5 @@ bookCover = "images/fondo_web.png"
 bookCoverSmall = "images/fondo_web.png"
 hasPractice = "no"
 hasWiki = "no"
+hasEvaluation = "yes"
 +++

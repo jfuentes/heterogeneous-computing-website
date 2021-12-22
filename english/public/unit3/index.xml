@@ -19,5 +19,16 @@ Description In this laboratory you must implement a program in DPC ++ that calcu
 Considering that there are two vectors A and B in a space (R^n) , the dot product is realized as a matrix product as follows :</description>
     </item>
     
+    <item>
+      <title>Test 3</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/evaluacion/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/evaluacion/</guid>
+      <description>Heterogeneous computing   Which of the following operations does not correspond to a reduction function in DPC++? (10 points)
+ maximum (max) plus (add) minimum (mul) parallel_for    Given the following code. Indicate the order in which each kernel is executed: (10 points)
+queue q; auto A = q.submit([&amp;amp;])(handler&amp;amp; h){}); auto C = q.submit([&amp;amp;])(handler&amp;amp; h){ h.depends_on(A); }); auto B = q.submit([&amp;amp;])(handler&amp;amp; h){ h.depends_on(A); h.depends_on(C); }); auto D = q.</description>
+    </item>
+    
   </channel>
 </rss>

@@ -78,7 +78,7 @@ type = "eval"
 
 7. Dada la definición del siguiente kernel. ¿Cuántos grupos de trabajo (work-group) se definen para el parallel_for? (10 puntos)
 
-    ```c
+    ```cpp
     h.parallel_for(nd_range<3>(range<3>({4,5,2}), range<3>({4,2,1})), [=](nd_item<3> item){
         auto global_ = item.get_global_id();
         auto local_id = item.get_local_id();
