@@ -31,6 +31,16 @@ Considerando que existen dos vectores \(A\) y \(B\) en un espacio \({\displaysty
     </item>
     
     <item>
+      <title>HPC y Biometría (charla invitada)</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/hpc/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/hpc/</guid>
+      <description>Charla &amp;ldquo;Computación de Alto Rendimiento y Biometría.&amp;rdquo; dada por Dr. Ricardo Barrientos de la Universidad Católica del Maule.
+Resumen: Esta charla comenzará presentando una introducción al área de Computación de Alto Rendimiento y ejemplo de problemas que es capaz de resolver. También, se verá el desarrollo de aplicaciones utilizando GPU (Graphic Process Unit), así como su arquitectura. Posteriormente, se presentarán prototipos tecnólogicos desarrollados en el Laboratorio LITRP (www.litrp.cl) que tienen relación con distintos métodos biométricos usados en plataformas de hardware de alto rendimiento y en particular en GPU, que permiten el uso de bases de datos de gran tamaño (decenas de millones de datos biométricos)</description>
+    </item>
+    
+    <item>
       <title>Test 3</title>
       <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/evaluacion/</link>
       <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>

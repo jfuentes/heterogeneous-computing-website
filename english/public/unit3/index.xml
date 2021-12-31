@@ -20,11 +20,22 @@ Considering that there are two vectors A and B in a space (R^n) , the dot produc
     </item>
     
     <item>
-      <title>Test 3</title>
-      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/evaluacion/</link>
+      <title>HPC and Biometrics (invited talk)</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/hpc/</link>
       <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/evaluacion/</guid>
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/hpc/</guid>
+      <description>Talk titled &amp;ldquo;High-Performance Computing and Biometrics&amp;rdquo; given by Dr. Ricardo Barrientos from the Universidad Católica del Maule.
+Charla-UBB-HPC-Biometria.pdf
+#the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
+    </item>
+    
+    <item>
+      <title>Test 3</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/evaluation/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/evaluation/</guid>
       <description>Heterogeneous computing   Which of the following operations does not correspond to a reduction function in DPC++? (10 points)
  maximum (max) plus (add) minimum (mul) parallel_for    Given the following code. Indicate the order in which each kernel is executed: (10 points)
 queue q; auto A = q.submit([&amp;amp;])(handler&amp;amp; h){}); auto C = q.submit([&amp;amp;])(handler&amp;amp; h){ h.depends_on(A); }); auto B = q.submit([&amp;amp;])(handler&amp;amp; h){ h.depends_on(A); h.depends_on(C); }); auto D = q.</description>

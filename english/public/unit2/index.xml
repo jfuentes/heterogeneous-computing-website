@@ -94,10 +94,10 @@ Introduction to DPC++.
     
     <item>
       <title>Test 2</title>
-      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/evaluacion/</link>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/evaluation/</link>
       <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/evaluacion/</guid>
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/evaluation/</guid>
       <description>Heterogeneous computing   The SIMD computational model refers to: (5 points)
  Model in which a thread processes individual data Model in which multiple threads process the same individual data Model in which mutiple threads process multiple data at the same time Model in which multiple threads process individual data    According to Flynn&amp;rsquo;s Taxonomy. What model does the processing found in multi-core CPUs correspond to? (5 points)</description>
     </item>
