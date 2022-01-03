@@ -197,20 +197,16 @@
 
 
 
-<span style="font-size: 0.9em;"> / HPC y Biometría …</span>
+<span style="font-size: 0.9em;"> / Algoritmos y …</span>
 
 </div>
 
 
 </small>
-  <h2>HPC y Biometría (charla invitada)</h2>
+  <h2>Algoritmos y Aplicaciones</h2>
   <div class="rounded">
-    <p>Charla &ldquo;Computación de Alto Rendimiento y Biometría.&rdquo; dada por Dr. Ricardo Barrientos de la Universidad Católica del Maule.</p>
-<p>Resumen: Esta charla comenzará presentando una introducción al área de Computación de Alto Rendimiento y ejemplo de problemas que es capaz de resolver. También, se verá el desarrollo de aplicaciones utilizando GPU (Graphic Processing Unit), así como su arquitectura. Posteriormente, se presentarán prototipos tecnólogicos desarrollados en el Laboratorio LITRP (<a href="http://www.litrp.cl">www.litrp.cl</a>) que tienen relación con distintos métodos biométricos usados en plataformas de hardware de alto rendimiento y en particular en GPU, que permiten el uso de bases de datos de gran tamaño (decenas de millones de datos biométricos)</p>
-<p align="center">
-  <img src="../../images/charlaHPC.jpeg"  width="526" height="372">
-</p>
-<p><img src="../../images/pdf_web.png" alt="Download slides"> <a href="../../pdf/Charla-UBB-HPC-Biometria.pdf">Charla-UBB-HPC-Biometria.pdf</a></p>
+    <p>En esta sesión revisamos algunos ejemplos de algoritmos paralelos y aplicaciones.</p>
+<p><img src="../../images/pdf_web.png" alt="Download slides"> <a href="../../pdf/13-algoritmos.pdf">13-algoritmos.pdf</a></p>
 <script type="text/javascript" src= '/~jfuentes/classes/ch//js/pdf-js/build/pdf.js'></script>
 <style>
 #the-canvas {
@@ -271,7 +267,7 @@
 window.onload = function() {
 
 
-var url = "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/" + 'pdf\/Charla-UBB-HPC-Biometria.pdf';
+var url = "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/" + 'pdf\/13-algoritmos.pdf';
 
 var hidePaginator = "" === "true";
 var hideLoader = "" === "true";
@@ -416,8 +412,8 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
   <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/~jfuentes/classes/ch/unit3/algoritmos/"
-    title="Algoritmos y Aplicaciones"
+    href="/~jfuentes/classes/ch/unit3/evaluacion/"
+    title="Test 3"
   >
     <i class="nav-menu fas fa-chevron-circle-right"></i>
   </a>
@@ -426,8 +422,8 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 <p class="mb-1 mt-1 text-left">
   
   <a
-    href="/~jfuentes/classes/ch/unit3/patrones/"
-    title="Patrones Paralelos"
+    href="/~jfuentes/classes/ch/unit3/hpc/"
+    title="HPC y Biometría (charla invitada)"
   >
     <i class="nav-menu fas fa-chevron-circle-left"></i>
   </a>
@@ -478,7 +474,7 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/unit3\/hpc\/";
+      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/ch\/unit3\/algoritmos\/";
     }
   });
 
