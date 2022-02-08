@@ -2,6 +2,7 @@
 title = "Memory Hierarchy"
 weight = 3
 date = "2019-05-11"
+type = "content"
 +++
 
 In this session we review fundamental concepts about computer system memories.
