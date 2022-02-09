@@ -132,6 +132,18 @@ Resumen: Esta charla comenzará presentando una introducción al área de Comput
     </item>
     
     <item>
+      <title>Test 4</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit4/evaluacion/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit4/evaluacion/</guid>
+      <description>Computación Heterogénea   Indique cuándo es conveniente utilizar la Ley de Amdalh y cuándo es conveniente utilizar la Ley de Gustafson en el cálculo de rendimiento algorítmico.
+  Ingrese su respuesta    Asuma que un programa posee 30% de su código que no es paralelizable:
+2.1 Calcular la aceleración usando la Ley de Amdahl usando 4 procesadores.
+2.2 Ahora asuma que el trabajo paralelo es fijo.</description>
+    </item>
+    
+    <item>
       <title>Algoritmos y Aplicaciones</title>
       <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/algoritmos/</link>
       <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>

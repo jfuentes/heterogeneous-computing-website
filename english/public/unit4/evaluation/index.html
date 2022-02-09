@@ -185,211 +185,37 @@
 
 
 
-<span style="font-size: 0.9em;"> / Computational …</span>
+<span style="font-size: 0.9em;"> / Test 4</span>
 
 </div>
 
 
 </small>
-  <h2>Computational Performance</h2>
+  <h2>Test 4</h2>
   <div class="rounded">
-    <p>In this session we review concepts about computational performance in parallel algorithms.</p>
-<p><img src="../../images/pdf_web.png" alt="Download slides"> <a href="../../pdf/14-performance.pdf">14-performance.pdf</a></p>
-<script type="text/javascript" src= '/~jfuentes/classes/hc//js/pdf-js/build/pdf.js'></script>
-<style>
-#the-canvas {
-  border: 1px solid black;
-  direction: ltr;
-  width: 100%;
-  height: auto;
-  display: none;
-}
-
-#paginator {
-  display: none;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-#loadingWrapper {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 350px;
-}
-
-#loading {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border: 3px solid #d2d0d0;;
-  border-radius: 50%;
-  border-top-color: #383838;
-  animation: spin 1s ease-in-out infinite;
-  -webkit-animation: spin 1s ease-in-out infinite;
-}
-
-@keyframes spin {
-  to { -webkit-transform: rotate(360deg); }
-}
-@-webkit-keyframes spin {
-  to { -webkit-transform: rotate(360deg); }
-}
-</style>
-
-<div id="paginator">
-    <button id="prev">Previous</button>
-    <button id="next">Next</button>
-    &nbsp; &nbsp;
-    <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
-</div>
-<div id="embed-pdf-container">
-    <div id="loadingWrapper">
-      <div id="loading"></div>
-    </div>
-    <canvas id="the-canvas"></canvas>
-</div>
-
-<script type="text/javascript">
-window.onload = function() {
-
-
-var url = "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/" + 'pdf\/14-performance.pdf';
-
-var hidePaginator = "" === "true";
-var hideLoader = "" === "true";
-var selectedPageNum = parseInt("") || 1;
-
-
-var pdfjsLib = window['pdfjs-dist/build/pdf'];
-
-
-pdfjsLib.GlobalWorkerOptions.workerSrc = "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/" + '/js/pdf-js/build/pdf.worker.js';
-
-
-var pdfDoc = null,
-    pageNum = selectedPageNum,
-    pageRendering = false,
-    pageNumPending = null,
-    scale = 3,
-    canvas = document.getElementById('the-canvas'),
-    ctx = canvas.getContext('2d'),
-    paginator = document.getElementById("paginator"),
-    loadingWrapper = document.getElementById('loadingWrapper');
-
-
-
-showPaginator();
-showLoader();
-
-
-
-function renderPage(num) {
-  pageRendering = true;
-  
-  pdfDoc.getPage(num).then(function(page) {
-    var viewport = page.getViewport({scale: scale});
-    canvas.height = viewport.height;
-    canvas.width = viewport.width;
-
-    
-    var renderContext = {
-      canvasContext: ctx,
-      viewport: viewport
-    };
-    var renderTask = page.render(renderContext);
-
-    
-    renderTask.promise.then(function() {
-      pageRendering = false;
-      showContent();
-      
-      if (pageNumPending !== null) {
-        
-        renderPage(pageNumPending);
-        pageNumPending = null;
-      }
-    });
-  });
-
-  
-  document.getElementById('page_num').textContent = num;
-}
-
-
-
-function showContent() {
-  loadingWrapper.style.display = 'none';
-  canvas.style.display = 'block';
-}
-
-
-
-function showLoader() {
-  if(hideLoader) return
-  loadingWrapper.style.display = 'flex';
-  canvas.style.display = 'none';
-}
-
-
-
-function showPaginator() {
-  if(hidePaginator) return
-  paginator.style.display = 'block';
-}
-
-
-
-function queueRenderPage(num) {
-  if (pageRendering) {
-    pageNumPending = num;
-  } else {
-    renderPage(num);
-  }
-}
-
-
-
-function onPrevPage() {
-  if (pageNum <= 1) {
-    return;
-  }
-  pageNum--;
-  queueRenderPage(pageNum);
-}
-document.getElementById('prev').addEventListener('click', onPrevPage);
-
-
-
-function onNextPage() {
-  if (pageNum >= pdfDoc.numPages) {
-    return;
-  }
-  pageNum++;
-  queueRenderPage(pageNum);
-}
-document.getElementById('next').addEventListener('click', onNextPage);
-
-
-
-pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
-  pdfDoc = pdfDoc_;
-  var numPages = pdfDoc.numPages;
-  document.getElementById('page_count').textContent = numPages;
-  
-  
-  if(pageNum > numPages) {
-    pageNum = numPages
-  }
-
-  
-  renderPage(pageNum);
-});
-}
-
-</script>
-
+    <h2 id="heterogeneous-computing">Heterogeneous Computing</h2>
+<ol>
+<li>
+<p>To calculate the theoretical performance of a parallel algorithm, indicate when it is convenient to use Amdalh&rsquo;s Law and when it is convenient to use  Gustafson&rsquo;s Law.</p>
+<hr>
+<pre><code> Enter your answer here
+</code></pre>
+<hr>
+</li>
+<li>
+<p>Assume that in a computer program  30% of its code is not parallelizable:</p>
+<p>2.1  Calculate the speedup with 4 processors  using Amdahl&rsquo;s Law.</p>
+<p>2.2  Now, assume that the parallel work is fixed. Calculate the speedup with 4 processors using Gustafson&rsquo;s Law.</p>
+<p>Upload a file (pdf or image) with your answer.</p>
+</li>
+<li>
+<p>Explain the relevance of using accelerators (e.g. GPUs) to solve biometric problems.</p>
+<hr>
+<pre><code> Enter your answer here
+</code></pre>
+<hr>
+</li>
+</ol>
 
   </div>
 </div>
@@ -399,17 +225,17 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
   
   <p class="mb-1 mt-1 text-left">
   
-  <a
-    href="/~jfuentes/classes/hc/unit4/evaluation/"
-    title="Test 4"
-  >
-    <i class="nav-menu fas fa-chevron-circle-right"></i>
-  </a>
+  <i class="nav-menu-disabled fas fa-chevron-circle-right"></i>
   
 </p>
 <p class="mb-1 mt-1 text-left">
   
-  <i class="nav-menu-disabled fas fa-chevron-circle-left"></i>
+  <a
+    href="/~jfuentes/classes/hc/unit4/performance/"
+    title="Computational Performance"
+  >
+    <i class="nav-menu fas fa-chevron-circle-left"></i>
+  </a>
   
 </p>
 
@@ -457,7 +283,7 @@ pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
 
   let clipboard = new ClipboardJS(".fa-share-alt", {
     text: function() {
-      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/unit4\/performance\/";
+      return "http:\/\/www.face.ubiobio.cl\/~jfuentes\/classes\/hc\/unit4\/evaluation\/";
     }
   });
 

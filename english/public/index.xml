@@ -138,6 +138,18 @@ Charla-UBB-HPC-Biometria.pdf
     </item>
     
     <item>
+      <title>Test 4</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit4/evaluation/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit4/evaluation/</guid>
+      <description>Heterogeneous Computing   To calculate the theoretical performance of a parallel algorithm, indicate when it is convenient to use Amdalh&amp;rsquo;s Law and when it is convenient to use Gustafson&amp;rsquo;s Law.
+  Enter your answer here    Assume that in a computer program 30% of its code is not parallelizable:
+2.1 Calculate the speedup with 4 processors using Amdahl&amp;rsquo;s Law.
+2.2 Now, assume that the parallel work is fixed.</description>
+    </item>
+    
+    <item>
       <title>Algorithms and Applications</title>
       <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/algorithms/</link>
       <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>

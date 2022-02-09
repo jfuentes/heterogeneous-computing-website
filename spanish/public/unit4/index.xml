@@ -18,5 +18,17 @@
 #the-canvas {border: 1px solid black;direction: ltr;width: 100%;height: auto;display: none;}#paginator {display: none;text-align: center;margin-bottom: 10px;}#loadingWrapper {display: none;justify-content: center;align-items: center;width: 100%;height: 350px;}#loading {display: inline-block;width: 50px;height: 50px;border: 3px solid #d2d0d0;;border-radius: 50%;border-top-color: #383838;animation: spin 1s ease-in-out infinite;-webkit-animation: spin 1s ease-in-out infinite;}@keyframes spin {to { -webkit-transform: rotate(360deg); }}@-webkit-keyframes spin {to { -webkit-transform: rotate(360deg); }}PreviousNext&amp;nbsp; &amp;nbsp;Page:  / window.</description>
     </item>
     
+    <item>
+      <title>Test 4</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit4/evaluacion/</link>
+      <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit4/evaluacion/</guid>
+      <description>Computación Heterogénea   Indique cuándo es conveniente utilizar la Ley de Amdalh y cuándo es conveniente utilizar la Ley de Gustafson en el cálculo de rendimiento algorítmico.
+  Ingrese su respuesta    Asuma que un programa posee 30% de su código que no es paralelizable:
+2.1 Calcular la aceleración usando la Ley de Amdahl usando 4 procesadores.
+2.2 Ahora asuma que el trabajo paralelo es fijo.</description>
+    </item>
+    
   </channel>
 </rss>
