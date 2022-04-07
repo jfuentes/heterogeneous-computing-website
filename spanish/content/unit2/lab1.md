@@ -42,3 +42,69 @@ el siguiente link encontrará una Wiki con detalles sobre su uso en DPC++: http:
 Para probar su implementación, se recomienda ejecutarlo en servidores Devcloud. En el siguiente
 link encontrará una Wiki con detalles sobre la configuración del entorno de desarrollo Devcloud y
 compilación con DPC++: http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/devcloud
+
+**Solución:**
+
+```cpp
+/*********************************
+* Lab 1 - Computación Heterogénea 
+* Primavera 2021
+**********************************/
+
+#include <CL/sycl.hpp>
+
+constexpr int N = 20;
+using namespace sycl;
+
+int main(){
+    //Cola para la ejecución del dispositivo
+    queue q;
+    std::cout << "Device : "
+            << q.get_device().get_info<info::device::name>()
+            << std::endl;
+
+    //Declaracion de buffer
+    std::vector<int> A(N);
+    std::vector<int> B(N);
+    std::vector<int> C(N);	
+    buffer buffA(A);
+    buffer buffB(B);
+    buffer buffC(C);
+
+    // Envío del kernel al dispositivo de hardware
+    q.submit([&](handler& h){
+        // Agrega tu código aquí
+        accessor a(buffA, h, read_write);
+        accessor b(buffB, h, read_write);
+        accessor c(buffC, h, write_only);
+        
+        h.parallel_for(N,[=](auto i) {
+            a[i] = i;
+            b[i] = N - i;
+
+            if (i%2 == 0)
+                c[i] = a[i] + b[i];
+            else    
+                c[i] = a[i] - b[i];
+        });
+
+    }).wait();
+
+    std::cout << "A: ";
+    for (int i=0; i<N; i++) 
+		    std::cout << A[i] << " ";
+    std::cout << std::endl;
+
+    std::cout << "B: ";
+    for (int i=0; i<N; i++) 
+		    std::cout << B[i] << " ";
+    std::cout << std::endl;
+
+    std::cout << "C: ";
+    for (int i=0; i<N; i++) 
+		    std::cout << C[i] << " ";
+    std::cout << std::endl;
+
+	return 0;
+}
+```
