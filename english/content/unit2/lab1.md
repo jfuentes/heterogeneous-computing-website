@@ -45,3 +45,70 @@ For kernel implementation, the use of buffers, accessors, and parallel_for is re
   
 
 To test your deployment, we recommend running it on Devcloud servers. In the following link you will find a Wiki with details about the the Devcloud environment configuration  and compilation with DPC++: http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/devcloud/
+
+
+**Solution:**
+
+```cpp
+/*********************************
+* Lab 1 - Heterogeneous Computing 
+* Spring 2021
+**********************************/
+
+#include <CL/sycl.hpp>
+
+constexpr int N = 20;
+using namespace sycl;
+
+int main(){
+    // Queue for device execution
+    queue q;
+    std::cout << "Device : "
+            << q.get_device().get_info<info::device::name>()
+            << std::endl;
+
+    // buffer declarations
+    std::vector<int> A(N);
+    std::vector<int> B(N);
+    std::vector<int> C(N);	
+    buffer buffA(A);
+    buffer buffB(B);
+    buffer buffC(C);
+
+    // kernel submission to hardware device
+    q.submit([&](handler& h){
+        // Add your code here
+        accessor a(buffA, h, read_write);
+        accessor b(buffB, h, read_write);
+        accessor c(buffC, h, write_only);
+        
+        h.parallel_for(N,[=](auto i) {
+            a[i] = i;
+            b[i] = N - i;
+
+            if (i%2 == 0)
+                c[i] = a[i] + b[i];
+            else    
+                c[i] = a[i] - b[i];
+        });
+
+    }).wait();
+
+    std::cout << "A: ";
+    for (int i=0; i<N; i++) 
+		    std::cout << A[i] << " ";
+    std::cout << std::endl;
+
+    std::cout << "B: ";
+    for (int i=0; i<N; i++) 
+		    std::cout << B[i] << " ";
+    std::cout << std::endl;
+
+    std::cout << "C: ";
+    for (int i=0; i<N; i++) 
+		    std::cout << C[i] << " ";
+    std::cout << std::endl;
+
+	return 0;
+}
+```
