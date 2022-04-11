@@ -96,9 +96,8 @@ compilación con DPC++: http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/de
 using namespace sycl;
    
 int main(){
-	constexpr int size = 16;
-
-	std::vector<int> A(size);
+    constexpr int size = 16;
+    std::vector<int> A(size);
     std::vector<int> B(size);
     std::vector<int> C(size);
     int innerProd = 0;
@@ -109,42 +108,42 @@ int main(){
         B[i] = (rand() % 100) + 1;
     }
 
-	queue q;
+    queue q;
 
-	// Creación del buffer
-	buffer buffA(A);
+    // Creación del buffer
+    buffer buffA(A);
     buffer buffB(B);
     buffer buffC(C);
+    
     // Buffer para resultado final de producto interno
-	buffer<int, 1> buffSum(&innerProd, 1);
+    buffer<int, 1> buffSum(&innerProd, 1);
 
-	auto kernel1 = q.submit([&](handler& h){
-		accessor bA(buffA, h);
+    auto kernel1 = q.submit([&](handler& h){
+        accessor bA(buffA, h);
         accessor bB(buffB, h);
         accessor bC(buffC, h);
-		h.parallel_for(nd_range<1>({size, 1}), [=](auto idx){
+        h.parallel_for(nd_range<1>({size, 1}), [=](auto idx){
             auto id_hilo = idx.get_global_id();
-		    bC[id_hilo] = bA[id_hilo]*bB[id_hilo];
-		});
-	});
+            bC[id_hilo] = bA[id_hilo]*bB[id_hilo];
+        });
+    });
 
     auto kernel2 = q.submit([&](handler& h){
         h.depends_on(kernel1);
-		accessor bC(buffC, h);
-		auto sumReduction = reduction(buffSum, h, plus<>());
-		h.parallel_for(nd_range<1>({size, 1}), sumReduction, [=](auto idx, auto& sum){
+        accessor bC(buffC, h);
+        auto sumReduction = reduction(buffSum, h, plus<>());
+        h.parallel_for(nd_range<1>({size, 1}), sumReduction, [=](auto idx, auto& sum){
             auto id_hilo = idx.get_global_id();
-			sum.combine(bC[id_hilo]);
-		});
-	});
+            sum.combine(bC[id_hilo]);
+        });
+    });
 
-	host_accessor buffC_host(buffC);
-	host_accessor innerProd_result(buffSum);
+    host_accessor buffC_host(buffC);
+    host_accessor innerProd_result(buffSum);
 
-	for(int i=0; i < size; i++)
-	    std::cout << "C[" << i << "] = " << buffC_host[i]  << std::endl;
-	std::cout << "Resultado producto interno: " << innerProd  << std::endl;
-	return 0;
+    for(int i=0; i < size; i++)
+        std::cout << "C[" << i << "] = " << buffC_host[i]  << std::endl;
+    std::cout << "Resultado producto interno: " << innerProd  << std::endl;
+    return 0;
 }
-
 ```
