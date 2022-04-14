@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <meta name="generator" content="kitab theme by Darshan in Hugo 0.88.1" />
+  <meta name="generator" content="kitab theme by Darshan in Hugo 0.96.0" />
 
   <link
     rel="stylesheet"
@@ -226,9 +226,9 @@
 <li><a href="https://github.com/oneapi-src/oneAPI-samples/tree/master/DirectProgramming/DPC%2B%2B">Ejemplos de DPC++</a></li>
 </ul>
 <p>Siempre utilizar en el código:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;CL/sycl.hpp&gt; </span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>  Using <span style="color:#66d9ef">namespace</span>  sycl;
-</code></pre></div><p>Pasos de un programa en DPC++</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>  <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;CL/sycl.hpp&gt; </span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  Using <span style="color:#66d9ef">namespace</span>  sycl;
+</span></span></code></pre></div><p>Pasos de un programa en DPC++</p>
 <ol>
 <li>Crear cola de dispositivo</li>
 <li>Crear buffers</li>
@@ -241,12 +241,12 @@
 <h4 id="malloc">Malloc</h4>
 <p>Para gestionar la memoria utilizar enfoque basado en punteros, más específicamente Malloc.
 Por ejemplo, crear locación de memoria para compartir:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>ejemplo <span style="color:#f92672">=</span> malloc_shared<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span>(variable,queue);
-</code></pre></div><p>En SYCL se puede utilizar 3 tipos: <em>malloc_host</em>, <em>malloc_shared</em> y <em>malloc_device</em>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Cpp" data-lang="Cpp">  <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> host_array <span style="color:#f92672">=</span> malloc_host(N, Q);
-  <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> shared_array <span style="color:#f92672">=</span> malloc_shared(N, Q);
-  <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> device_array <span style="color:#f92672">=</span> malloc_device(N, Q);
-</code></pre></div><p>Características:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>  <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>ejemplo <span style="color:#f92672">=</span> malloc_shared<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span>(variable,queue);
+</span></span></code></pre></div><p>En SYCL se puede utilizar 3 tipos: <em>malloc_host</em>, <em>malloc_shared</em> y <em>malloc_device</em>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> host_array <span style="color:#f92672">=</span> malloc_host(N, Q);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> shared_array <span style="color:#f92672">=</span> malloc_shared(N, Q);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> device_array <span style="color:#f92672">=</span> malloc_device(N, Q);
+</span></span></code></pre></div><p>Características:</p>
 <table>
 <thead>
 <tr>
@@ -286,11 +286,11 @@ Por ejemplo, crear locación de memoria para compartir:</p>
 <p>Otra opción  es  la utilización  de  buffers: 
 La forma más fácil de declararlos es indicando en su constructor la fuente de datos: arreglo, vector, puntero, etc.</p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  buffer  <span style="color:#a6e22e">my_buffer</span>(my_data);
-</code></pre></div><p>Para acceder a estos se debe utilizar un &ldquo;accessor&rdquo;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>  buffer  <span style="color:#a6e22e">my_buffer</span>(my_data);
+</span></span></code></pre></div><p>Para acceder a estos se debe utilizar un &ldquo;accessor&rdquo;
 Ejemplo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  accessor my_accessor(my_buffer, h)
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>  accessor my_accessor(my_buffer, h)
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Tipos de accesos</th>
@@ -320,29 +320,29 @@ Ejemplo:</p>
 <hr>
 <h4 id="colas-queue">Colas (Queue)</h4>
 <p>Las colas (queue) nos permiten conectar con los dispositivos (device), con ellas enviamos kernels para ejecutar trabajo y mover datos.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  queue <span style="color:#f92672">&lt;</span>nombre cola<span style="color:#f92672">&gt;</span>;
-</code></pre></div><h4 id="single_task">Single_task</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>  queue <span style="color:#f92672">&lt;</span>nombre cola<span style="color:#f92672">&gt;</span>;
+</span></span></code></pre></div><h4 id="single_task">Single_task</h4>
 <p>Permite definir un kernel que ejecute una sola tarea o hilo.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  h.single_task([<span style="color:#f92672">=</span>]) {
-	  ...
-  });
-</code></pre></div><h4 id="parallel_for">Parallel_for</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>  h.single_task([<span style="color:#f92672">=</span>]) {
+</span></span><span style="display:flex;"><span>	  ...
+</span></span><span style="display:flex;"><span>  });
+</span></span></code></pre></div><h4 id="parallel_for">Parallel_for</h4>
 <p>Permite definir kernel paralelo que será ejecutado por muchos hilos dependiendo del elementos de procesamiento. En su versión simplificada, el compilador realiza la división del trabajo (iteraciones) en los hilos.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  h.parallel_for(range(N) , [<span style="color:#f92672">=</span>](id<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&gt;</span> idx ) {
-	  ...
-  });
-</code></pre></div><p>Como se pueden dar cuenta es como una función lambda, la función toma dos argumentos, el primero se llama rango el cual especifica el número de elementos para lanzar en cada dimensión y el segundo es una función del kernel que se ejecutará para cada índice del rango.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>  h.parallel_for(range(N) , [<span style="color:#f92672">=</span>](id<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&gt;</span> idx ) {
+</span></span><span style="display:flex;"><span>	  ...
+</span></span><span style="display:flex;"><span>  });
+</span></span></code></pre></div><p>Como se pueden dar cuenta es como una función lambda, la función toma dos argumentos, el primero se llama rango el cual especifica el número de elementos para lanzar en cada dimensión y el segundo es una función del kernel que se ejecutará para cada índice del rango.
 Nota: Pueden utilizar para varias dimensiones, para dos dimensiones sería:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  <span style="color:#75715e">// Usando range: NxM elementos de procesamiento
-</span><span style="color:#75715e"></span>  h.parallel_for(range(N, M), [<span style="color:#f92672">=</span>](id<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span> item) {
-	  ...
-  });
-
-  <span style="color:#75715e">// Usando nd_range: NxM elementos de procesamiento y cada grupo de 1x1
-</span><span style="color:#75715e"></span>  h.parallel_for(nd_range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span>(range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span>({N, M}), range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>})), [<span style="color:#f92672">=</span>](nd_item<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span> item) {
-	  ...
-  });
-</code></pre></div><h5 id="range">Range</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>  <span style="color:#75715e">// Usando range: NxM elementos de procesamiento
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  h.parallel_for(range(N, M), [<span style="color:#f92672">=</span>](id<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span> item) {
+</span></span><span style="display:flex;"><span>	  ...
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Usando nd_range: NxM elementos de procesamiento y cada grupo de 1x1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  h.parallel_for(nd_range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span>(range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span>({N, M}), range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>})), [<span style="color:#f92672">=</span>](nd_item<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span> item) {
+</span></span><span style="display:flex;"><span>	  ...
+</span></span><span style="display:flex;"><span>  });
+</span></span></code></pre></div><h5 id="range">Range</h5>
 <p>Es una abstracción que describe el número de elementos (hilos o work-items) en cada dimensión. Puede contener 1, 2 o 3 números y está determinada por:</p>
 <ul>
 <li><strong>range</strong>: describe el espacio de iteración de la ejecutación paralela.</li>
@@ -355,36 +355,36 @@ Nota: Pueden utilizar para varias dimensiones, para dos dimensiones sería:</p>
 <li><strong>item</strong>: representa una instancia individual de una función kernel . Expone funciones adicionales sobre las propiedades del la ejecución (rango, id, etc.</li>
 </ul>
 <p>El siguiente ejemplo muestra la definición de un ND_Range de 3 dimensiones cuya organización de hilos (work-items) es 12x8x16 y donde estos hilos están organizados en grupos de 6x2x4.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">  nd_range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>(range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">16</span>}), range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>}))
-</code></pre></div><p>Un ejemplo completo en código:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">   
-    <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;CL/sycl.hpp&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;array&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>    <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> sycl;
-   
-    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
-		<span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>;
-		std<span style="color:#f92672">::</span>array<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, size<span style="color:#f92672">&gt;</span> data;
-		<span style="color:#75715e">//Se crea una cola
-</span><span style="color:#75715e"></span>		queue Q;
-		<span style="color:#75715e">//Creación del buffer
-</span><span style="color:#75715e"></span>		buffer B { data };
-
-		Q.submit([<span style="color:#f92672">&amp;</span>](handler<span style="color:#f92672">&amp;</span> h){
-			accessor A{B,h};
-			h.parallel_for(size, [<span style="color:#f92672">=</span>](<span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> idx){
-				A[idx] <span style="color:#f92672">=</span> idx;
-			});
-		});
-
-		host_accessor A{B};
-		<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>)
-		std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;data&#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> A[i]  <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
-		
-		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-	}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>  nd_range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>(range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">16</span>}), range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>}))
+</span></span></code></pre></div><p>Un ejemplo completo en código:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;CL/sycl.hpp&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;array&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> sycl;
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>;
+</span></span><span style="display:flex;"><span>		std<span style="color:#f92672">::</span>array<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, size<span style="color:#f92672">&gt;</span> data;
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">//Se crea una cola
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		queue Q;
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">//Creación del buffer
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		buffer B { data };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		Q.submit([<span style="color:#f92672">&amp;</span>](handler<span style="color:#f92672">&amp;</span> h){
+</span></span><span style="display:flex;"><span>			accessor A{B,h};
+</span></span><span style="display:flex;"><span>			h.parallel_for(size, [<span style="color:#f92672">=</span>](<span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> idx){
+</span></span><span style="display:flex;"><span>				A[idx] <span style="color:#f92672">=</span> idx;
+</span></span><span style="display:flex;"><span>			});
+</span></span><span style="display:flex;"><span>		});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		host_accessor A{B};
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>		std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;data&#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> A[i]  <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span></code></pre></div>
   </div>
 </div>
 

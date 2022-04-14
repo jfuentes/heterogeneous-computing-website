@@ -1,25 +1,29 @@
 +++
-title = "Calulo de Pi"
+title = "Cálulo de Pi"
 weight = 4
 date = "2022-04-12"
 type = "practice"
 +++
 
-**Calculo de pi por integración númerica**
+**Cálculo de Pi por integración númerica**
 
 Matemáticamente, sabemos que:
 $$\int_{0}^{1}\frac{4.0}{(1+x^{2})}dx = \Pi $$
 
-Podemos aproximar la integral como una suma de n rectángulos:
+Podemos aproximar la integral como una suma de \\(n\\) rectángulos:
 $$\sum_{i=0}^{n}F(x_{i})\Delta x \approx  \Pi$$
 
 donde cada rectángulo tiene ancho \\(\Delta x\\) y alto \\(F(x_{i})\\) en la mitad del intervalo \\(i\\)
 
+<center>
 <p>
   <img src="../../images/img.png">
 </p>
+</center>
 
-***Serial Code***
+Podemos implementar el cálculo de Pi de la siguiente forma:
+
+***Solución secuencial***
 ```cpp
 #include <stdio.h>
 #include <omp.h>  //Aquí usamos OpenMP para funciones de temporización
@@ -45,7 +49,7 @@ int main()
 }
 ```
 
-***Solución***
+***Solución paralela en DPC++***
 
 ```cp
 

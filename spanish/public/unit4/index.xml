@@ -30,5 +30,34 @@
 2.2 Ahora asuma que el trabajo paralelo es fijo.</description>
     </item>
     
+    <item>
+      <title>Cálulo de Pi</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit4/calculador_pi/</link>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit4/calculador_pi/</guid>
+      <description>Cálculo de Pi por integración númerica
+Matemáticamente, sabemos que: $$\int_{0}^{1}\frac{4.0}{(1+x^{2})}dx = \Pi $$
+Podemos aproximar la integral como una suma de \(n\) rectángulos: $$\sum_{i=0}^{n}F(x_{i})\Delta x \approx \Pi$$
+donde cada rectángulo tiene ancho \(\Delta x\) y alto \(F(x_{i})\) en la mitad del intervalo \(i\)
+Podemos implementar el cálculo de Pi de la siguiente forma:
+Solución secuencial
+#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;omp.h&amp;gt; //Aquí usamos OpenMP para funciones de temporización static long num_steps = 100000000; double step; int main() {  int i;  double x,pi,sum=0.</description>
+    </item>
+    
+    <item>
+      <title>Encuesta Final</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit4/encuestaf/</link>
+      <pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit4/encuestaf/</guid>
+      <description>¿Fueron las actividades del curso (clases, labs, talleres) útiles y atractivos? *  Nada útil
+ 1 2 3 4  Muy útil
+¿Cómo valoraría el apoyo recibido del profesor y ayudantes? *  Nada útil
+ 1 2 3 4  Muy útil
+¿El material cubierto en el curso tuvo algún impacto en su interés por la computación de alto rendimiento? *  Disminuyó mi interés
+ 1 2 3 4  Aumentó mi interés</description>
+    </item>
+    
   </channel>
 </rss>

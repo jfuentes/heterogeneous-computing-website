@@ -60,7 +60,7 @@ Charla-UBB-HPC-Biometria.pdf
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/evaluation/</guid>
       <description>Heterogeneous computing   Which of the following operations does not correspond to a reduction function in DPC++? (10 points)
  maximum (max) plus (add) minimum (mul) parallel_for    Given the following code. Indicate the order in which each kernel is executed: (10 points)
-queue q; auto A = q.submit([&amp;amp;])(handler&amp;amp; h){}); auto C = q.submit([&amp;amp;])(handler&amp;amp; h){ h.depends_on(A); }); auto B = q.submit([&amp;amp;])(handler&amp;amp; h){ h.depends_on(A); h.depends_on(C); }); auto D = q.</description>
+queue q; auto A = q.submit([&amp;amp;])(handler&amp;amp; h){});  auto C = q.submit([&amp;amp;])(handler&amp;amp; h){  h.depends_on(A); });  auto B = q.submit([&amp;amp;])(handler&amp;amp; h){  h.depends_on(A);  h.</description>
     </item>
     
   </channel>

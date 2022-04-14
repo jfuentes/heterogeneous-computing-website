@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <meta name="generator" content="kitab theme by Darshan in Hugo 0.88.1" />
+  <meta name="generator" content="kitab theme by Darshan in Hugo 0.96.0" />
 
   <link
     rel="stylesheet"
@@ -235,31 +235,31 @@ $$\nabla^2f(x,y)=0 $$</p>
 </p>
 <p>La placa de metal la podemos modelar computacionalmente mediante una matriz de valores que indiquen la temperatura de cada uno de sus puntos. Sin embargo, el cálculo para realizar la simulación de propagación de calor tomará mucho tiempo de forma secuencial, ya que se deben realizar cientos de iteraciones con el cálculo del promedio de vecinos. Es por esto que se requiere que usted implemente una versión paralela utilizando DPC++.</p>
 <p>El cálculo principal a implementar para generar la simulación está dado por el siguiente código secuencial:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">
-    <span style="color:#75715e">// Iterar hasta alcanzar un estado de estabilización o número máximo de iteraciones
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> ( dt <span style="color:#f92672">&gt;</span> MAX_TEMP_ERROR <span style="color:#f92672">&amp;&amp;</span> iteration <span style="color:#f92672">&lt;=</span> max_iterations ) {
-
-        <span style="color:#75715e">// Cálculo principal:
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">// Por cada posición de la matriz calcular el promedio de los vecinos
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span>(i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> ROWS; i<span style="color:#f92672">++</span>) {
-            <span style="color:#66d9ef">for</span>(j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> COLUMNS; j<span style="color:#f92672">++</span>) {
-                Temperature[i][j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.25</span> <span style="color:#f92672">*</span> (Temperature_last[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][j] <span style="color:#f92672">+</span> Temperature_last[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][j] <span style="color:#f92672">+</span>
-                                            Temperature_last[i][j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> Temperature_last[i][j<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]);
-            }
-        }
-
-        dt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>; <span style="color:#75715e">// resetear cambio de temperatura más grande
-</span><span style="color:#75715e"></span>
-        <span style="color:#75715e">// Copiar matriz y encontrar el máximo cambio de calor
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span>(i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> ROWS; i<span style="color:#f92672">++</span>){
-            <span style="color:#66d9ef">for</span>(j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> COLUMNS; j<span style="color:#f92672">++</span>){
-	            dt <span style="color:#f92672">=</span> fmax( fabs(Temperature[i][j]<span style="color:#f92672">-</span>Temperature_last[i][j]), dt);
-	            Temperature_last[i][j] <span style="color:#f92672">=</span> Temperature[i][j];
-            }
-        }
-    }
-    
-</code></pre></div><p>El ciclo <em>while</em> controla el término de la iteración de Jacobi, se continuará con iteraciones mientras no se alcance un nivel de estabilidad de calor (<em>dt &gt; MAX_TEMP_ERROR</em>) y el número máximo de iteraciones no se alcance (<em>iteration &lt;= max_iterations</em>). Las estructuras <em>for</em> internas corresponden a cálculos que deben ser paralelizados. El primer <em>for</em> anidado calcula el promedio de vecinos para cada posición de la matriz, y el segundo <em>for</em> anidado copia los nuevos valores calculados entre matrices y encontra el máximo cambio de calor entre la iteración anterior y actual. Notar que al momento de paralelizar la búsqueda del máximo cambio de calor en el segundo <em>for</em> anidado todos los hilos deben actualizar la variable <em>dt</em>, por lo que es necesario utilizar alguna técnica de reducción y/o sincronización.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Iterar hasta alcanzar un estado de estabilización o número máximo de iteraciones
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span> ( dt <span style="color:#f92672">&gt;</span> MAX_TEMP_ERROR <span style="color:#f92672">&amp;&amp;</span> iteration <span style="color:#f92672">&lt;=</span> max_iterations ) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Cálculo principal:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// Por cada posición de la matriz calcular el promedio de los vecinos
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span>(i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> ROWS; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span>(j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> COLUMNS; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>                Temperature[i][j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.25</span> <span style="color:#f92672">*</span> (Temperature_last[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>][j] <span style="color:#f92672">+</span> Temperature_last[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][j] <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>                                            Temperature_last[i][j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> Temperature_last[i][j<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        dt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>; <span style="color:#75715e">// resetear cambio de temperatura más grande
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Copiar matriz y encontrar el máximo cambio de calor
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span>(i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> ROWS; i<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span>(j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> COLUMNS; j<span style="color:#f92672">++</span>){
+</span></span><span style="display:flex;"><span>	            dt <span style="color:#f92672">=</span> fmax( fabs(Temperature[i][j]<span style="color:#f92672">-</span>Temperature_last[i][j]), dt);
+</span></span><span style="display:flex;"><span>	            Temperature_last[i][j] <span style="color:#f92672">=</span> Temperature[i][j];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span></code></pre></div><p>El ciclo <em>while</em> controla el término de la iteración de Jacobi, se continuará con iteraciones mientras no se alcance un nivel de estabilidad de calor (<em>dt &gt; MAX_TEMP_ERROR</em>) y el número máximo de iteraciones no se alcance (<em>iteration &lt;= max_iterations</em>). Las estructuras <em>for</em> internas corresponden a cálculos que deben ser paralelizados. El primer <em>for</em> anidado calcula el promedio de vecinos para cada posición de la matriz, y el segundo <em>for</em> anidado copia los nuevos valores calculados entre matrices y encontra el máximo cambio de calor entre la iteración anterior y actual. Notar que al momento de paralelizar la búsqueda del máximo cambio de calor en el segundo <em>for</em> anidado todos los hilos deben actualizar la variable <em>dt</em>, por lo que es necesario utilizar alguna técnica de reducción y/o sincronización.</p>
 <p>En su implementación debe utilizar técnicas disponibles en DPC++ para acelerar este procesamiento en Multi-core CPU, GPU o FPGA. Para esto debe considerar los siguientes aspectos:</p>
 <ol>
 <li>Declaración de buffers para el almacenamiento de datos</li>

@@ -5,7 +5,7 @@ date = "2022-04-12"
 type = "practice"
 +++
 
-***Calculating pi by numerical integration***
+***Calculating Pi by numerical integration***
 
 Mathematically, we know that:
 $$\int_{0}^{1}\frac{4.0}{(1+x^{2})}dx = \Pi $$
@@ -15,9 +15,14 @@ $$\sum_{i=0}^{n}F(x_{i})\Delta x \approx  \Pi$$
 
 
 Where each rectangle has width \\(\Delta x\\) and height \\(F(x_{i})\\) at the middle of interval \\(i\\)
+
+<center>
 <p>
   <img src="../../images/img.png">
 </p>
+</center>
+
+We can implement the calculation of Pi as follows:
 
 ***Serial Code***
 ```cpp
@@ -45,7 +50,7 @@ int main()
 }
 ```
 
-***Solution***
+***Parallel Solution in DPC++***
 
 ```cp
 

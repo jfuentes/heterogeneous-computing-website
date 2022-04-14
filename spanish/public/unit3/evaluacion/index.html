@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <meta name="generator" content="kitab theme by Darshan in Hugo 0.88.1" />
+  <meta name="generator" content="kitab theme by Darshan in Hugo 0.96.0" />
 
   <link
     rel="stylesheet"
@@ -218,28 +218,28 @@
 </li>
 <li>
 <p>Dado el siguiente código. Indicar el orden en el que son ejecutado cada uno de los kernels. (10 puntos)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">queue q;
-<span style="color:#66d9ef">auto</span> A <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){});
-
-<span style="color:#66d9ef">auto</span> C <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){
-    h.depends_on(A);
-});
-
-<span style="color:#66d9ef">auto</span> B <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){
-    h.depends_on(A);
-    h.depends_on(C);
-});
-
-<span style="color:#66d9ef">auto</span> D <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){
-    h.depends_on(A);
-    h.depends_on(B);
-});
-
-<span style="color:#66d9ef">auto</span> E <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){
-    h.depends_on(C);
-    h.depends_on(D);
-});
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>queue q;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> A <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> C <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){
+</span></span><span style="display:flex;"><span>    h.depends_on(A);
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> B <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){
+</span></span><span style="display:flex;"><span>    h.depends_on(A);
+</span></span><span style="display:flex;"><span>    h.depends_on(C);
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> D <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){
+</span></span><span style="display:flex;"><span>    h.depends_on(A);
+</span></span><span style="display:flex;"><span>    h.depends_on(B);
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> E <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>])(handler<span style="color:#f92672">&amp;</span> h){
+</span></span><span style="display:flex;"><span>    h.depends_on(C);
+</span></span><span style="display:flex;"><span>    h.depends_on(D);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><hr>
 <pre><code> Ingrese su respuesta
 </code></pre>
 <hr>

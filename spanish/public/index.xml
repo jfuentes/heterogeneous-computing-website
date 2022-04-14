@@ -6,7 +6,7 @@
     <description>Recent content on Computación Heterogénea</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://www.face.ubiobio.cl/~jfuentes/classes/ch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DPC&#43;&#43;</title>
       <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp/</link>
@@ -15,7 +15,7 @@
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit2/dpcpp/</guid>
       <description>Enlaces con material de interés:
  Libro Data Parallel C++ Ejemplos en C++ Ejemplos de DPC++  Siempre utilizar en el código:
-#include &amp;lt;CL/sycl.hpp&amp;gt;  Using namespace sycl; Pasos de un programa en DPC++
+ #include &amp;lt;CL/sycl.hpp&amp;gt;  Using namespace sycl; Pasos de un programa en DPC++
  Crear cola de dispositivo Crear buffers Encolar kernel(s) Crear accessadores Especificar función del kernel  1. Gestión de Memoria  Malloc Para gestionar la memoria utilizar enfoque basado en punteros, más específicamente Malloc. Por ejemplo, crear locación de memoria para compartir:</description>
     </item>
     
@@ -206,7 +206,36 @@ Introducción a DPC++.
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit3/evaluacion/</guid>
       <description>Computación Heterogénea   ¿Cuál de las siguientes operaciones no corresponde a una función de reducción en DPC++? (10 puntos)
  maximum (max) plus (add) minimum (mul) parallel_for    Dado el siguiente código. Indicar el orden en el que son ejecutado cada uno de los kernels. (10 puntos)
-queue q; auto A = q.submit([&amp;amp;])(handler&amp;amp; h){}); auto C = q.submit([&amp;amp;])(handler&amp;amp; h){ h.depends_on(A); }); auto B = q.submit([&amp;amp;])(handler&amp;amp; h){ h.depends_on(A); h.</description>
+queue q; auto A = q.submit([&amp;amp;])(handler&amp;amp; h){});  auto C = q.submit([&amp;amp;])(handler&amp;amp; h){  h.depends_on(A); });  auto B = q.</description>
+    </item>
+    
+    <item>
+      <title>Cálulo de Pi</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit4/calculador_pi/</link>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit4/calculador_pi/</guid>
+      <description>Cálculo de Pi por integración númerica
+Matemáticamente, sabemos que: $$\int_{0}^{1}\frac{4.0}{(1+x^{2})}dx = \Pi $$
+Podemos aproximar la integral como una suma de \(n\) rectángulos: $$\sum_{i=0}^{n}F(x_{i})\Delta x \approx \Pi$$
+donde cada rectángulo tiene ancho \(\Delta x\) y alto \(F(x_{i})\) en la mitad del intervalo \(i\)
+Podemos implementar el cálculo de Pi de la siguiente forma:
+Solución secuencial
+#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;omp.h&amp;gt; //Aquí usamos OpenMP para funciones de temporización static long num_steps = 100000000; double step; int main() {  int i;  double x,pi,sum=0.</description>
+    </item>
+    
+    <item>
+      <title>Encuesta Final</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit4/encuestaf/</link>
+      <pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/ch/unit4/encuestaf/</guid>
+      <description>¿Fueron las actividades del curso (clases, labs, talleres) útiles y atractivos? *  Nada útil
+ 1 2 3 4  Muy útil
+¿Cómo valoraría el apoyo recibido del profesor y ayudantes? *  Nada útil
+ 1 2 3 4  Muy útil
+¿El material cubierto en el curso tuvo algún impacto en su interés por la computación de alto rendimiento? *  Disminuyó mi interés
+ 1 2 3 4  Aumentó mi interés</description>
     </item>
     
     <item>

@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <meta name="generator" content="kitab theme by Darshan in Hugo 0.88.1" />
+  <meta name="generator" content="kitab theme by Darshan in Hugo 0.96.0" />
 
   <link
     rel="stylesheet"
@@ -221,58 +221,115 @@
 <li>The sum of products must be done using reductions </li>
 </ol>
 <p>Base code to program your solution:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span>  <span style="color:#75715e">&lt;CL/sycl.hpp&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span>  <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">using</span>  <span style="color:#66d9ef">namespace</span>  sycl;
-
-<span style="color:#66d9ef">int</span>  <span style="color:#a6e22e">main</span>(){
-	<span style="color:#66d9ef">constexpr</span>  <span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>;
-
-	std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> A(size);
-	std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> B(size);
-	std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> C(size);
-
-<span style="color:#66d9ef">int</span> innerProd <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-
-<span style="color:#75715e">// Initialize Vectors
-</span><span style="color:#75715e"></span>
-	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>) {
-		A[i] <span style="color:#f92672">=</span> (rand() <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
-		B[i] <span style="color:#f92672">=</span> (rand() <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
-	}
-
-	queue q;
-
-<span style="color:#75715e">// Buffer creation
-</span><span style="color:#75715e"></span>
-	buffer buffA(A);
-	buffer buffB(B);
-	buffer buffC(C);
-
-<span style="color:#75715e">// Buffer for final internal product result
-</span><span style="color:#75715e"></span>
-buffer<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">&gt;</span> buffSum(<span style="color:#f92672">&amp;</span>innerProd, <span style="color:#ae81ff">1</span>);
-
-<span style="color:#75715e">/***
-</span><span style="color:#75715e">* Add kernel (s) here
-</span><span style="color:#75715e">*
-</span><span style="color:#75715e">*
-</span><span style="color:#75715e">***/</span>
-
-<span style="color:#75715e">// Show final results
-</span><span style="color:#75715e"></span>host_accessor buffC_host(buffC);
-host_accessor innerProd_result(buffSum);
-
-	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>)
-		std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;C[&#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;] = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> buffC_host[i] <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
-		std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Internal product result: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> innerProd <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
-		<span style="color:#66d9ef">return</span>  <span style="color:#ae81ff">0</span>;
-	}
-
-</code></pre></div><p>In the following link you will find a Wiki with details about DPC ++: <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/dpcpp/">http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/dpcpp/</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span>  <span style="color:#75715e">&lt;CL/sycl.hpp&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span>  <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span>  <span style="color:#66d9ef">namespace</span>  sycl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span>  <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">constexpr</span>  <span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> A(size);
+</span></span><span style="display:flex;"><span>	std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> B(size);
+</span></span><span style="display:flex;"><span>	std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> C(size);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> innerProd <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Initialize Vectors
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>		A[i] <span style="color:#f92672">=</span> (rand() <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>		B[i] <span style="color:#f92672">=</span> (rand() <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	queue q;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Buffer creation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	buffer buffA(A);
+</span></span><span style="display:flex;"><span>	buffer buffB(B);
+</span></span><span style="display:flex;"><span>	buffer buffC(C);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Buffer for final internal product result
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>buffer<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">&gt;</span> buffSum(<span style="color:#f92672">&amp;</span>innerProd, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/***
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">* Add kernel (s) here
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">***/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Show final results
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>host_accessor buffC_host(buffC);
+</span></span><span style="display:flex;"><span>host_accessor innerProd_result(buffSum);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>		std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;C[&#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;] = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> buffC_host[i] <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>		std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Internal product result: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> innerProd <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span>  <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span></code></pre></div><p>In the following link you will find a Wiki with details about DPC ++: <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/dpcpp/">http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/dpcpp/</a></p>
 <p>To test your implementation, it is recommended to run it on Devcloud servers. In the following link you will find a Wiki with details on the configuration of the Devcloud development environment and compilation with DPC ++: <a href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/devcloud/">http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/devcloud/</a></p>
-
+<p><strong>Solution</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cp" data-lang="cp"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;CL/sycl.hpp&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> sycl;
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">constexpr</span> <span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> A(size);
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> B(size);
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> C(size);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> innerProd <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Initialize Vectors
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        A[i] <span style="color:#f92672">=</span> (rand() <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        B[i] <span style="color:#f92672">=</span> (rand() <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    queue q;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Buffer creation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    buffer buffA(A);
+</span></span><span style="display:flex;"><span>    buffer buffB(B);
+</span></span><span style="display:flex;"><span>    buffer buffC(C);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Buffer for internal product final result
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    buffer<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">&gt;</span> buffSum(<span style="color:#f92672">&amp;</span>innerProd, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> kernel1 <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>](handler<span style="color:#f92672">&amp;</span> h){
+</span></span><span style="display:flex;"><span>        accessor bA(buffA, h);
+</span></span><span style="display:flex;"><span>        accessor bB(buffB, h);
+</span></span><span style="display:flex;"><span>        accessor bC(buffC, h);
+</span></span><span style="display:flex;"><span>        h.parallel_for(nd_range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&gt;</span>({size, <span style="color:#ae81ff">1</span>}), [<span style="color:#f92672">=</span>](<span style="color:#66d9ef">auto</span> idx){
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">auto</span> id_hilo <span style="color:#f92672">=</span> idx.get_global_id();
+</span></span><span style="display:flex;"><span>            bC[id_hilo] <span style="color:#f92672">=</span> bA[id_hilo]<span style="color:#f92672">*</span>bB[id_hilo];
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> kernel2 <span style="color:#f92672">=</span> q.submit([<span style="color:#f92672">&amp;</span>](handler<span style="color:#f92672">&amp;</span> h){
+</span></span><span style="display:flex;"><span>        h.depends_on(kernel1);
+</span></span><span style="display:flex;"><span>        accessor bC(buffC, h);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">auto</span> sumReduction <span style="color:#f92672">=</span> reduction(buffSum, h, plus<span style="color:#f92672">&lt;&gt;</span>());
+</span></span><span style="display:flex;"><span>        h.parallel_for(nd_range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&gt;</span>({size, <span style="color:#ae81ff">1</span>}), sumReduction, [<span style="color:#f92672">=</span>](<span style="color:#66d9ef">auto</span> idx, <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> sum){
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">auto</span> id_hilo <span style="color:#f92672">=</span> idx.get_global_id();
+</span></span><span style="display:flex;"><span>            sum.combine(bC[id_hilo]);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    host_accessor buffC_host(buffC);
+</span></span><span style="display:flex;"><span>    host_accessor innerProd_result(buffSum);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;C[&#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;] = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> buffC_host[i]  <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Inner product result: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> innerProd  <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
   </div>
 </div>
 

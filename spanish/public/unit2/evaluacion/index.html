@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <meta name="generator" content="kitab theme by Darshan in Hugo 0.88.1" />
+  <meta name="generator" content="kitab theme by Darshan in Hugo 0.96.0" />
 
   <link
     rel="stylesheet"
@@ -294,22 +294,22 @@
 </li>
 <li>
 <p>Dado el siguiente código en DPC++. ¿Qué tipos de accessors deberían ser definidos para A y B? (10 puntos)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
-    queue q;
-    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> v1(N);
-    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> v2(N);
-    ...
-    buffer buff1(v1);
-    buffer buff2(v2);
-    q.submit([<span style="color:#f92672">&amp;</span>](handler<span style="color:#f92672">&amp;</span> h){
-        accessor A(buff1, h, XXXXX);
-        accessor B(buff2, h, XXXXX);
-        h.parallel_for(N, [<span style="color:#f92672">=</span>](<span style="color:#66d9ef">auto</span> i){
-            B[i] <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> A[i];
-        });
-    }).wait();
-}
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
+</span></span><span style="display:flex;"><span>    queue q;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> v1(N);
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> v2(N);
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    buffer buff1(v1);
+</span></span><span style="display:flex;"><span>    buffer buff2(v2);
+</span></span><span style="display:flex;"><span>    q.submit([<span style="color:#f92672">&amp;</span>](handler<span style="color:#f92672">&amp;</span> h){
+</span></span><span style="display:flex;"><span>        accessor A(buff1, h, XXXXX);
+</span></span><span style="display:flex;"><span>        accessor B(buff2, h, XXXXX);
+</span></span><span style="display:flex;"><span>        h.parallel_for(N, [<span style="color:#f92672">=</span>](<span style="color:#66d9ef">auto</span> i){
+</span></span><span style="display:flex;"><span>            B[i] <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> A[i];
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    }).wait();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
 <li>A: read_write y B: read_write</li>
 <li>A: read_only y B: read_only</li>
 <li>A: read_only y B: write_only</li>
@@ -318,12 +318,12 @@
 </li>
 <li>
 <p>Dada la definición del siguiente kernel. ¿Cuántos hilos se crearán para la ejecución en paralelo del parallel_for? (10 puntos)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">h.parallel_for(nd_range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>(range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">2</span>}), range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>})), [<span style="color:#f92672">=</span>](nd_item<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span> item){
-    <span style="color:#66d9ef">auto</span> global_ <span style="color:#f92672">=</span> item.get_global_id();
-    <span style="color:#66d9ef">auto</span> local_id <span style="color:#f92672">=</span> item.get_local_id();
-    ...
-});
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>h.parallel_for(nd_range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>(range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">2</span>}), range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>})), [<span style="color:#f92672">=</span>](nd_item<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span> item){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> global_ <span style="color:#f92672">=</span> item.get_global_id();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> local_id <span style="color:#f92672">=</span> item.get_local_id();
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><ul>
 <li>48</li>
 <li>4</li>
 <li>40</li>
@@ -333,12 +333,12 @@
 </li>
 <li>
 <p>Dada la definición del siguiente kernel. ¿Cuántos grupos de trabajo (work-group) se definen para el parallel_for? (10 puntos)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">h.parallel_for(nd_range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>(range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">2</span>}), range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>})), [<span style="color:#f92672">=</span>](nd_item<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span> item){
-    <span style="color:#66d9ef">auto</span> global_ <span style="color:#f92672">=</span> item.get_global_id();
-    <span style="color:#66d9ef">auto</span> local_id <span style="color:#f92672">=</span> item.get_local_id();
-    ...
-});
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>h.parallel_for(nd_range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>(range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">2</span>}), range<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span>({<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>})), [<span style="color:#f92672">=</span>](nd_item<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;</span> item){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> global_ <span style="color:#f92672">=</span> item.get_global_id();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> local_id <span style="color:#f92672">=</span> item.get_local_id();
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><ul>
 <li>40</li>
 <li>3</li>
 <li>8</li>

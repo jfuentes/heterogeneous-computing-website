@@ -6,7 +6,7 @@
     <description>Recent content on Heterogeneous Computing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://www.face.ubiobio.cl/~jfuentes/classes/hc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DPC&#43;&#43;</title>
       <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit2/dpcpp/</link>
@@ -212,7 +212,37 @@ Introduction to DPC++.
       <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit3/evaluation/</guid>
       <description>Heterogeneous computing   Which of the following operations does not correspond to a reduction function in DPC++? (10 points)
  maximum (max) plus (add) minimum (mul) parallel_for    Given the following code. Indicate the order in which each kernel is executed: (10 points)
-queue q; auto A = q.submit([&amp;amp;])(handler&amp;amp; h){}); auto C = q.submit([&amp;amp;])(handler&amp;amp; h){ h.depends_on(A); }); auto B = q.submit([&amp;amp;])(handler&amp;amp; h){ h.depends_on(A); h.depends_on(C); }); auto D = q.</description>
+queue q; auto A = q.submit([&amp;amp;])(handler&amp;amp; h){});  auto C = q.submit([&amp;amp;])(handler&amp;amp; h){  h.depends_on(A); });  auto B = q.submit([&amp;amp;])(handler&amp;amp; h){  h.depends_on(A);  h.</description>
+    </item>
+    
+    <item>
+      <title>Pi Calculator</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit4/pi__calculator/</link>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit4/pi__calculator/</guid>
+      <description>Calculating Pi by numerical integration
+Mathematically, we know that: $$\int_{0}^{1}\frac{4.0}{(1+x^{2})}dx = \Pi $$
+We can approximate the integral as a sum of n rectangles: $$\sum_{i=0}^{n}F(x_{i})\Delta x \approx \Pi$$
+Where each rectangle has width \(\Delta x\) and height \(F(x_{i})\) at the middle of interval \(i\)
+We can implement the calculation of Pi as follows:
+Serial Code
+#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;omp.h&amp;gt; //Here we use OpenMP for timing functions static long num_steps = 100000000; double step; int main() {  int i;  double x,pi,sum=0.</description>
+    </item>
+    
+    <item>
+      <title>Final Poll</title>
+      <link>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit4/finalpoll/</link>
+      <pubDate>Mon, 04 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.face.ubiobio.cl/~jfuentes/classes/hc/unit4/finalpoll/</guid>
+      <description>¿Were the course activities (classes, labs, workshops) useful and engaging? *  Nothing useful
+ 1 2 3 4  Very useful
+5.How would you rate the support received from the teacher and assistants? *
+Nothing useful
+ 1 2 3 4  Very useful
+Did the material covered in the course have any impact on your interest in High Performance Computing? *  My interest decreased
+ 1 2 3 4  Increased my interest</description>
     </item>
     
     <item>
