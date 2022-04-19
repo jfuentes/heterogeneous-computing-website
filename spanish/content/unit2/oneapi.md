@@ -111,7 +111,7 @@ int main(){
     return 0;
 }
 ```
-*Example 4: Use of reduction*
+*Ejemplo 4: Uso de reducción*
 ```cpp
 #include <CL/sycl.hpp>
 #include <array>

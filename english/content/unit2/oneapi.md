@@ -154,7 +154,7 @@ int main(){
     return 0;
 }
 ```
-*Example 5: Dependencies between cores*
+*Example 5: Dependencies between kernels*
 ```cpp
 #include <CL/sycl.hpp>
 #include <array>
