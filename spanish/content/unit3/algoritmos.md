@@ -1,6 +1,6 @@
 +++
 title = "Algoritmos y Aplicaciones"
-weight = 3
+weight = 4
 date = "2019-05-11"
 type = "content"
 +++

@@ -1,6 +1,6 @@
 +++
 title = "Test 4"
-weight = 2
+weight = 4
 date = "2019-05-11"
 type = "eval"
 +++

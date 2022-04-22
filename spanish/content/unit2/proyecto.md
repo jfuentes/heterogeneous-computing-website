@@ -1,6 +1,6 @@
 +++
 title = "Proyecto"
-weight = 2
+weight = 7
 date = "2019-05-12"
 type = "practice"
 +++
