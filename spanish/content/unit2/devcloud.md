@@ -1,6 +1,6 @@
 +++
 title = "DevCloud"
-weight = 2
+weight = 9
 date = "2019-05-11"
 type = "wiki"
 +++

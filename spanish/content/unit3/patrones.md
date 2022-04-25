@@ -1,6 +1,6 @@
 +++
 title = "Patrones Paralelos"
-weight = 1
+weight = 2
 date = "2019-05-11"
 type = "content"
 +++

@@ -1,6 +1,6 @@
 +++
 title = "Pi Calculator"
-weight = 4
+weight = 3
 date = "2022-04-12"
 type = "practice"
 +++

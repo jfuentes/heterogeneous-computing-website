@@ -1,6 +1,6 @@
 +++
 title = "GPU Computing (invited talk)"
-weight = 4
+weight = 5
 date = "2019-05-11"
 type = "content"
 +++

@@ -1,6 +1,6 @@
 +++
 title = "Lab 2"
-weight = 1
+weight = 5
 date = "2019-05-12"
 type = "practice"
 +++

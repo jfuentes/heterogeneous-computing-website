@@ -1,6 +1,6 @@
 +++
 title = "Intro a OneAPI y DPC++"
-weight = 3
+weight = 4
 date = "2019-05-11"
 type = "content"
 +++
