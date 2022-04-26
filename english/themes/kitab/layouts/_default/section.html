@@ -46,12 +46,58 @@
       Sessions
     </h3>
     <ul class="list-unstyled">
-      {{ range .Pages.ByWeight }}
+      {{ range first 10 .Pages }}
       <li>
+        <a href="{{ .Permalink }}">
+          {{ if eq .Type "content" }}
+          <p class="mb-1">
+            • {{ .Title }}
+          </p>
+          {{ end }}
+        </a>
+      </li>
+      {{ end }}
+
+      <!-- Practice -->
+      {{ if eq .Params.hasPractice "yes" }}
+      <p class="mb-1">Práctica:
+        {{ range first 10 .Pages }}
+        {{ if eq .Type "practice" }}
+        ‣
         <a href="{{ .Permalink }}">
           {{ .Title }}
         </a>
-      </li>
+        {{ end }}
+        {{ end }}
+      </p>
+      {{ end }}
+
+      <!-- Wiki -->
+      {{ if eq .Params.hasWiki "yes" }}
+      <p class="mb-1">Wiki:
+        {{ range first 10 .Pages }}
+        {{ if eq .Type "wiki" }}
+        ‣
+        <a href="{{ .Permalink }}">
+          {{ .Title }}
+        </a>
+        {{ end }}
+        {{ end }}
+      </p>
+      {{ end }}
+
+      <!-- Evaluation -->
+      {{ if eq .Params.hasEvaluation "yes" }}
+      <p class="mb-1">Evaluación:
+        {{ range first 10 .Pages }}
+        {{ if eq .Type "eval" }}
+        ‣
+        <a href="{{ .Permalink }}">
+          {{ .Title }}
+        </a>
+        {{ end }}
+        {{ end }}
+      </p>
       {{ end }}
     </ul>
   </div>
